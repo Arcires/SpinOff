@@ -12,5 +12,6 @@
     //Company login screen//
     <string name="company_login_intro">Firma log ind</string>
     <string name="company_login_buttontext">Log ind</string>
+    <string name="company_login_help">Glemt kodeord?</string>
 
 </resources>
