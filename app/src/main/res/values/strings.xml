@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">SpinOff</string>
+
+    //Login screen//
+    <string name="login_employee">Fortsæt som medarbejder</string>
+    <string name="login_company">Log ind som firma</string>
+    <string name="login_logodesc">Logo for login screen</string>
+    <string name="login_textview">&#169; 2018 SpinOff &amp; DTU Compute\n Alle rettigheder forbeholdes</string>
+    <string name="title_activity_company_login">CompanyLoginActivity</string>
+
+
+    //Company login screen//
+    <string name="company_login_intro">Firma log ind</string>
+    <string name="company_login_buttontext">Log ind</string>
+
+</resources>
