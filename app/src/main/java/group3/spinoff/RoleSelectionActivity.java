@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class RoleSelectionActivity extends AppCompatActivity implements View.OnClickListener {
-    Button buttonCompanyLogin;
+    Button buttonCompanyLogin, buttonAppInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,14 +15,19 @@ public class RoleSelectionActivity extends AppCompatActivity implements View.OnC
         setContentView(R.layout.activity_role_selection);
 
         buttonCompanyLogin = (Button) findViewById(R.id.buttonCompanyLogIn);
+        buttonAppInfo = (Button) findViewById(R.id.buttonAppInfo);
 
         buttonCompanyLogin.setOnClickListener(this);
+        buttonAppInfo.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
         if (view == buttonCompanyLogin) {
             Intent i = new Intent(this, CompanyLoginActivity.class);
+            startActivity(i);
+        } else if (view == buttonAppInfo) {
+            Intent i = new Intent(this, AppInfoActivity.class);
             startActivity(i);
         }
     }
