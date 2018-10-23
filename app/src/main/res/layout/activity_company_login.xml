@@ -37,16 +37,16 @@
         app:layout_constraintTop_toBottomOf="@+id/imageViewLogoRoleSelection" />
 
     <EditText
-        android:id="@+id/editTextCompanyCSV"
+        android:id="@+id/editTextCompanyCVR"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
-        android:drawableLeft="@drawable/ic_business"
+        android:drawableStart="@drawable/ic_business"
         android:ems="6"
         android:fontFamily="@font/bebasneueregular"
-        android:hint="CSV nummer"
+        android:hint="@string/company_loginCVRText"
         android:inputType="number"
         android:textAlignment="center"
         android:textColor="@color/colorPrimaryDark"
@@ -62,10 +62,10 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
-        android:drawableLeft="@drawable/ic_verified_user"
+        android:drawableStart="@drawable/ic_verified_user"
         android:ems="6"
         android:fontFamily="@font/bebasneueregular"
-        android:hint="Firma kodeord"
+        android:hint="@string/company_loginPassText"
         android:inputType="textWebPassword"
         android:textAlignment="center"
         android:textColor="@color/colorPrimaryDark"
@@ -73,7 +73,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextCompanyCSV" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextCompanyCVR" />
 
     <Button
         android:id="@+id/buttonCompanyLogIn"

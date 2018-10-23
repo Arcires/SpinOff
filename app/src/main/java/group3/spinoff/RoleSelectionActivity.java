@@ -7,15 +7,16 @@ import android.view.View;
 import android.widget.Button;
 
 public class RoleSelectionActivity extends AppCompatActivity implements View.OnClickListener {
-    Button buttonCompanyLogin, buttonAppInfo;
+    private Button buttonCompanyLogin, buttonAppInfo;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_role_selection);
 
-        buttonCompanyLogin = (Button) findViewById(R.id.buttonCompanyLogIn);
-        buttonAppInfo = (Button) findViewById(R.id.buttonAppInfo);
+        buttonCompanyLogin = findViewById(R.id.buttonCompanyLogIn);
+        buttonAppInfo = findViewById(R.id.buttonAppInfo);
 
         buttonCompanyLogin.setOnClickListener(this);
         buttonAppInfo.setOnClickListener(this);

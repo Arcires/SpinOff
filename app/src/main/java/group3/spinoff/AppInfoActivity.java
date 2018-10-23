@@ -1,8 +1,7 @@
 package group3.spinoff;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
+import android.support.v7.app.AppCompatActivity;
 
 public class AppInfoActivity extends AppCompatActivity {
 
