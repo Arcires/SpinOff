@@ -67,7 +67,7 @@
         android:layout_marginBottom="8dp"
         android:fontFamily="@font/bebasneueregular"
         android:text="@string/login_textview"
-        android:textColor="@color/colorBackground"
+        android:textColor="@color/colorAccent"
         android:textSize="18sp"
         android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -79,8 +79,9 @@
         android:id="@+id/buttonAppInfo"
         android:layout_width="36dp"
         android:layout_height="36dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:background="@drawable/ic_help"
-        android:paddingBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 </android.support.constraint.ConstraintLayout>
