@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import group3.spinoff.employeeUI.MainEmployeeUI;
+
 public class RoleSelectionActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button buttonAppInfo, buttonEmployeeLogin;
@@ -43,7 +45,8 @@ public class RoleSelectionActivity extends AppCompatActivity implements View.OnC
             Intent i = new Intent(this, AppInfoActivity.class);
             startActivity(i);
         } else if (view == buttonEmployeeLogin) {
-            Toast.makeText(this, "Klikkede på medarbejderlogin.", Toast.LENGTH_SHORT).show();
+            Intent i = new Intent(this, MainEmployeeUI.class);
+            startActivity(i);
         }
     }
 }
