@@ -5,43 +5,45 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackground"
-    tools:context=".RoleSelectionActivity">
+    tools:context=".employeeUI.PinFragment">
 
-    <Button
-        android:id="@+id/buttonEmployeeLogIn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/button_logingreen"
-        android:fontFamily="@font/futurabook"
-        android:text="@string/login_employee"
-        android:textColor="@color/colorAccent"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageViewLogoRoleSelection" />
 
     <TextView
-        android:id="@+id/textViewCompanyLogIn"
+        android:id="@+id/textViewEmployeePinText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@color/colorBackground"
-        android:text="@string/login_company"
+        android:fontFamily="@font/futurabook"
+        android:text="@string/employee_pin_fragmenttext"
         android:textAlignment="center"
         android:textColor="@color/colorAccent"
-        android:textSize="14sp"
-        android:textStyle="italic"
+        android:textSize="28sp"
+        app:layout_constraintTop_toBottomOf="@id/imageViewLogoEmployeePin" />
+
+    <EditText
+        android:id="@+id/editTextEmployeePinEnter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:drawableStart="@drawable/ic_peoplemeeting"
+        android:ems="6"
+        android:fontFamily="@font/futurabook"
+        android:hint="@string/employee_pin_fragmentedittext"
+        android:inputType="number"
+        android:textAlignment="center"
+        android:textColor="@color/colorAccent"
+        android:textColorHint="@color/colorAccent"
+        android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonEmployeeLogIn" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewEmployeePinText" />
 
     <ImageView
-        android:id="@+id/imageViewLogoRoleSelection"
+        android:id="@+id/imageViewLogoEmployeePin"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
@@ -54,30 +56,19 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/spinoffsmall" />
 
-    <TextView
-        android:id="@+id/textViewCopyright"
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/buttonFragmentPin"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:background="@drawable/button_logingreen"
         android:fontFamily="@font/futurabook"
-        android:text="@string/login_textview"
-        android:textAlignment="center"
+        android:text="@string/employee_pin_fragmentbutton"
         android:textColor="@color/colorAccent"
-        android:textSize="12sp"
-        android:textStyle="italic"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/buttonAppInfo"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/ic_help"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextEmployeePinEnter" />
 </android.support.constraint.ConstraintLayout>
