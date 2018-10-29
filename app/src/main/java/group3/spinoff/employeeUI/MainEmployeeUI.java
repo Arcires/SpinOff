@@ -27,10 +27,7 @@ public class MainEmployeeUI extends AppCompatActivity {
                     Toast.makeText(MainEmployeeUI.this, "You clicked feedback", Toast.LENGTH_SHORT).show();
                     return true;
                 case R.id.navigation_enterpin:
-                    Toast.makeText(MainEmployeeUI.this, "You clicked enter pin", Toast.LENGTH_SHORT).show();
-                    return true;
-                case R.id.navigation_subscriptions:
-                    Toast.makeText(MainEmployeeUI.this, "You clicked subscriptions", Toast.LENGTH_SHORT).show();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutEmployee, new PinFragment()).commit();
                     return true;
             }
             return false;

@@ -20,11 +20,15 @@
 
 
     //Employee main UI screen//
-    <string name="employee_ui_settings">Indstillinger</string>
     <string name="employee_ui_feedback">Feedback</string>
     <string name="employee_ui_pin">Indtast Pin</string>
-    <string name="employee_ui_subscriptions">Abonnomenter</string>
+    <string name="employee_ui_profile">Profil</string>
     <string name="employee_pin_enter_pin">Indtast møde PIN.</string>
     <string name="employee_pin_scan_qr">Skan QR-kode.</string>
+
+    //Employee enter pin Fragment//
+    <string name="employee_pin_fragmenttext">Indtast møde PIN</string>
+    <string name="employee_pin_fragmentedittext">Møde PIN</string>
+    <string name="employee_pin_fragmentbutton">Søg efter møde</string>
 
 </resources>

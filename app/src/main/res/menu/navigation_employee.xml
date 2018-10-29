@@ -2,11 +2,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navigation_subscriptions"
-        android:icon="@drawable/ic_subscription"
-        android:title="@string/employee_ui_subscriptions" />
-
-    <item
         android:id="@+id/navigation_feedback"
         android:icon="@drawable/ic_feedback"
         android:title="@string/employee_ui_feedback" />
@@ -18,7 +13,7 @@
 
     <item
         android:id="@+id/navigation_settings"
-        android:icon="@drawable/ic_settings"
-        android:title="@string/employee_ui_settings" />
+        android:icon="@drawable/ic_profileuser"
+        android:title="@string/employee_ui_profile" />
 
 </menu>
