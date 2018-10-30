@@ -12,7 +12,7 @@ import group3.spinoff.R;
 
 public class MainEmployeeUI extends AppCompatActivity {
 
-    private FrameLayout frameLayoutEmployee;
+    FrameLayout frameLayoutEmployee;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
