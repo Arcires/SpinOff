@@ -26,6 +26,7 @@
         <activity android:name=".AppInfoActivity">
 
         </activity>
+        <activity android:name=".employeeUI.SettingsActivity" />
     </application>
 
 </manifest>

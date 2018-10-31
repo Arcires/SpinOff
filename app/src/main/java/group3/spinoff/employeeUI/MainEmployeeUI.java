@@ -21,7 +21,7 @@ public class MainEmployeeUI extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_settings:
-                    Toast.makeText(MainEmployeeUI.this, "You clicked settings", Toast.LENGTH_SHORT).show();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutEmployee, new ProfileFragment()).commit();
                     return true;
                 case R.id.navigation_feedback:
                     getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutEmployee, new FeedbackHomeFragment()).commit();
