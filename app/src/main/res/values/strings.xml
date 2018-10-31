@@ -31,6 +31,12 @@
     <string name="employee_pin_fragmentedittext">Møde PIN</string>
     <string name="employee_pin_fragmentbutton">Søg efter møde</string>
 
+
+    //Employee Profile Fragment//
+    <string name="employee_profile_settingsbuttontext">Indstillinger</string>
+    <string name="employee_profile_termsofservicebuttontext">Regler og vilkår</string>
+    <string name="employee_profile_aboutus">Om os</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
