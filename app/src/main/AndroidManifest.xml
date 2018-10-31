@@ -22,7 +22,7 @@
             android:theme="@style/AppTheme" />
         <activity
             android:name=".employeeUI.MainEmployeeUI"
-            android:label="@string/title_activity_main_employee_ui"></activity>
+            android:label="@string/title_activity_main_employee_ui"></activity>½
         <activity android:name=".AppInfoActivity">
 
         </activity>
