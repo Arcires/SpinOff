@@ -9,10 +9,11 @@ import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import group3.spinoff.R;
+import group3.spinoff.employeeUI.dummy.DummyContent;
 
-public class MainEmployeeUI extends AppCompatActivity {
+public class MainEmployeeUI extends AppCompatActivity implements FeedbackItemFragment.OnListFragmentInteractionListener {
 
-    private FrameLayout frameLayoutEmployee;
+    FrameLayout frameLayoutEmployee;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -21,10 +22,10 @@ public class MainEmployeeUI extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_settings:
-                    Toast.makeText(MainEmployeeUI.this, "You clicked settings", Toast.LENGTH_SHORT).show();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutEmployee, new ProfileFragment()).commit();
                     return true;
                 case R.id.navigation_feedback:
-                    getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutEmployee, new FeedbackHomeFragment()).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutEmployee, new FeedbackItemFragment()).commit();
                     return true;
                 case R.id.navigation_enterpin:
                     getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutEmployee, new PinFragment()).commit();
@@ -44,6 +45,12 @@ public class MainEmployeeUI extends AppCompatActivity {
 
         frameLayoutEmployee = findViewById(R.id.frameLayoutEmployee);
 
+        getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutEmployee, new FeedbackItemFragment()).commit();
+
     }
 
+    @Override
+    public void onListFragmentInteraction(DummyContent.DummyItem item) {
+        Toast.makeText(MainEmployeeUI.this, "You clicked on "+item, Toast.LENGTH_SHORT).show();
+    }
 }
