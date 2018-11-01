@@ -29,4 +29,14 @@
         app:layout_constraintBottom_toTopOf="@id/navigation_employee"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatingActionButtonEmployee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:src="@drawable/ic_verified_user"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/frameLayoutEmployee" />
+
 </android.support.constraint.ConstraintLayout>

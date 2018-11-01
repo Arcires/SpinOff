@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@android:color/background_dark"
+    android:backgroundTint="@android:color/holo_green_dark"
+    android:padding="20dp"
+    tools:background="@android:color/black">
+
+
+    <ImageView
+        android:id="@+id/listeelem_billede"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="5dip"
+        android:layout_marginLeft="5dip"
+        android:layout_marginTop="5dip"
+        android:layout_marginEnd="5dip"
+        android:layout_marginRight="5dip"
+        android:layout_marginBottom="5dip"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_business" />
+
+    <TextView
+        android:id="@+id/listeelem_new"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/listeelem_overskrift"
+        android:layout_marginStart="11dp"
+        android:layout_marginLeft="11dp"
+        android:layout_marginTop="-16dp"
+        android:layout_toEndOf="@+id/listeelem_billede"
+        android:layout_toRightOf="@+id/listeelem_billede"
+        android:text="NEW"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/listeelem_overskrift"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/listeelem_billede"
+        android:layout_marginStart="9dp"
+        android:layout_marginLeft="9dp"
+        android:layout_marginTop="11dp"
+        android:layout_toEndOf="@+id/listeelem_billede"
+        android:layout_toRightOf="@+id/listeelem_billede"
+        android:text="TITLE"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/listeelem_beskrivelse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/listeelem_overskrift"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="-1dp"
+        android:layout_toRightOf="@+id/listeelem_billede"
+        android:textColor="@android:color/white"
+        android:text="description"
+        android:textSize="12sp" />
+
+
+</RelativeLayout>
