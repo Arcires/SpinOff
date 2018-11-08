@@ -6,7 +6,7 @@
     <string name="login_company">Log ind som firma</string>
     <string name="login_logodesc">Logo til login screen</string>
     <string name="login_textview">&#169; 2018 SpinOff &amp; DTU Compute. Alle rettigheder forbeholdes.</string>
-    <string name="login_appinfotext">Denne applikation er udviklet i samarbejde mellem Gruppe 3 fra DTU Compute og SpinOff Aps.\n\nEfterår 2018.\n\nAppversion: 0.1.0\n&#169; 2018 Alle rettigheder forbeholdes.</string>
+    <string name="login_appinfotext">Denne applikation er udviklet i samarbejde mellem Gruppe 3 fra DTU Compute og SpinOff Aps.\n\nEfterår 2018.\n\nAppversion: 0.1.0 &#169; 2018 Alle rettigheder forbeholdes.</string>
     <string name="login_appinfodtudesc">Logo til DTU</string>
 
 
@@ -21,21 +21,21 @@
 
     //Employee main UI screen//
     <string name="employee_ui_feedback">Feedback</string>
-    <string name="employee_ui_pin">Indtast Pin</string>
-    <string name="employee_ui_profile">Profil</string>
-    <string name="employee_pin_enter_pin">Indtast møde PIN.</string>
-    <string name="employee_pin_scan_qr">Skan QR-kode.</string>
+    <string name="employee_ui_meeting">Møder</string>
+    <string name="employee_ui_more">Mere</string>
 
-    //Employee enter pin Fragment//
-    <string name="employee_pin_fragmenttext">Indtast møde PIN</string>
-    <string name="employee_pin_fragmentedittext">Møde PIN</string>
-    <string name="employee_pin_fragmentbutton">Søg efter møde</string>
+    //Employee Meeting Fragment//
+    <string name="employee_meeting_fragmenttext">Indtast møde PIN</string>
+    <string name="employee_meeting_fragmentedittext">Møde PIN</string>
+    <string name="employee_meeting_fragment_searchbutton">Søg efter møde</string>
+    <string name="employee_meeting_fragment_createbutton">Lav nyt møde</string>
 
+    //Employee More Fragment//
+    <string name="employee_more_settingsbuttontext">Indstillinger</string>
+    <string name="employee_more_termsofservicebuttontext">Regler og vilkår</string>
+    <string name="employee_more_aboutus">Om os</string>
+    <string name="employee_more_logout">Log ud</string>
 
-    //Employee Profile Fragment//
-    <string name="employee_profile_settingsbuttontext">Indstillinger</string>
-    <string name="employee_profile_termsofservicebuttontext">Regler og vilkår</string>
-    <string name="employee_profile_aboutus">Om os</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

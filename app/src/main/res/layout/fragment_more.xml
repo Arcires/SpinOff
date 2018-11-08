@@ -4,29 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
     android:background="@color/colorBackground"
-    tools:context=".employeeUI.ProfileFragment">
+    tools:context=".employeeUI.MoreFragment">
 
     <Button
-        android:id="@+id/buttonProfileSettings"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="32dp"
-        android:background="@drawable/button_logingreen"
-        android:fontFamily="@font/futurabook"
-        android:text="@string/employee_profile_settingsbuttontext"
-        android:textAllCaps="false"
-        android:textColor="@color/colorPrimaryWhite"
-        android:textSize="28sp"
-        app:layout_constraintBottom_toTopOf="@id/buttonProfileTermsAndConditions"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/buttonProfileTermsAndConditions"
+        android:id="@+id/buttonMoreSettings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -35,31 +18,72 @@
         android:layout_marginBottom="8dp"
         android:background="@drawable/button_logingreen"
         android:fontFamily="@font/futurabook"
-        android:text="@string/employee_profile_termsofservicebuttontext"
+        android:text="@string/employee_more_settingsbuttontext"
         android:textAllCaps="false"
         android:textColor="@color/colorPrimaryWhite"
         android:textSize="28sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.20" />
 
     <Button
-        android:id="@+id/buttonProfileAboutUs"
+        android:id="@+id/buttonMoreTermsAndConditions"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:background="@drawable/button_logingreen"
         android:fontFamily="@font/futurabook"
-        android:text="@string/employee_profile_aboutus"
+        android:text="@string/employee_more_termsofservicebuttontext"
         android:textAllCaps="false"
         android:textColor="@color/colorPrimaryWhite"
         android:textSize="28sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/buttonProfileTermsAndConditions" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.40" />
 
 
+    <Button
+        android:id="@+id/buttonMoreAboutUs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/button_logingreen"
+        android:fontFamily="@font/futurabook"
+        android:text="@string/employee_more_aboutus"
+        android:textAllCaps="false"
+        android:textColor="@color/colorPrimaryWhite"
+        android:textSize="28sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.60" />
+
+    <Button
+        android:id="@+id/buttonMoreLogOut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/button_logingreen"
+        android:fontFamily="@font/futurabook"
+        android:text="@string/employee_more_logout"
+        android:textAllCaps="false"
+        android:textColor="@color/colorPrimaryWhite"
+        android:textSize="28sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.80" />
 </android.support.constraint.ConstraintLayout>

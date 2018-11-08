@@ -5,25 +5,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackground"
-    tools:context=".employeeUI.PinFragment">
+    tools:context=".employeeUI.MeetingFragment">
 
 
     <TextView
-        android:id="@+id/textViewEmployeePinText"
+        android:id="@+id/textViewEmployeeMeetingText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:fontFamily="@font/futurabook"
-        android:text="@string/employee_pin_fragmenttext"
+        android:text="@string/employee_meeting_fragmenttext"
         android:textAlignment="center"
         android:textColor="@color/colorPrimaryWhite"
         android:textSize="28sp"
-        app:layout_constraintTop_toBottomOf="@id/imageViewLogoEmployeePin" />
+        app:layout_constraintTop_toBottomOf="@id/imageViewLogoEmployeeMeeting" />
 
     <EditText
-        android:id="@+id/editTextEmployeePinEnter"
+        android:id="@+id/editTextEmployeeMeetingEnter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -32,7 +32,7 @@
         android:drawableStart="@drawable/ic_peoplemeeting"
         android:ems="6"
         android:fontFamily="@font/futurabook"
-        android:hint="@string/employee_pin_fragmentedittext"
+        android:hint="@string/employee_meeting_fragmentedittext"
         android:inputType="number"
         android:textAlignment="center"
         android:textColor="@color/colorPrimaryWhite"
@@ -40,10 +40,10 @@
         android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewEmployeePinText" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewEmployeeMeetingText" />
 
     <ImageView
-        android:id="@+id/imageViewLogoEmployeePin"
+        android:id="@+id/imageViewLogoEmployeeMeeting"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
@@ -57,19 +57,37 @@
         app:srcCompat="@drawable/spinoffsmall" />
 
     <Button
-        android:id="@+id/buttonFragmentPin"
+        android:id="@+id/buttonSearchMeeting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
-        android:textAllCaps="false"
         android:background="@drawable/button_logingreen"
         android:fontFamily="@font/futurabook"
-        android:text="@string/employee_pin_fragmentbutton"
+        android:text="@string/employee_meeting_fragment_searchbutton"
+        android:textAllCaps="false"
         android:textColor="@color/colorPrimaryWhite"
         android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextEmployeePinEnter" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextEmployeeMeetingEnter" />
+
+
+    <Button
+        android:id="@+id/buttonCreateMeeting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/button_loginblue"
+        android:fontFamily="@font/futurabook"
+        android:text="@string/employee_meeting_fragment_createbutton"
+        android:textAllCaps="false"
+        android:textColor="@color/colorPrimaryWhite"
+        android:textSize="28sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonSearchMeeting" />
 </android.support.constraint.ConstraintLayout>

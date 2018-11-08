@@ -12,7 +12,7 @@ import group3.spinoff.employeeUI.MainEmployeeUI;
 
 public class RoleSelectionActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Button buttonAppInfo, buttonEmployeeLogin;
+    private Button buttonEmployeeLogin;
     private TextView textViewCompanyLogin;
 
     @Override
@@ -21,12 +21,10 @@ public class RoleSelectionActivity extends AppCompatActivity implements View.OnC
         setContentView(R.layout.activity_role_selection);
 
         textViewCompanyLogin = findViewById(R.id.textViewCompanyLogIn);
-        buttonAppInfo = findViewById(R.id.buttonAppInfo);
         buttonEmployeeLogin = findViewById(R.id.buttonEmployeeLogIn);
         TextView textViewCopyright = findViewById(R.id.textViewCopyright);
 
         textViewCompanyLogin.setOnClickListener(this);
-        buttonAppInfo.setOnClickListener(this);
         buttonEmployeeLogin.setOnClickListener(this);
 
         textViewCompanyLogin.setPaintFlags(textViewCompanyLogin.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
@@ -39,9 +37,6 @@ public class RoleSelectionActivity extends AppCompatActivity implements View.OnC
     public void onClick(View view) {
         if (view == textViewCompanyLogin) {
             Intent i = new Intent(this, CompanyLoginActivity.class);
-            startActivity(i);
-        } else if (view == buttonAppInfo) {
-            Intent i = new Intent(this, AppInfoActivity.class);
             startActivity(i);
         } else if (view == buttonEmployeeLogin) {
             Intent i = new Intent(this, MainEmployeeUI.class);

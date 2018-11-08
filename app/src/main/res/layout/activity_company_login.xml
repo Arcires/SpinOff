@@ -89,6 +89,7 @@
         android:background="@drawable/button_logingreen"
         android:fontFamily="@font/futurabook"
         android:text="@string/company_login_buttontext"
+        android:textAllCaps="false"
         android:textColor="@color/colorPrimaryWhite"
         android:textSize="32sp"
         app:layout_constraintEnd_toEndOf="parent"
