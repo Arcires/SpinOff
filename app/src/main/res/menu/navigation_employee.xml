@@ -8,12 +8,12 @@
 
     <item
         android:id="@+id/navigation_enterpin"
-        android:icon="@drawable/ic_pin"
-        android:title="@string/employee_ui_pin" />
+        android:icon="@drawable/ic_peoplemeeting"
+        android:title="@string/employee_ui_meeting" />
 
     <item
         android:id="@+id/navigation_settings"
-        android:icon="@drawable/ic_profileuser"
-        android:title="@string/employee_ui_profile" />
+        android:icon="@drawable/ic_more"
+        android:title="@string/employee_ui_more" />
 
 </menu>

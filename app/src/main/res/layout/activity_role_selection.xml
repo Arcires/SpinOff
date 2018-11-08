@@ -16,6 +16,7 @@
         android:background="@drawable/button_logingreen"
         android:fontFamily="@font/futurabook"
         android:text="@string/login_employee"
+        android:textAllCaps="false"
         android:textColor="@color/colorPrimaryWhite"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -33,6 +34,7 @@
         android:background="@color/colorBackground"
         android:text="@string/login_company"
         android:textAlignment="center"
+        android:textAllCaps="false"
         android:textColor="@color/colorPrimaryWhite"
         android:textSize="14sp"
         android:textStyle="italic"
@@ -70,14 +72,4 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/buttonAppInfo"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/ic_help"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>

@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">SpinOff</string>
+
+    //Login screen//
+    <string name="login_employee">Continue as employee</string>
+    <string name="login_company">Log in as company</string>
+    <string name="login_logodesc">Logo for login screen</string>
+    <string name="login_textview">&#169; 2018 SpinOff &amp; DTU Compute. All rights reserved.</string>
+    <string name="login_appinfotext">This application was developed in cooperation between Group 3 from DTU Compute and SpinOff Aps.\n\nFall 2018.\n\nAppversion: 0.1.0 &#169; 2018 All rights reserved.</string>
+    <string name="login_appinfodtudesc">Logo for DTU</string>
+
+
+    //Company login screen//
+    <string name="company_login_intro">Company login</string>
+    <string name="company_login_buttontext">Login</string>
+    <string name="company_login_help">Forgot password?</string>
+    <string name="company_loginCVRText">CVR number</string>
+    <string name="company_loginPassText">Company pass</string>
+    <string name="title_activity_main_employee_ui">MainEmployeeUI</string>
+
+
+    //Employee main UI screen//
+    <string name="employee_ui_feedback">Feedback</string>
+    <string name="employee_ui_meeting">Meetings</string>
+    <string name="employee_ui_more">More</string>
+
+    //Employee Meeting Fragment//
+    <string name="employee_meeting_fragmenttext">Enter meeting PIN</string>
+    <string name="employee_meeting_fragmentedittext">Meeting PIN</string>
+    <string name="employee_meeting_fragment_searchbutton">Look for meeting</string>
+    <string name="employee_meeting_fragment_createbutton">Create new meeting</string>
+
+    //Employee More Fragment//
+    <string name="employee_more_settingsbuttontext">Settings</string>
+    <string name="employee_more_termsofservicebuttontext">Rules and terms</string>
+    <string name="employee_more_aboutus">About us</string>
+    <string name="employee_more_logout">Log out</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>
