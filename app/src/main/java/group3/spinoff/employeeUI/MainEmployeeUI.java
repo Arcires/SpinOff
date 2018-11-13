@@ -12,7 +12,7 @@ import android.widget.Toast;
 import group3.spinoff.R;
 import group3.spinoff.employeeUI.dummy.DummyContent;
 
-public class MainEmployeeUI extends AppCompatActivity implements FeedbackItemFragment.OnListFragmentInteractionListener, View.OnClickListener {
+public class MainEmployeeUI extends AppCompatActivity implements  View.OnClickListener {
 
     FrameLayout frameLayoutEmployee;
 
@@ -52,10 +52,6 @@ public class MainEmployeeUI extends AppCompatActivity implements FeedbackItemFra
 
     }
 
-    @Override
-    public void onListFragmentInteraction(DummyContent.DummyItem item) {
-        Toast.makeText(MainEmployeeUI.this, "You clicked on " + item, Toast.LENGTH_SHORT).show();
-    }
 
     @Override
     public void onClick(View view) {

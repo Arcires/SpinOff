@@ -1,5 +1,7 @@
 package group3.spinoff.employeeUI;
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -21,24 +23,15 @@ import java.util.List;
 import group3.spinoff.R;
 
 class LandeOgByerData {
-    List<String> lande = Arrays.asList("Danmark", "Norge", "Sverige", "Island", "Færøerne", "Finland",
-            "Frankrig", "Spanien", "Portugal", "Nepal", "Indien", "Kina", "Japan", "Thailand");
+    List<String> meetings = Arrays.asList("Spinoff", "Company 1", "Company 9", "DTU", "Company 4",
+            "DTU", "DTU", "DTU");
+
+    List<String> description = Arrays.asList("DTU meeting interview", "Daily Scrum meeting",
+            "Workplace meeting", "Machine Learning course", "Simple meeting", "Big Data course",
+            "Advanced Mobile Application course", "Data Security course");
 
     List<List<String>> byer = Arrays.asList(
-            Arrays.asList("København", "Århus", "Odense", "Aalborg", "Ballerup"),
-            Arrays.asList("Oslo", "Trondheim"),
-            Arrays.asList("Stockholm", "Malmø", "Lund"),
-            Arrays.asList("Reykjavík", "Kópavogur", "Hafnarfjörður", "Dalvík"),
-            Arrays.asList("Tórshavn", "Klaksvík", "Fuglafjørður"),
-            Arrays.asList("Helsinki", "Espoo", "Tampere", "Vantaa"),
-            Arrays.asList("Paris", "Lyon"),
-            Arrays.asList("Madrid", "Barcelona", "Sevilla"),
-            Arrays.asList("Lissabon", "Porto"),
-            Arrays.asList("Kathmandu", "Bhaktapur"),
-            Arrays.asList("Mumbai", "Delhi", "Bangalore"),
-            Arrays.asList("Shanghai", "Zhengzhou"),
-            Arrays.asList("Tokyo", "Osaka", "Hiroshima", "Kawasaki", "Yokohama"),
-            Arrays.asList("Bankok", "Sura Thani", "Phuket"));
+            Arrays.asList("null"));
 }
 
 
@@ -84,7 +77,7 @@ public class FeedbackHomeFragment extends Fragment {
 
         @Override
         public int getItemCount()  {
-            return data.lande.size();
+            return data.meetings.size();
         }
 
         @Override
@@ -107,38 +100,8 @@ public class FeedbackHomeFragment extends Fragment {
 
         @Override
         public void onBindViewHolder(EkspanderbartListeelemViewholder vh, int position) {
-            boolean åben = åbneLande.contains(position);
-            vh.overskrift.setText(data.lande.get(position) +" åben="+åben);
-            vh.beskrivelse.setText("Land nummer " + position + " på vh@"+Integer.toHexString(vh.hashCode()));
-
-            if (!åben) {
-                vh.åbnLukBillede.setImageResource(android.R.drawable.ic_input_add); // vis 'åbn' ikon
-                for (View underview : vh.underviews) underview.setVisibility(View.GONE); // skjul underelementer
-            } else {
-                vh.åbnLukBillede.setImageResource(android.R.drawable.ic_delete); // vis 'luk' ikon
-
-                List<String> byerILandet = data.byer.get(position);
-
-                while (vh.underviews.size()<byerILandet.size()) { // sørg for at der er nok underviews
-                    TextView underView = new TextView(vh.rodLayout.getContext());
-                    //underView.setPadding(0, 20, 0, 20);
-                    underView.setBackgroundResource(android.R.drawable.list_selector_background);
-                    underView.setOnClickListener(vh);      // lad viewholderen håndtere evt klik
-                    underView.setId(vh.underviews.size()); // unik ID så vi senere kan se hvilket af underviewne der klikkes på
-                    vh.rodLayout.addView(underView);
-                    vh.underviews.add(underView);
-                }
-
-                for (int i=0; i<vh.underviews.size(); i++) { // sæt underviews til at vise det rigtige indhold
-                    TextView underView = vh.underviews.get(i);
-                    if (i<byerILandet.size()) {
-                        underView.setText(byerILandet.get(i));
-                        underView.setVisibility(View.VISIBLE);
-                    } else {
-                        underView.setVisibility(View.GONE);      // for underviewet skal ikke bruges
-                    }
-                }
-            }
+            vh.overskrift.setText(data.meetings.get(position));
+            vh.beskrivelse.setText(data.description.get(position));  // TEXT HERE
         }
     };
 
@@ -164,15 +127,16 @@ public class FeedbackHomeFragment extends Fragment {
         public void onClick(View v) {
             final int position = getAdapterPosition();
 
-            if (v == åbnLukBillede || v==landeview) { // Klik på billede åbner/lukker for listen af byer i dette land
-                boolean åben = åbneLande.contains(position);
-                if (åben) åbneLande.remove(position); // luk
-                else åbneLande.add(position); // åbn
-                adapter.notifyItemChanged(position);
-            } else {
                 int id = v.getId();
-                Toast.makeText(v.getContext(), "Klik på by nummer " + id + " i "+data.lande.get(position), Toast.LENGTH_SHORT).show();
-            }
+                Toast.makeText(v.getContext(), "Klik på by nummer " + id + " i "+data.meetings.get(position), Toast.LENGTH_SHORT).show();
+
+            //Fragment feedbackView = new FeedbackView();
+            //FragmentManager fragmentManager=getActivity().getFragmentManager();
+            //FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
+            //fragmentTransaction.replace(R.id.frameLayoutEmployee, feedbackView,"tag");
+            //fragmentTransaction.addToBackStack(null);
+            //fragmentTransaction.commit();
+
         }
     }
 
