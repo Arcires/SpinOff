@@ -25,7 +25,7 @@ public class FeedbackView extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    private static String title = "";
+    private static String title = "Test";
     private static String description = "";
 
     // TODO: Rename and change types of parameters
@@ -74,13 +74,13 @@ public class FeedbackView extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        View view = inflater.inflate(R.layout.fragment_meeting, container, false);
+        View view = inflater.inflate(R.layout.fragment_feedback_view, container, false);
 
-        TextView titleView = view.findViewById(R.id.title);
+        TextView titleView = view.findViewById(R.id.fragmentFeedbackTitle);
 
-        titleView.setText(title);
+        titleView.setText("Test");
 
-        return inflater.inflate(R.layout.fragment_feedback_view, container, false);
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

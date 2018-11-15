@@ -1,5 +1,6 @@
 package group3.spinoff.employeeUI;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -12,7 +13,7 @@ import android.widget.Toast;
 import group3.spinoff.R;
 import group3.spinoff.employeeUI.dummy.DummyContent;
 
-public class MainEmployeeUI extends AppCompatActivity implements  View.OnClickListener {
+public class MainEmployeeUI extends AppCompatActivity implements  View.OnClickListener, FeedbackView.OnFragmentInteractionListener {
 
     FrameLayout frameLayoutEmployee;
 
@@ -55,6 +56,11 @@ public class MainEmployeeUI extends AppCompatActivity implements  View.OnClickLi
 
     @Override
     public void onClick(View view) {
+
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
 
     }
 }

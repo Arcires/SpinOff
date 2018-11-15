@@ -130,10 +130,13 @@ public class FeedbackHomeFragment extends Fragment {
                 int id = v.getId();
                 Toast.makeText(v.getContext(), "Klik på by nummer " + id + " i "+data.meetings.get(position), Toast.LENGTH_SHORT).show();
 
-            //Fragment feedbackView = new FeedbackView();
+
+            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutEmployee, new FeedbackView()).commit();
+
+            //android.app.Fragment feedback = new FeedbackView();
             //FragmentManager fragmentManager=getActivity().getFragmentManager();
             //FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
-            //fragmentTransaction.replace(R.id.frameLayoutEmployee, feedbackView,"tag");
+            //fragmentTransaction.replace(R.id.frameLayoutEmployee, feedback,"tag");
             //fragmentTransaction.addToBackStack(null);
             //fragmentTransaction.commit();
 
