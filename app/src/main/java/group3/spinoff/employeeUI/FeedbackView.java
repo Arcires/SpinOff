@@ -3,11 +3,15 @@ package group3.spinoff.employeeUI;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+
+import java.util.Objects;
 
 import group3.spinoff.R;
 
@@ -34,9 +38,12 @@ public class FeedbackView extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
+    private Button backArrow;
+
     public FeedbackView() {
         // Required empty public constructor
     }
+
 
     /**
      * Use this factory method to create a new instance of
@@ -70,15 +77,19 @@ public class FeedbackView extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
+                             final Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_feedback_view, container, false);
 
-        TextView titleView = view.findViewById(R.id.fragmentFeedbackTitle);
-
-        titleView.setText("Test");
+        backArrow = view.findViewById(R.id.fragmentFeedbackBackButton);
+        backArrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Doesn't actually go back, but rather recreates the previous fragment again.
+                Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutEmployee, new FeedbackHomeFragment()).commit();
+            }
+        });
 
         return view;
     }

@@ -8,9 +8,9 @@
 /*.iws
 /.idea/tasks.xml
 /.idea/vcs.xml
+.idea/misc.xml
 .idea/assetWizardSettings.xml
 /.DS_Store
 /build
 /captures
 .externalNativeBuild
-
