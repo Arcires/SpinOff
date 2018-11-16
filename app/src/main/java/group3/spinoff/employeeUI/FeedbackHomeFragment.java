@@ -3,8 +3,10 @@ package group3.spinoff.employeeUI;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,19 +14,39 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 import group3.spinoff.R;
+import group3.spinoff.firebase.FeedbackValueListener;
+import group3.spinoff.firebase.FirebaseDB;
+
+import static android.support.constraint.Constraints.TAG;
 
 class FeedbackData {
-    List<String> meetings = Arrays.asList("Spinoff", "Company 1", "Company 9", "DTU", "Company 4",
-            "DTU", "DTU", "DTU");
+    List<String> meetings;
 
-    List<String> description = Arrays.asList("DTU meeting interview", "Daily Scrum meeting",
-            "Workplace meeting", "Machine Learning course", "Simple meeting", "Big Data course",
-            "Advanced Mobile Application course", "Data Security course");
+    List<String> description;
 
+    public FeedbackData(FeedbackValueListener feedbackValueListener){
+        ArrayList<HashMap<String, Object>> feedbacks = feedbackValueListener.getFeedbacks();
+
+        meetings = new ArrayList<>();
+        description = new ArrayList<>();
+
+        for(HashMap<String, Object> feed : feedbacks){
+            meetings.add((String)feed.get("CompanyName"));
+            description.add((String)feed.get("Desc"));
+        }
+
+        Log.d(TAG, "FEEDBACK: " + feedbacks);
+
+    }
 }
 
 
@@ -33,10 +55,22 @@ class FeedbackData {
  */
 public class FeedbackHomeFragment extends Fragment {
 
-    FeedbackData data = new FeedbackData();
+    private String userID = "DEFAULT_USER_ID_1";
+    private boolean isConnectedToDB = false;
+
+    FeedbackValueListener feedbackValueListener;
+
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference feedbackRef;
+
+    FeedbackData data;
 
     RecyclerView recyclerView;
 
+    public void refresh(){
+        data = new FeedbackData(feedbackValueListener);
+       adapter.notifyDataSetChanged();
+    }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -45,6 +79,20 @@ public class FeedbackHomeFragment extends Fragment {
         recyclerView = new RecyclerView(this.getContext());
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
         recyclerView.setAdapter(adapter);
+
+        feedbackValueListener = new FeedbackValueListener(this);
+
+        data = new FeedbackData(feedbackValueListener);
+
+        if(!isConnectedToDB) {
+            feedbackRef = database.getReference("User/" + userID);
+            feedbackRef.addValueEventListener(feedbackValueListener);
+            isConnectedToDB = true;
+        }
+
+
+        //FirebaseDB firebaseDB = new FirebaseDB();
+
 
         return recyclerView;
     }
