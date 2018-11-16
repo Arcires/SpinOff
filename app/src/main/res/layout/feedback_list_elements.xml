@@ -10,7 +10,7 @@
 
 
     <ImageView
-        android:id="@+id/listeelem_billede"
+        android:id="@+id/feedback_list_elements_image"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="5dip"
@@ -23,35 +23,35 @@
         android:src="@drawable/ic_business" />
 
     <TextView
-        android:id="@+id/listeelem_new"
+        android:id="@+id/feedback_list_elements_meetingornot"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/listeelem_overskrift"
+        android:layout_alignTop="@+id/feedback_list_elements_title"
         android:layout_marginStart="-3dp"
         android:layout_marginTop="-15dp"
-        android:layout_toEndOf="@+id/listeelem_billede"
+        android:layout_toEndOf="@+id/feedback_list_elements_image"
         android:textColor="@android:color/holo_orange_dark"
         android:textSize="12sp"
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/listeelem_overskrift"
+        android:id="@+id/feedback_list_elements_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/listeelem_billede"
+        android:layout_alignTop="@+id/feedback_list_elements_image"
         android:layout_marginStart="-10dp"
         android:layout_marginTop="11dp"
-        android:layout_toEndOf="@+id/listeelem_billede"
+        android:layout_toEndOf="@+id/feedback_list_elements_image"
         android:text="TITLE"
         android:textColor="@android:color/white"
         android:textSize="18sp"
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/listeelem_beskrivelse"
+        android:id="@+id/feedback_list_elements_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/listeelem_overskrift"
+        android:layout_below="@+id/feedback_list_elements_title"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="-2dp"
         android:text="description"
