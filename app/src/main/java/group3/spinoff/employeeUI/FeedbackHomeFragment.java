@@ -30,18 +30,35 @@ import static android.support.constraint.Constraints.TAG;
 
 class FeedbackData {
     List<String> meetings;
-
     List<String> description;
+
+    List<String> comments;
+
+    List<Float> q1;
+    List<Float> q2;
+    List<Float> q3;
 
     public FeedbackData(FeedbackValueListener feedbackValueListener){
         ArrayList<HashMap<String, Object>> feedbacks = feedbackValueListener.getFeedbacks();
 
         meetings = new ArrayList<>();
         description = new ArrayList<>();
+        comments = new ArrayList<>();
+
+        q1 = new ArrayList<>();
+        q2 = new ArrayList<>();
+        q3 = new ArrayList<>();
 
         for(HashMap<String, Object> feed : feedbacks){
             meetings.add((String)feed.get("CompanyName"));
             description.add((String)feed.get("Desc"));
+
+            comments.add((String)feed.get("Comment"));
+
+            q1.add(Float.parseFloat(feed.get("Q1").toString()));
+            q2.add(Float.parseFloat(feed.get("Q2").toString()));
+            q3.add(Float.parseFloat(feed.get("Q3").toString()));
+
         }
 
         Log.d(TAG, "FEEDBACK: " + feedbacks);
@@ -156,7 +173,12 @@ public class FeedbackHomeFragment extends Fragment {
         public void onClick(View v) {
             final int position = getAdapterPosition();
 
-            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutEmployee, new FeedbackView()).commit();
+            FeedbackView.setValues(data.meetings.get(position), data.description.get(position),
+                    data.comments.get(position),
+                    data.q1.get(position), data.q2.get(position), data.q3.get(position));
+
+            getActivity().getSupportFragmentManager().beginTransaction().replace(
+                    R.id.frameLayoutEmployee, new FeedbackView()).commit();
 
         }
     }

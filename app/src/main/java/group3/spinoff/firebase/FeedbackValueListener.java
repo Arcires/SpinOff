@@ -37,7 +37,7 @@ public class FeedbackValueListener implements ValueEventListener {
         GenericTypeIndicator<ArrayList<HashMap<String, Object>>> genericTypeIndicator =
                 new GenericTypeIndicator<ArrayList<HashMap<String, Object>>>() {};
 
-        feedbacks = dataSnapshot.getValue(genericTypeIndicator );
+        feedbacks = dataSnapshot.getValue(genericTypeIndicator);
 
         Log.d(TAG, "Value is: " + feedbacks);
 
