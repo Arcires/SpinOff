@@ -40,4 +40,12 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+
+    //Welcomepager screens//
+    <string name="welcomepager_welcome_title">Velkommen</string>
+    <string name="welcomepager_welcome_intro">Vi hos SpinOff vil gøre en forskel, både for dig som medarbejder, og for dig som mødeleder\n\nFeedback og åben kritik af møders struktur og indhold er vigtigt for at møder optimeres. Vi tilbyder en let og enkelt platform til organisationer og deres medarbejdere.</string>
+    <string name="welcomepager_button_next">Næste</string>
+    <string name="welcomepager_button_skip">Spring over</string>
+
+
 </resources>
