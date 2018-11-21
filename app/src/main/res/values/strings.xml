@@ -42,8 +42,12 @@
 
 
     //Welcomepager screens//
-    <string name="welcomepager_welcome_title">Velkommen</string>
+    <string name="welcomepager_welcome_title">Velkommen.</string>
     <string name="welcomepager_welcome_intro">Vi hos SpinOff vil gøre en forskel, både for dig som medarbejder, og for dig som mødeleder\n\nFeedback og åben kritik af møders struktur og indhold er vigtigt for at møder optimeres. Vi tilbyder en let og enkelt platform til organisationer og deres medarbejdere.</string>
+    <string name="welcomepager_meeting_title">Feedback.</string>
+    <string name="welcomepager_meeting_intro">Respons og feedback på møder og arrangementer er ofte lange, besværlige og akavede.\n\nDet vil vi gøre op med, med en platform til din smartphone.\n\nFeedbackprocessen skal være hurtig, nem og ikke sluge for meget tid.</string>
+    <string name="welcomepager_anonymous_title">Anonymitet og sikkerhed.</string>
+    <string name="welcomepager_anonymous_intro">Alle svar registreres anonymt, og kan ikke spores tilbage til netop din person.\n\nAnonymt feedback er oftere mere ærligt, end et signeret responsskema.\n\nHverken virksomheden eller mødelederen kan se hvem der svarer hvad.</string>
     <string name="welcomepager_button_next">Næste</string>
     <string name="welcomepager_button_skip">Spring over</string>
 

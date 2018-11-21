@@ -7,13 +7,13 @@
     android:background="@color/colorBackground">
 
     <ImageView
-        android:id="@+id/imageViewLogoWelcomePagerWelcomeScreen"
+        android:id="@+id/imageViewLogoWelcomePagerAnonymousScreen"
         android:layout_width="124dp"
         android:layout_height="124dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:src="@drawable/business_meeting"
+        android:src="@drawable/anonymous_user"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -27,13 +27,13 @@
         android:layout_marginEnd="8dp"
         android:fontFamily="@font/futurabook"
         android:gravity="center"
-        android:text="@string/welcomepager_welcome_title"
+        android:text="@string/welcomepager_anonymous_title"
         android:textColor="@color/colorPrimaryWhite"
         android:textSize="22sp"
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageViewLogoWelcomePagerWelcomeScreen" />
+        app:layout_constraintTop_toBottomOf="@id/imageViewLogoWelcomePagerAnonymousScreen" />
 
     <TextView
         android:id="@+id/textViewWelcomePagerAnonymousIntro"
@@ -44,7 +44,7 @@
         android:layout_marginEnd="16dp"
         android:fontFamily="@font/futurabook"
         android:gravity="center"
-        android:text="@string/welcomepager_welcome_intro"
+        android:text="@string/welcomepager_anonymous_intro"
         android:textColor="@color/colorPrimaryWhite"
         android:textSize="18sp"
         android:textStyle="italic"
