@@ -7,7 +7,7 @@
     android:background="@color/colorBackground">
 
     <ImageView
-        android:id="@+id/imageViewLogoWelcomePagerAnonymousScreen"
+        android:id="@+id/imageViewLogoWelcomePagerFeedbackScreen"
         android:layout_width="124dp"
         android:layout_height="124dp"
         android:layout_marginStart="8dp"
@@ -16,10 +16,11 @@
         android:src="@drawable/ask_question"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
 
     <TextView
-        android:id="@+id/textViewWelcomePagerAnonymousTitle"
+        android:id="@+id/textViewWelcomePagerFeedbackTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -33,10 +34,10 @@
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageViewLogoWelcomePagerAnonymousScreen" />
+        app:layout_constraintTop_toBottomOf="@id/imageViewLogoWelcomePagerFeedbackScreen" />
 
     <TextView
-        android:id="@+id/textViewWelcomePagerAnonymousIntro"
+        android:id="@+id/textViewWelcomePagerFeedbackIntro"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -50,7 +51,7 @@
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textViewWelcomePagerAnonymousTitle" />
+        app:layout_constraintTop_toBottomOf="@id/textViewWelcomePagerFeedbackTitle" />
 
     <View
         android:id="@+id/viewBarSeperator"
@@ -58,11 +59,11 @@
         android:layout_height="2dp"
         android:layout_marginBottom="50dp"
         android:background="@color/colorPrimary"
-        app:layout_constraintBottom_toTopOf="@id/buttonWelcomePagerAnonymousNext"
+        app:layout_constraintBottom_toTopOf="@id/buttonWelcomePagerFeedbackFinish"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
-        android:id="@+id/buttonWelcomePagerAnonymousNext"
+        android:id="@+id/buttonWelcomePagerFeedbackFinish"
         android:layout_width="100dp"
         android:layout_height="45dp"
         android:layout_marginEnd="8dp"
@@ -78,7 +79,7 @@
 
 
     <Button
-        android:id="@+id/buttonWelcomePagerAnonymousSkip"
+        android:id="@+id/buttonWelcomePagerFeedbackSkip"
         android:layout_width="100dp"
         android:layout_height="45dp"
         android:layout_marginStart="8dp"

@@ -7,13 +7,13 @@
     android:background="@color/colorBackground">
 
     <ImageView
-        android:id="@+id/imageViewLogoWelcomePagerWelcomeScreen"
+        android:id="@+id/imageViewLogoWelcomePagerFeedbackScreen"
         android:layout_width="124dp"
         android:layout_height="124dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:src="@drawable/business_meeting"
+        android:src="@drawable/feedback_analysis"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -28,13 +28,13 @@
         android:layout_marginEnd="8dp"
         android:fontFamily="@font/futurabook"
         android:gravity="center"
-        android:text="@string/welcomepager_welcome_title"
+        android:text="@string/welcomepager_feedback_title"
         android:textColor="@color/colorPrimaryWhite"
         android:textSize="22sp"
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageViewLogoWelcomePagerWelcomeScreen" />
+        app:layout_constraintTop_toBottomOf="@id/imageViewLogoWelcomePagerFeedbackScreen" />
 
     <TextView
         android:id="@+id/textViewWelcomePagerFeedbackIntro"
@@ -45,7 +45,7 @@
         android:layout_marginEnd="16dp"
         android:fontFamily="@font/futurabook"
         android:gravity="center"
-        android:text="@string/welcomepager_welcome_intro"
+        android:text="@string/welcomepager_feedback_intro"
         android:textColor="@color/colorPrimaryWhite"
         android:textSize="18sp"
         android:textStyle="italic"
@@ -70,28 +70,12 @@
         android:layout_marginBottom="8dp"
         android:background="@drawable/button_logingreen"
         android:fontFamily="@font/futurabook"
-        android:text="@string/welcomepager_button_next"
+        android:text="@string/welcomepager_button_finish"
         android:textAllCaps="false"
         android:textColor="@color/colorPrimaryWhite"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-
-
-    <Button
-        android:id="@+id/buttonWelcomePagerFeedbackSkip"
-        android:layout_width="100dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/button_logingreen"
-        android:fontFamily="@font/futurabook"
-        android:text="@string/welcomepager_button_skip"
-        android:textAllCaps="false"
-        android:textColor="@color/colorPrimaryWhite"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
 
 </android.support.constraint.ConstraintLayout>

@@ -10,11 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".RoleSelectionActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".CompanyLoginActivity"
@@ -22,9 +18,16 @@
             android:theme="@style/AppTheme" />
         <activity
             android:name=".employeeUI.MainEmployeeUI"
-            android:label="@string/title_activity_main_employee_ui"></activity>½
-        <activity android:name=".AppInfoActivity"></activity>
+            android:label="@string/title_activity_main_employee_ui" />
+        <activity android:name=".AppInfoActivity" />
         <activity android:name=".employeeUI.SettingsActivity" />
+        <activity android:name=".WelcomePager.WelcomeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
