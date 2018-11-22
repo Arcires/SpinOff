@@ -57,23 +57,8 @@
         android:id="@+id/viewBarSeperator"
         android:layout_width="0dp"
         android:layout_height="2dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="75dp"
         android:background="@color/colorPrimary"
-        app:layout_constraintBottom_toTopOf="@id/buttonWelcomePagerFeedbackFinish"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <Button
-        android:id="@+id/buttonWelcomePagerFeedbackFinish"
-        android:layout_width="100dp"
-        android:layout_height="45dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/button_logingreen"
-        android:fontFamily="@font/futurabook"
-        android:text="@string/welcomepager_button_finish"
-        android:textAllCaps="false"
-        android:textColor="@color/colorPrimaryWhite"
-        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

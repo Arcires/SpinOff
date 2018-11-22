@@ -18,9 +18,40 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="65dp"
+        android:layout_marginBottom="100dp"
         android:gravity="center"
         android:orientation="horizontal" />
 
+
+    <Button
+        android:id="@+id/buttonWelcomePagerNext"
+        android:layout_width="100dp"
+        android:layout_height="45dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/button_logingreen"
+        android:fontFamily="@font/futurabook"
+        android:text="@string/welcomepager_button_next"
+        android:textAllCaps="false"
+        android:textColor="@color/colorPrimaryWhite"
+        android:textSize="18sp" />
+
+
+    <Button
+        android:id="@+id/buttonWelcomePagerSkip"
+        android:layout_width="100dp"
+        android:layout_height="45dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/button_loginblue"
+        android:fontFamily="@font/futurabook"
+        android:text="@string/welcomepager_button_skip"
+        android:textAllCaps="false"
+        android:textColor="@color/colorPrimaryWhite"
+        android:textSize="18sp" />
 
 </RelativeLayout>
