@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -25,6 +26,7 @@ import java.util.List;
 import group3.spinoff.R;
 import group3.spinoff.firebase.FeedbackValueListener;
 import group3.spinoff.firebase.FirebaseDB;
+import group3.spinoff.firebase.MeetingValueListener;
 
 import static android.support.constraint.Constraints.TAG;
 
@@ -38,8 +40,9 @@ class FeedbackData {
     List<Float> q2;
     List<Float> q3;
 
-    public FeedbackData(FeedbackValueListener feedbackValueListener){
+    public FeedbackData(FeedbackValueListener feedbackValueListener, MeetingValueListener meetingValueListener){
         ArrayList<HashMap<String, Object>> feedbacks = feedbackValueListener.getFeedbacks();
+        HashMap<String, HashMap<String, Object>> companymeetings = meetingValueListener.getMeetings();
 
         meetings = new ArrayList<>();
         description = new ArrayList<>();
@@ -61,6 +64,11 @@ class FeedbackData {
 
         }
 
+        for(HashMap<String, Object> meet : companymeetings.values()){
+            meetings.add(meet.get("Title").toString());
+            description.add(meet.get("Desc").toString());
+        }
+
         Log.d(TAG, "FEEDBACK: " + feedbacks);
 
     }
@@ -73,19 +81,24 @@ class FeedbackData {
 public class FeedbackHomeFragment extends Fragment {
 
     private String userID = "DEFAULT_USER_ID_1";
-    private boolean isConnectedToDB = false;
+    private String companyID = "476";
+    private boolean isCompany = false;
+    private boolean isConnectedToFeedback = false;
+    private boolean isConnectedToMeeting = false;
 
     FeedbackValueListener feedbackValueListener;
+    MeetingValueListener meetingValueListener;
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference feedbackRef;
+    DatabaseReference meetingRef;
 
     FeedbackData data;
 
     RecyclerView recyclerView;
 
     public void refresh(){
-        data = new FeedbackData(feedbackValueListener);
+        data = new FeedbackData(feedbackValueListener, meetingValueListener);
        adapter.notifyDataSetChanged();
     }
 
@@ -98,13 +111,30 @@ public class FeedbackHomeFragment extends Fragment {
         recyclerView.setAdapter(adapter);
 
         feedbackValueListener = new FeedbackValueListener(this);
+        meetingValueListener = new MeetingValueListener(this);
 
-        data = new FeedbackData(feedbackValueListener);
+        data = new FeedbackData(feedbackValueListener, meetingValueListener);
 
-        if(!isConnectedToDB) {
-            feedbackRef = database.getReference("User/" + userID);
-            feedbackRef.addValueEventListener(feedbackValueListener);
-            isConnectedToDB = true;
+        if(isCompany) {
+            try {
+                feedbackRef.removeEventListener(feedbackValueListener);
+            }catch(Exception e){}
+
+            if (!isConnectedToMeeting) {
+                meetingRef = database.getReference("Meeting/" + companyID);
+                meetingRef.addValueEventListener(meetingValueListener);
+                isConnectedToMeeting = true;
+            }
+        } else {
+            try {
+                meetingRef.removeEventListener(meetingValueListener);
+            }catch(Exception e){}
+
+            if (!isConnectedToFeedback) {
+                feedbackRef = database.getReference("User/" + userID);
+                feedbackRef.addValueEventListener(feedbackValueListener);
+                isConnectedToFeedback = true;
+            }
         }
 
 
