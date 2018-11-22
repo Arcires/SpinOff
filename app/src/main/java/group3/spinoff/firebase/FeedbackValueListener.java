@@ -20,7 +20,10 @@ public class FeedbackValueListener implements ValueEventListener {
 
     private ArrayList<HashMap<String, Object>> feedbacks = new ArrayList<>();
 
+    private ArrayList<HashMap<String, Object>> meetings = new ArrayList<>();
+
     public ArrayList<HashMap<String, Object>> getFeedbacks(){return feedbacks;}
+    public ArrayList<HashMap<String, Object>> getMeetings(){return meetings;}
 
     private static FeedbackHomeFragment observer;
 
