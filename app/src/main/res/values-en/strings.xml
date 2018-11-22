@@ -39,5 +39,16 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="welcomepager_welcome_title">Welcome.</string>
+    <string name="welcomepager_welcome_intro">We here at SpinOff wants to make a difference, both for you as an employee, and for you as a speaker. Feedback and open critique of meeting structure and content is important in order to optimise meetings. We offer an easy and simple platform for companies and their employess to accomplish this.</string>
+    <string name="welcomepager_meeting_title">Meeting response.</string>
+    <string name="welcomepager_meeting_intro">Response and feedback on meeting and events are often long, tedious and awkward. We want to shift away from this method, with an app for your smartphone. The feedback process should be quick, easy and efficient.</string>
+    <string name="welcomepager_anonymous_title">Anonymity and security.</string>
+    <string name="welcomepager_anonymous_intro">All answers are registered anonymously, and can not be tracked back to you. Anonymous feedback is often more honest, than a signed response scheme. Neither the company nor the speaker can see who answered what.</string>
+    <string name="welcomepager_feedback_title">Results and purpose.</string>
+    <string name="welcomepager_feedback_intro">"Our platform visualises attendants impressions of the meeting to the company and speaker. "</string>
+    <string name="welcomepager_button_next">Next</string>
+    <string name="welcomepager_button_skip">Skip intro</string>
+    <string name="welcomepager_button_finish">Finish</string>
 
 </resources>
