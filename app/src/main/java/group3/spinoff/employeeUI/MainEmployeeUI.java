@@ -8,12 +8,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.Toast;
 
 import group3.spinoff.R;
-import group3.spinoff.employeeUI.dummy.DummyContent;
+import group3.spinoff.employeeUI.views.FeedbackViewFragment;
 
-public class MainEmployeeUI extends AppCompatActivity implements  View.OnClickListener, FeedbackView.OnFragmentInteractionListener {
+public class MainEmployeeUI extends AppCompatActivity implements  View.OnClickListener, FeedbackViewFragment.OnFragmentInteractionListener {
 
     FrameLayout frameLayoutEmployee;
 

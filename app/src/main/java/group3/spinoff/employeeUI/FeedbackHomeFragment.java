@@ -3,7 +3,6 @@ package group3.spinoff.employeeUI;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -16,16 +15,14 @@ import android.widget.TextView;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
 import group3.spinoff.R;
+import group3.spinoff.employeeUI.views.FeedbackViewFragment;
 import group3.spinoff.firebase.FeedbackValueListener;
-import group3.spinoff.firebase.FirebaseDB;
 import group3.spinoff.firebase.MeetingValueListener;
 
 import static android.support.constraint.Constraints.TAG;
@@ -203,12 +200,12 @@ public class FeedbackHomeFragment extends Fragment {
         public void onClick(View v) {
             final int position = getAdapterPosition();
 
-            FeedbackView.setValues(data.meetings.get(position), data.description.get(position),
+            FeedbackViewFragment.setValues(data.meetings.get(position), data.description.get(position),
                     data.comments.get(position),
                     data.q1.get(position), data.q2.get(position), data.q3.get(position));
 
             getActivity().getSupportFragmentManager().beginTransaction().replace(
-                    R.id.frameLayoutEmployee, new FeedbackView()).commit();
+                    R.id.frameLayoutEmployee, new FeedbackViewFragment()).commit();
 
         }
     }
