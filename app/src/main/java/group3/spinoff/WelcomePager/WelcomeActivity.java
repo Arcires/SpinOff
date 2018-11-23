@@ -40,7 +40,7 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
         }
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_welcome);
+        setContentView(R.layout.activity_welcomeviewpager);
 
         viewPager = findViewById(R.id.viewPagerWelcome);
 

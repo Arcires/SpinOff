@@ -36,9 +36,7 @@
     <string name="employee_more_aboutus">About us</string>
     <string name="employee_more_logout">Log out</string>
 
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    //Welcome Pager Activity//
     <string name="welcomepager_welcome_title">Welcome.</string>
     <string name="welcomepager_welcome_intro">We here at SpinOff wants to make a difference, both for you as an employee, and for you as a speaker. Feedback and open critique of meeting structure and content is important in order to optimise meetings. We offer an easy and simple platform for companies and their employess to accomplish this.</string>
     <string name="welcomepager_meeting_title">Meeting response.</string>

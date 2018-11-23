@@ -37,7 +37,7 @@ class FeedbackData {
     List<Float> q2;
     List<Float> q3;
 
-    public FeedbackData(FeedbackValueListener feedbackValueListener, MeetingValueListener meetingValueListener){
+    public FeedbackData(FeedbackValueListener feedbackValueListener, MeetingValueListener meetingValueListener) {
         ArrayList<HashMap<String, Object>> feedbacks = feedbackValueListener.getFeedbacks();
         HashMap<String, HashMap<String, Object>> companymeetings = meetingValueListener.getMeetings();
 
@@ -49,11 +49,11 @@ class FeedbackData {
         q2 = new ArrayList<>();
         q3 = new ArrayList<>();
 
-        for(HashMap<String, Object> feed : feedbacks){
-            meetings.add((String)feed.get("CompanyName"));
-            description.add((String)feed.get("Desc"));
+        for (HashMap<String, Object> feed : feedbacks) {
+            meetings.add((String) feed.get("CompanyName"));
+            description.add((String) feed.get("Desc"));
 
-            comments.add((String)feed.get("Comment"));
+            comments.add((String) feed.get("Comment"));
 
             q1.add(Float.parseFloat(feed.get("Q1").toString()));
             q2.add(Float.parseFloat(feed.get("Q2").toString()));
@@ -61,7 +61,7 @@ class FeedbackData {
 
         }
 
-        for(HashMap<String, Object> meet : companymeetings.values()){
+        for (HashMap<String, Object> meet : companymeetings.values()) {
             meetings.add(meet.get("Title").toString());
             description.add(meet.get("Desc").toString());
         }
@@ -94,9 +94,9 @@ public class FeedbackHomeFragment extends Fragment {
 
     RecyclerView recyclerView;
 
-    public void refresh(){
+    public void refresh() {
         data = new FeedbackData(feedbackValueListener, meetingValueListener);
-       adapter.notifyDataSetChanged();
+        adapter.notifyDataSetChanged();
     }
 
     @Override
@@ -112,10 +112,11 @@ public class FeedbackHomeFragment extends Fragment {
 
         data = new FeedbackData(feedbackValueListener, meetingValueListener);
 
-        if(isCompany) {
+        if (isCompany) {
             try {
                 feedbackRef.removeEventListener(feedbackValueListener);
-            }catch(Exception e){}
+            } catch (Exception e) {
+            }
 
             if (!isConnectedToMeeting) {
                 meetingRef = database.getReference("Meeting/" + companyID);
@@ -125,7 +126,8 @@ public class FeedbackHomeFragment extends Fragment {
         } else {
             try {
                 meetingRef.removeEventListener(meetingValueListener);
-            }catch(Exception e){}
+            } catch (Exception e) {
+            }
 
             if (!isConnectedToFeedback) {
                 feedbackRef = database.getReference("User/" + userID);
@@ -150,7 +152,7 @@ public class FeedbackHomeFragment extends Fragment {
     RecyclerView.Adapter adapter = new RecyclerView.Adapter<ListViewHolder>() {
 
         @Override
-        public int getItemCount()  {
+        public int getItemCount() {
             return data.meetings.size();
         }
 
