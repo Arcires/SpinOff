@@ -10,9 +10,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import static android.support.constraint.Constraints.TAG;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 
 import group3.spinoff.employeeUI.FeedbackHomeFragment;
 

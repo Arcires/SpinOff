@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBackground"
+        tools:context=".employeeUI.views.FeedbackViewFragment">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbarFeedback"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@color/colorPrimary">
+
+                <Button
+                    android:id="@+id/fragmentFeedbackBackButton"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:background="@drawable/ic_arrow_back" />
+
+                <TextView
+                    android:id="@+id/fragmentFeedbackTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/futurabook"
+                    android:text="Meeting title"
+                    android:textColor="@color/colorPrimaryWhite"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/toolbarFeedback" />
+            </android.support.v7.widget.Toolbar>
+
+
+            <TextView
+                android:id="@+id/fragmentFeedbackDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/futurabook"
+                android:text="Meeting description"
+                android:textColor="@color/colorPrimaryWhite"
+                android:textSize="18sp"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/toolbarFeedback"
+                tools:layout_editor_absoluteY="49dp" />
+
+            <TextView
+                android:id="@+id/fragmentFeedbackQ1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/futurabook"
+                android:text="Question 1"
+                android:textColor="@color/colorPrimaryWhite"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragmentFeedbackDescription" />
+
+            <RatingBar
+                android:id="@+id/ratingBarFeedback1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:isIndicator="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragmentFeedbackQ1" />
+
+            <View
+                android:id="@+id/separatorQ1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorPrimary"
+                app:layout_constraintTop_toBottomOf="@id/ratingBarFeedback1" />
+
+
+            <TextView
+                android:id="@+id/fragmentFeedbackQ2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/futurabook"
+                android:text="Question 2"
+                android:textColor="@color/colorPrimaryWhite"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/separatorQ1" />
+
+            <RatingBar
+                android:id="@+id/ratingBarFeedback2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:isIndicator="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragmentFeedbackQ2" />
+
+            <View
+                android:id="@+id/separatorQ2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorPrimary"
+                app:layout_constraintTop_toBottomOf="@id/ratingBarFeedback2" />
+
+            <TextView
+                android:id="@+id/fragmentFeedbackQ3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/futurabook"
+                android:text="Question 3"
+                android:textColor="@color/colorPrimaryWhite"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/separatorQ2" />
+
+            <RatingBar
+                android:id="@+id/ratingBarFeedback3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:isIndicator="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragmentFeedbackQ3" />
+
+            <View
+                android:id="@+id/separatorQ3"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorPrimary"
+                app:layout_constraintTop_toBottomOf="@id/ratingBarFeedback3" />
+
+            <EditText
+                android:id="@+id/fragmentFeedbackComment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:drawableStart="@drawable/ic_comment"
+                android:ems="6"
+                android:fontFamily="@font/futurabook"
+                android:gravity="center"
+                android:inputType="textMultiLine"
+                android:lines="2"
+                android:maxLines="2"
+                android:text="Comment section"
+                android:textColor="@color/colorPrimaryWhite"
+                android:textSize="22sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/separatorQ3" />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </FrameLayout>
+
+</android.support.constraint.ConstraintLayout>

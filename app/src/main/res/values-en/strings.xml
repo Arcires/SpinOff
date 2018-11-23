@@ -49,4 +49,13 @@
     <string name="welcomepager_button_skip">Skip intro</string>
     <string name="welcomepager_button_finish">Finish</string>
 
+
+    //CreateMeeting fragment//
+    <string name="createmeeting_title">New meeting</string>
+    <string name="createmeeting_intro">You may now enter the information regarding the meeting. A PIN-code will be automatically generated, to acccess the meeting.</string>
+    <string name="createMeetingTitleHint">Meeting title</string>
+    <string name="createMeetingDescHint">Meeting Description</string>
+    <string name="createMeetingCountHint">Attendance numbers</string>
+    <string name="createMeetingButtonText">Create new meeting</string>
+
 </resources>

@@ -38,7 +38,7 @@
 
 
     //Welcomepager screens//
-    <string name="welcomepager_welcome_title">Velkommen.</string>
+    <string name="welcomepager_welcome_title">Velkommen</string>
     <string name="welcomepager_welcome_intro">Vi hos SpinOff vil gøre en forskel, både for dig som medarbejder, og for dig som mødeleder.\n\nFeedback og åben kritik af møders struktur og indhold er vigtigt for at møder optimeres.\n\nVi tilbyder en let og enkelt platform til organisationer og deres medarbejdere til at afhjælpe dette.</string>
     <string name="welcomepager_meeting_title">Møde respons.</string>
     <string name="welcomepager_meeting_intro">Respons og feedback på møder og arrangementer er ofte lange, besværlige og akavede.\n\nDet vil vi gøre op med, med en platform til din smartphone.\n\nFeedbackprocessen skal være hurtig, nem og ikke sluge for meget tid.</string>
@@ -49,6 +49,19 @@
     <string name="welcomepager_button_next">Næste</string>
     <string name="welcomepager_button_skip">Spring over</string>
     <string name="welcomepager_button_finish">Afslut intro</string>
+
+
+    //CreateMeeting fragment//
+    <string name="createmeeting_title">Nyt møde</string>
+    <string name="createmeeting_intro">Du kan nu indtaste de oplysninger vedr. mødet. Der vil automatisk blive generet en PIN-kode, som bruges til at tilgå mødet.</string>
+    <string name="createMeetingTitleHint">Mødetitel</string>
+    <string name="createMeetingDescHint">Mødebeskrivelse</string>
+    <string name="createMeetingCountHint">Antal deltagere</string>
+    <string name="createMeetingButtonText">Opret nyt møde</string>
+
+
+
+
 
 
 </resources>

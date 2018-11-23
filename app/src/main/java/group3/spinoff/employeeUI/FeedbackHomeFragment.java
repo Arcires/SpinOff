@@ -116,6 +116,7 @@ public class FeedbackHomeFragment extends Fragment {
             try {
                 feedbackRef.removeEventListener(feedbackValueListener);
             } catch (Exception e) {
+                e.getMessage();
             }
 
             if (!isConnectedToMeeting) {
@@ -127,6 +128,7 @@ public class FeedbackHomeFragment extends Fragment {
             try {
                 meetingRef.removeEventListener(meetingValueListener);
             } catch (Exception e) {
+                e.getMessage();
             }
 
             if (!isConnectedToFeedback) {
