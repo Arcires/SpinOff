@@ -3,8 +3,10 @@ package group3.spinoff.employeeUI;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,19 +14,64 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 import group3.spinoff.R;
+import group3.spinoff.firebase.FeedbackValueListener;
+import group3.spinoff.firebase.FirebaseDB;
+import group3.spinoff.firebase.MeetingValueListener;
+
+import static android.support.constraint.Constraints.TAG;
 
 class FeedbackData {
-    List<String> meetings = Arrays.asList("Spinoff", "Company 1", "Company 9", "DTU", "Company 4",
-            "DTU", "DTU", "DTU");
+    List<String> meetings;
+    List<String> description;
 
-    List<String> description = Arrays.asList("DTU meeting interview", "Daily Scrum meeting",
-            "Workplace meeting", "Machine Learning course", "Simple meeting", "Big Data course",
-            "Advanced Mobile Application course", "Data Security course");
+    List<String> comments;
 
+    List<Float> q1;
+    List<Float> q2;
+    List<Float> q3;
+
+    public FeedbackData(FeedbackValueListener feedbackValueListener, MeetingValueListener meetingValueListener){
+        ArrayList<HashMap<String, Object>> feedbacks = feedbackValueListener.getFeedbacks();
+        HashMap<String, HashMap<String, Object>> companymeetings = meetingValueListener.getMeetings();
+
+        meetings = new ArrayList<>();
+        description = new ArrayList<>();
+        comments = new ArrayList<>();
+
+        q1 = new ArrayList<>();
+        q2 = new ArrayList<>();
+        q3 = new ArrayList<>();
+
+        for(HashMap<String, Object> feed : feedbacks){
+            meetings.add((String)feed.get("CompanyName"));
+            description.add((String)feed.get("Desc"));
+
+            comments.add((String)feed.get("Comment"));
+
+            q1.add(Float.parseFloat(feed.get("Q1").toString()));
+            q2.add(Float.parseFloat(feed.get("Q2").toString()));
+            q3.add(Float.parseFloat(feed.get("Q3").toString()));
+
+        }
+
+        for(HashMap<String, Object> meet : companymeetings.values()){
+            meetings.add(meet.get("Title").toString());
+            description.add(meet.get("Desc").toString());
+        }
+
+        Log.d(TAG, "FEEDBACK: " + feedbacks);
+
+    }
 }
 
 
@@ -33,10 +80,27 @@ class FeedbackData {
  */
 public class FeedbackHomeFragment extends Fragment {
 
-    FeedbackData data = new FeedbackData();
+    private String userID = "DEFAULT_USER_ID_1";
+    private String companyID = "476";
+    private boolean isCompany = false;
+    private boolean isConnectedToFeedback = false;
+    private boolean isConnectedToMeeting = false;
+
+    FeedbackValueListener feedbackValueListener;
+    MeetingValueListener meetingValueListener;
+
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference feedbackRef;
+    DatabaseReference meetingRef;
+
+    FeedbackData data;
 
     RecyclerView recyclerView;
 
+    public void refresh(){
+        data = new FeedbackData(feedbackValueListener, meetingValueListener);
+       adapter.notifyDataSetChanged();
+    }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -45,6 +109,37 @@ public class FeedbackHomeFragment extends Fragment {
         recyclerView = new RecyclerView(this.getContext());
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
         recyclerView.setAdapter(adapter);
+
+        feedbackValueListener = new FeedbackValueListener(this);
+        meetingValueListener = new MeetingValueListener(this);
+
+        data = new FeedbackData(feedbackValueListener, meetingValueListener);
+
+        if(isCompany) {
+            try {
+                feedbackRef.removeEventListener(feedbackValueListener);
+            }catch(Exception e){}
+
+            if (!isConnectedToMeeting) {
+                meetingRef = database.getReference("Meeting/" + companyID);
+                meetingRef.addValueEventListener(meetingValueListener);
+                isConnectedToMeeting = true;
+            }
+        } else {
+            try {
+                meetingRef.removeEventListener(meetingValueListener);
+            }catch(Exception e){}
+
+            if (!isConnectedToFeedback) {
+                feedbackRef = database.getReference("User/" + userID);
+                feedbackRef.addValueEventListener(feedbackValueListener);
+                isConnectedToFeedback = true;
+            }
+        }
+
+
+        //FirebaseDB firebaseDB = new FirebaseDB();
+
 
         return recyclerView;
     }
@@ -108,7 +203,12 @@ public class FeedbackHomeFragment extends Fragment {
         public void onClick(View v) {
             final int position = getAdapterPosition();
 
-            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutEmployee, new FeedbackView()).commit();
+            FeedbackView.setValues(data.meetings.get(position), data.description.get(position),
+                    data.comments.get(position),
+                    data.q1.get(position), data.q2.get(position), data.q3.get(position));
+
+            getActivity().getSupportFragmentManager().beginTransaction().replace(
+                    R.id.frameLayoutEmployee, new FeedbackView()).commit();
 
         }
     }
