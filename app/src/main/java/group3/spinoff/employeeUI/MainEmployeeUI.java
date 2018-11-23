@@ -23,13 +23,13 @@ public class MainEmployeeUI extends AppCompatActivity implements  View.OnClickLi
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
-                case R.id.navigation_settings:
+                case R.id.navigation_more:
                     getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutEmployee, new MoreFragment()).commit();
                     return true;
                 case R.id.navigation_feedback:
                     getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutEmployee, new FeedbackHomeFragment()).commit();
                     return true;
-                case R.id.navigation_enterpin:
+                case R.id.navigation_meeting:
                     getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutEmployee, new MeetingFragment()).commit();
                     return true;
             }
@@ -44,6 +44,7 @@ public class MainEmployeeUI extends AppCompatActivity implements  View.OnClickLi
 
         BottomNavigationView navigation = findViewById(R.id.navigation_employee);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        navigation.setSelectedItemId(R.id.navigation_meeting);
 
         frameLayoutEmployee = findViewById(R.id.frameLayoutEmployee);
 

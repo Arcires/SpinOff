@@ -7,12 +7,12 @@
         android:title="@string/employee_ui_feedback" />
 
     <item
-        android:id="@+id/navigation_enterpin"
+        android:id="@+id/navigation_meeting"
         android:icon="@drawable/ic_peoplemeeting"
         android:title="@string/employee_ui_meeting" />
 
     <item
-        android:id="@+id/navigation_settings"
+        android:id="@+id/navigation_more"
         android:icon="@drawable/ic_more"
         android:title="@string/employee_ui_more" />
 
