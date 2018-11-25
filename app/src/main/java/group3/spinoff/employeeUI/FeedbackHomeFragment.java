@@ -21,6 +21,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import group3.spinoff.R;
+import group3.spinoff.employeeUI.data.MeetingListElement;
 import group3.spinoff.employeeUI.views.FeedbackViewFragment;
 import group3.spinoff.firebase.FeedbackValueListener;
 import group3.spinoff.firebase.MeetingValueListener;
@@ -28,42 +29,36 @@ import group3.spinoff.firebase.MeetingValueListener;
 import static android.support.constraint.Constraints.TAG;
 
 class FeedbackData {
-    List<String> meetings;
-    List<String> description;
+    List<MeetingListElement> meetings;
 
-    List<String> comments;
-
-    List<Float> q1;
-    List<Float> q2;
-    List<Float> q3;
 
     public FeedbackData(FeedbackValueListener feedbackValueListener, MeetingValueListener meetingValueListener) {
         ArrayList<HashMap<String, Object>> feedbacks = feedbackValueListener.getFeedbacks();
         HashMap<String, HashMap<String, Object>> companymeetings = meetingValueListener.getMeetings();
 
         meetings = new ArrayList<>();
-        description = new ArrayList<>();
-        comments = new ArrayList<>();
-
-        q1 = new ArrayList<>();
-        q2 = new ArrayList<>();
-        q3 = new ArrayList<>();
 
         for (HashMap<String, Object> feed : feedbacks) {
-            meetings.add((String) feed.get("CompanyName"));
-            description.add((String) feed.get("Desc"));
 
-            comments.add((String) feed.get("Comment"));
+            meetings.add(new MeetingListElement()
+            .setCompanyName(feed.get("CompanyName").toString())
+            .setDescription(feed.get("Desc").toString())
+            .setComments(feed.get("Comment").toString())
 
-            q1.add(Float.parseFloat(feed.get("Q1").toString()));
-            q2.add(Float.parseFloat(feed.get("Q2").toString()));
-            q3.add(Float.parseFloat(feed.get("Q3").toString()));
+                    .setQ1(Float.parseFloat(feed.get("Q1").toString()))
+                    .setQ2(Float.parseFloat(feed.get("Q2").toString()))
+                    .setQ3(Float.parseFloat(feed.get("Q3").toString())));
+
 
         }
 
         for (HashMap<String, Object> meet : companymeetings.values()) {
-            meetings.add(meet.get("Title").toString());
-            description.add(meet.get("Desc").toString());
+
+            meetings.add(new MeetingListElement()
+            .setCompanyName(meet.get("Title").toString())
+            .setDescription(meet.get("Desc").toString())
+            .setActualPeople(Integer.parseInt(meet.get("ExpectedPeople").toString())));
+
         }
 
         Log.d(TAG, "FEEDBACK: " + feedbacks);
@@ -120,7 +115,7 @@ public class FeedbackHomeFragment extends Fragment {
             }
 
             if (!isConnectedToMeeting) {
-                meetingRef = database.getReference("Meeting/" + companyID);
+                meetingRef = database.getReference("MeetingListElement/" + companyID);
                 meetingRef.addValueEventListener(meetingValueListener);
                 isConnectedToMeeting = true;
             }
@@ -178,8 +173,8 @@ public class FeedbackHomeFragment extends Fragment {
 
         @Override
         public void onBindViewHolder(ListViewHolder vh, int position) {
-            vh.titleTextView.setText(data.meetings.get(position));
-            vh.descriptionTextView.setText(data.description.get(position));  // TEXT HERE
+            vh.titleTextView.setText(data.meetings.get(position).getCompanyName());
+            vh.descriptionTextView.setText(data.meetings.get(position).getDescription());  // TEXT HERE
         }
     };
 
@@ -204,9 +199,7 @@ public class FeedbackHomeFragment extends Fragment {
         public void onClick(View v) {
             final int position = getAdapterPosition();
 
-            FeedbackViewFragment.setValues(data.meetings.get(position), data.description.get(position),
-                    data.comments.get(position),
-                    data.q1.get(position), data.q2.get(position), data.q3.get(position));
+            FeedbackViewFragment.setValues(data.meetings.get(position));
 
             getActivity().getSupportFragmentManager().beginTransaction().replace(
                     R.id.frameLayoutEmployee, new FeedbackViewFragment()).commit();
