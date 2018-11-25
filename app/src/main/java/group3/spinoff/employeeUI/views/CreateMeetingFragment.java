@@ -10,9 +10,26 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
+import java.util.Random;
+
 import group3.spinoff.R;
 
 public class CreateMeetingFragment extends Fragment {
+
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference reference;
+
+    String company = "001";
+
+    public CreateMeetingFragment(){}
+
+    public void setCompany(String company){
+        this.company = company;
+    }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -36,7 +53,26 @@ public class CreateMeetingFragment extends Fragment {
         buttonCreateMeeting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(view.getContext(), "Creating meeting: " + editTextCreateMeetingTitle.getText(), Toast.LENGTH_SHORT).show();
+
+                if (!editTextCreateMeetingTitle.getText().toString().isEmpty()
+                        && !editTextCreateMeetingDesc.getText().toString().isEmpty()
+                        && !editTextCreateMeetingAttendants.getText().toString().isEmpty()) {
+
+                    HashMap<String, Object> newMeeting = new HashMap<>();
+
+                    String random = String.valueOf(new Random().nextInt(900) + 100);
+
+                    newMeeting.put("Title", editTextCreateMeetingTitle.getText().toString());
+                    newMeeting.put("Desc", editTextCreateMeetingDesc.getText().toString());
+                    newMeeting.put("ExpectedPeople", Integer.parseInt(editTextCreateMeetingAttendants.getText().toString()));
+
+                    reference = database.getReference("Meeting/" + company + "/"
+                            + random);
+
+                    reference.updateChildren(newMeeting);
+
+                    Toast.makeText(view.getContext(), "The PIN Code is : " + company + random, Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

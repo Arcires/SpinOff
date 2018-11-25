@@ -11,8 +11,13 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import group3.spinoff.R;
+import group3.spinoff.employeeUI.views.CreateMeetingFragment;
+import group3.spinoff.employeeUI.views.FeedbackViewFragment;
 
 public class MeetingFragment extends Fragment {
+
+    private String userID = "DEFAULT_USER_ID_1";
+    private String companyID = "476";
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -34,6 +39,8 @@ public class MeetingFragment extends Fragment {
         buttonCreateMeeting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                getActivity().getSupportFragmentManager().beginTransaction().replace(
+                        R.id.frameLayoutEmployee, new CreateMeetingFragment()).commit();
                 Toast.makeText(view.getContext(), "Trykkede på Lav nyt møde.", Toast.LENGTH_SHORT).show();
             }
         });

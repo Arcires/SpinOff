@@ -73,8 +73,8 @@ class FeedbackData {
 public class FeedbackHomeFragment extends Fragment {
 
     private String userID = "DEFAULT_USER_ID_1";
-    private String companyID = "476";
-    private boolean isCompany = false;
+    private String companyID = "001";
+    private boolean isCompany = true;
     private boolean isConnectedToFeedback = false;
     private boolean isConnectedToMeeting = false;
 
@@ -115,7 +115,7 @@ public class FeedbackHomeFragment extends Fragment {
             }
 
             if (!isConnectedToMeeting) {
-                meetingRef = database.getReference("MeetingListElement/" + companyID);
+                meetingRef = database.getReference("Meeting/" + companyID);
                 meetingRef.addValueEventListener(meetingValueListener);
                 isConnectedToMeeting = true;
             }
