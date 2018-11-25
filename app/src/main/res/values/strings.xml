@@ -2,7 +2,7 @@
     <string name="app_name">SpinOff</string>
 
     //Login screen//
-    <string name="login_employee">Fortsæt som medarbejder</string>
+    <string name="login_employee">Medarbejder</string>
     <string name="login_company">Log ind som firma</string>
     <string name="login_logodesc">Logo til login screen</string>
     <string name="login_textview">&#169; 2018 SpinOff &amp; DTU Compute. Alle rettigheder forbeholdes.</string>
@@ -14,9 +14,10 @@
     <string name="company_login_intro">Firma log ind</string>
     <string name="company_login_buttontext">Log ind</string>
     <string name="company_login_help">Glemt kodeord?</string>
-    <string name="company_loginCVRText">CVR nummer</string>
+    <string name="company_loginCVRText">Firma mail</string>
     <string name="company_loginPassText">Firma kodeord</string>
     <string name="title_activity_main_employee_ui">MainEmployeeUI</string>
+    <string name="company_login_login_failed">Login mislykkedes. Prøv igen.</string>
 
 
     //Employee main UI screen//
@@ -35,6 +36,7 @@
     <string name="employee_more_termsofservicebuttontext">Regler og vilkår</string>
     <string name="employee_more_aboutus">Om os</string>
     <string name="employee_more_logout">Log ud</string>
+
 
 
     //Welcomepager screens//

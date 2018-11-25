@@ -2,7 +2,7 @@
     <string name="app_name">SpinOff</string>
 
     //Login screen//
-    <string name="login_employee">Continue as employee</string>
+    <string name="login_employee">Employee</string>
     <string name="login_company">Log in as company</string>
     <string name="login_logodesc">Logo for login screen</string>
     <string name="login_textview">&#169; 2018 SpinOff &amp; DTU Compute. All rights reserved.</string>
@@ -14,9 +14,10 @@
     <string name="company_login_intro">Company login</string>
     <string name="company_login_buttontext">Login</string>
     <string name="company_login_help">Forgot password?</string>
-    <string name="company_loginCVRText">CVR number</string>
+    <string name="company_loginCVRText">Company mail</string>
     <string name="company_loginPassText">Company pass</string>
     <string name="title_activity_main_employee_ui">MainEmployeeUI</string>
+    <string name="company_login_login_failed">Login failed. Try again.</string>
 
 
     //Employee main UI screen//

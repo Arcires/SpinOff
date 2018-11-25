@@ -11,8 +11,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import group3.spinoff.AppInfoActivity;
 import group3.spinoff.R;
+import group3.spinoff.RoleSelectionActivity;
 
 public class MoreFragment extends Fragment {
 
@@ -26,6 +30,9 @@ public class MoreFragment extends Fragment {
         final Button buttonRulesAndTerms = view.findViewById(R.id.buttonMoreTermsAndConditions);
         final Button buttonAboutUs = view.findViewById(R.id.buttonMoreAboutUs);
         final Button buttonLogOut = view.findViewById(R.id.buttonMoreLogOut);
+
+        final FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        final FirebaseUser user = mAuth.getCurrentUser();
 
 
         buttonSettings.setOnClickListener(new View.OnClickListener() {
@@ -52,7 +59,24 @@ public class MoreFragment extends Fragment {
         buttonLogOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(view.getContext(), "Trykkede på Log ud.", Toast.LENGTH_SHORT).show();
+                try {
+                    if (user != null) {
+                        if (user.getEmail() != null) {
+                            System.out.println("Loggede ud fra bruger: " + user.getEmail());
+                            Toast.makeText(getActivity(), "Loggede ud fra bruger: " + user.getEmail(), Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(getActivity(), "Loggede ud som anonym medarbejder", Toast.LENGTH_SHORT).show();
+                        }
+                        mAuth.signOut();
+                        Intent i = new Intent(view.getContext(), RoleSelectionActivity.class);
+                        getActivity().finish();
+                        startActivity(i);
+                    }
+                } catch (Exception e) {
+                    e.getMessage();
+                    Toast.makeText(getActivity(), "Log ud mislykkedes. Ingen bruger registreret.", Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
 
