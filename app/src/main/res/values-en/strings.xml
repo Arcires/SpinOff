@@ -9,7 +9,6 @@
     <string name="login_appinfotext">This application was developed in cooperation between Group 3 from DTU Compute and SpinOff Aps.\n\nFall 2018.\n\nAppversion: 0.1.0 &#169; 2018 All rights reserved.</string>
     <string name="login_appinfodtudesc">Logo for DTU</string>
 
-
     //Company login screen//
     <string name="company_login_intro">Company login</string>
     <string name="company_login_buttontext">Login</string>
@@ -18,7 +17,6 @@
     <string name="company_loginPassText">Company pass</string>
     <string name="title_activity_main_employee_ui">MainEmployeeUI</string>
     <string name="company_login_login_failed">Login failed. Try again.</string>
-
 
     //Employee main UI screen//
     <string name="employee_ui_feedback">Feedback</string>
@@ -50,7 +48,6 @@
     <string name="welcomepager_button_skip">Skip intro</string>
     <string name="welcomepager_button_finish">Finish</string>
 
-
     //CreateMeeting fragment//
     <string name="createmeeting_title">New meeting</string>
     <string name="createmeeting_intro">You may now enter the information regarding the meeting. A PIN-code will be automatically generated, to acccess the meeting.</string>
@@ -58,5 +55,14 @@
     <string name="createMeetingDescHint">Meeting Description</string>
     <string name="createMeetingCountHint">Attendance numbers</string>
     <string name="createMeetingButtonText">Create new meeting</string>
+
+    //MeetingGraphs fragment//
+    <string name="meetinggraphs_itemtitle">Meeting title</string>
+    <string name="meetinggraphs_itemdesc">Meeting description</string>
+    <string name="meetinggraphs_itempeople">Number of attendants</string>
+    <string name="meetinggraphs_exportcsv">Export data as .CSV</string>
+    <string name="meetinggraphs_exportcsvmessage">Functionality not yet implemented.</string>
+
+
 
 </resources>

@@ -1,4 +1,4 @@
-package group3.spinoff.WelcomePager;
+package group3.spinoff.employeeUI.views.meetinggraphs;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -7,13 +7,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class ViewPagerAdapter extends PagerAdapter {
+/**
+ * Created by Mads Stege on 25-11-2018.
+ */
+public class ViewPagerGraphs extends PagerAdapter {
 
     private int[] layouts;
     private LayoutInflater layoutInflater;
     private Context context;
 
-    public ViewPagerAdapter(int[] layouts, Context context) {
+    public ViewPagerGraphs(int[] layouts, Context context) {
         this.layouts = layouts;
         this.context = context;
         layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -29,7 +32,6 @@ public class ViewPagerAdapter extends PagerAdapter {
         return view == object;
     }
 
-    @NonNull
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
         View view = layoutInflater.inflate(layouts[position], container, false);
@@ -39,7 +41,6 @@ public class ViewPagerAdapter extends PagerAdapter {
 
     @Override
     public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
-
         View view = (View) object;
         container.removeView(view);
     }
