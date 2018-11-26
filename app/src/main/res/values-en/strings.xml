@@ -56,12 +56,6 @@
     <string name="createMeetingCountHint">Attendance numbers</string>
     <string name="createMeetingButtonText">Create new meeting</string>
 
-    //MeetingGraphs fragment//
-    <string name="meetinggraphs_itemtitle">Meeting title</string>
-    <string name="meetinggraphs_itemdesc">Meeting description</string>
-    <string name="meetinggraphs_itempeople">Number of attendants</string>
-    <string name="meetinggraphs_exportcsv">Export data as .CSV</string>
-    <string name="meetinggraphs_exportcsvmessage">Functionality not yet implemented.</string>
 
 
 

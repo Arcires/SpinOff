@@ -56,13 +56,5 @@
     <string name="createMeetingCountHint">Antal deltagere</string>
     <string name="createMeetingButtonText">Opret nyt møde</string>
 
-    //MeetingGraphs fragment//
-    <string name="meetinggraphs_itemtitle">Mødetitel</string>
-    <string name="meetinggraphs_itemdesc">Mødebeskrivelse</string>
-    <string name="meetinggraphs_itempeople">Antal mødedeltagere</string>
-    <string name="meetinggraphs_exportcsv">Eksportér data som .CSV</string>
-    <string name="meetinggraphs_exportcsvmessage">Funktionaliteten ikke implementeret endnu.</string>
-
-
 
 </resources>

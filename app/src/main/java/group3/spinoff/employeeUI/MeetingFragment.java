@@ -40,7 +40,7 @@ public class MeetingFragment extends Fragment {
         //Check if the current user is an employee or a company.
         // If they have a user mail, they are registered company.
         try {
-            if (user.getEmail() != null) {
+            if (user.getEmail() == null) {
                 buttonCreateMeeting.setVisibility(View.INVISIBLE);
             }
         } catch (Exception e) {
