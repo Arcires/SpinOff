@@ -18,14 +18,14 @@ import java.util.Random;
 
 import group3.spinoff.R;
 
-public class CreateMeetingFragment extends Fragment {
+public class CreateMeetingViewFragment extends Fragment {
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference reference;
 
     String company = "001";
 
-    public CreateMeetingFragment(){}
+    public CreateMeetingViewFragment(){}
 
     public void setCompany(String company){
         this.company = company;
