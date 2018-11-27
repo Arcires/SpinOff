@@ -48,8 +48,6 @@ public class MeetingFragment extends Fragment {
                 buttonCreateMeeting.setVisibility(View.INVISIBLE);
             }
 
-            Log.d(TAG, "EMAIL " + user.getEmail());
-
         } catch (Exception e) {
             e.getMessage();
         }
