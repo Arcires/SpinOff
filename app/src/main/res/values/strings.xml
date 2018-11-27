@@ -56,5 +56,8 @@
     <string name="createMeetingCountHint">Antal deltagere</string>
     <string name="createMeetingButtonText">Opret nyt møde</string>
 
+    //CreateFeedback fragment//
+    <string name="createfeedback_submit_button_text">+ Tilføj feedback</string>
+
 
 </resources>
