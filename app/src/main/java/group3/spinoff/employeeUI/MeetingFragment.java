@@ -14,6 +14,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import group3.spinoff.R;
+import group3.spinoff.employeeUI.views.CreateMeetingViewFragment;
 
 public class MeetingFragment extends Fragment {
 
@@ -50,6 +51,8 @@ public class MeetingFragment extends Fragment {
         buttonCreateMeeting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                getActivity().getSupportFragmentManager().beginTransaction().replace(
+                        R.id.frameLayoutEmployee, new CreateMeetingViewFragment()).commit();
                 Toast.makeText(view.getContext(), "Trykkede på Lav nyt møde.", Toast.LENGTH_SHORT).show();
             }
         });

@@ -16,6 +16,7 @@ import java.util.Objects;
 
 import group3.spinoff.R;
 import group3.spinoff.employeeUI.FeedbackHomeFragment;
+import group3.spinoff.employeeUI.data.MeetingListElement;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -31,12 +32,7 @@ public class FeedbackViewFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    private static String title = "Test";
-    private static String description = "";
-    private static String comment = "Test Comment";
-    private static float q1 = 0;
-    private static float q2 = 0;
-    private static float q3 = 0;
+    private static MeetingListElement informations;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -56,14 +52,8 @@ public class FeedbackViewFragment extends Fragment {
         // Required empty public constructor
     }
 
-    public static void setValues(String d_title, String d_description, String d_comment
-                                , float d_q1, float d_q2, float d_q3){
-        title = d_title;
-        description = d_description;
-        comment = d_comment;
-        q1 = d_q1;
-        q2 = d_q2;
-        q3 = d_q3;
+    public static void setValues(MeetingListElement meetingListElement){
+        informations = meetingListElement;
     }
 
     /**
@@ -108,13 +98,13 @@ public class FeedbackViewFragment extends Fragment {
         ratingBarView_Q2 = view.findViewById(R.id.ratingBarFeedback2);
         ratingBarView_Q3 = view.findViewById(R.id.ratingBarFeedback3);
 
-        titleView.setText(title);
-        descriptionView.setText(description);
-        commentView.setText(comment);
+        titleView.setText(informations.getCompanyName());
+        descriptionView.setText(informations.getDescription());
+        commentView.setText(informations.getComments());
 
-        ratingBarView_Q1.setRating(q1);
-        ratingBarView_Q2.setRating(q2);
-        ratingBarView_Q3.setRating(q3);
+        ratingBarView_Q1.setRating(informations.getQ1());
+        ratingBarView_Q2.setRating(informations.getQ2());
+        ratingBarView_Q3.setRating(informations.getQ3());
 
         backArrow = view.findViewById(R.id.fragmentFeedbackBackButton);
         backArrow.setOnClickListener(new View.OnClickListener() {
