@@ -3,6 +3,7 @@ package group3.spinoff.employeeUI;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,8 @@ import com.google.firebase.auth.FirebaseUser;
 
 import group3.spinoff.R;
 import group3.spinoff.employeeUI.views.CreateMeetingViewFragment;
+
+import static android.support.constraint.Constraints.TAG;
 
 public class MeetingFragment extends Fragment {
 
@@ -41,9 +44,12 @@ public class MeetingFragment extends Fragment {
         //Check if the current user is an employee or a company.
         // If they have a user mail, they are registered company.
         try {
-            if (user.getEmail() == null) {
+            if (user.getEmail() == null || user.getEmail().isEmpty()) {
                 buttonCreateMeeting.setVisibility(View.INVISIBLE);
             }
+
+            Log.d(TAG, "EMAIL " + user.getEmail());
+
         } catch (Exception e) {
             e.getMessage();
         }

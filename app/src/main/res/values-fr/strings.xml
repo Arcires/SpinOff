@@ -2,41 +2,40 @@
     <string name="app_name">SpinOff</string>
 
     //Login screen//
-    <string name="login_employee">Employé</string>
-    <string name="login_company">Log in as company</string>
+    <string name="login_employee">Je suis un Employé</string>
+    <string name="login_company">S\'identifier comme entreprise</string>
     <string name="login_logodesc">Logo for login screen</string>
     <string name="login_textview">&#169; 2018 SpinOff &amp; DTU Compute. All rights reserved.</string>
-    <string name="login_appinfotext">This application was developed in cooperation between Group 3 from DTU Compute and SpinOff Aps.\n\nFall 2018.\n\nAppversion: 0.1.0 &#169; 2018 All rights reserved.</string>
     <string name="login_appinfodtudesc">Logo for DTU</string>
 
     //Company login screen//
-    <string name="company_login_intro">Company login</string>
-    <string name="company_login_buttontext">Login</string>
-    <string name="company_login_help">Forgot password?</string>
-    <string name="company_loginCVRText">Company mail</string>
-    <string name="company_loginPassText">Company pass</string>
+    <string name="company_login_intro">Compagny login</string>
+    <string name="company_login_buttontext">Connexion</string>
+    <string name="company_login_help">Mot de passe oublié ?</string>
+    <string name="company_loginCVRText">Email</string>
+    <string name="company_loginPassText">Mot de passe</string>
     <string name="title_activity_main_employee_ui">MainEmployeeUI</string>
-    <string name="company_login_login_failed">Login failed. Try again.</string>
+    <string name="company_login_login_failed">Identification impossible. Veuillez réessayer.</string>
 
     //Employee main UI screen//
     <string name="employee_ui_feedback">Feedback</string>
-    <string name="employee_ui_meeting">Meetings</string>
-    <string name="employee_ui_more">More</string>
+    <string name="employee_ui_meeting">Réunions</string>
+    <string name="employee_ui_more">Plus</string>
 
     //Employee Meeting Fragment//
-    <string name="employee_meeting_fragmenttext">Enter meeting PIN</string>
-    <string name="employee_meeting_fragmentedittext">Meeting PIN</string>
-    <string name="employee_meeting_fragment_searchbutton">Look for meeting</string>
-    <string name="employee_meeting_fragment_createbutton">Create new meeting</string>
+    <string name="employee_meeting_fragmenttext">Entrez un PIN de réunion</string>
+    <string name="employee_meeting_fragmentedittext">PIN de réunion</string>
+    <string name="employee_meeting_fragment_searchbutton">Chercher une réunion</string>
+    <string name="employee_meeting_fragment_createbutton">Créer une nouvelle réunion</string>
 
     //Employee More Fragment//
-    <string name="employee_more_settingsbuttontext">Settings</string>
-    <string name="employee_more_termsofservicebuttontext">Rules and terms</string>
-    <string name="employee_more_aboutus">About us</string>
-    <string name="employee_more_logout">Log out</string>
+    <string name="employee_more_settingsbuttontext">Configuration</string>
+    <string name="employee_more_termsofservicebuttontext">Règlement et conditions</string>
+    <string name="employee_more_aboutus">A propos de nous</string>
+    <string name="employee_more_logout">Déconnexion</string>
 
     //Welcome Pager Activity//
-    <string name="welcomepager_welcome_title">Welcome.</string>
+    <string name="welcomepager_welcome_title">Bienvenue.</string>
     <string name="welcomepager_welcome_intro">We here at SpinOff wants to make a difference, both for you as an employee, and for you as a speaker. Feedback and open critique of meeting structure and content is important in order to optimise meetings. We offer an easy and simple platform for companies and their employess to accomplish this.</string>
     <string name="welcomepager_meeting_title">Meeting response.</string>
     <string name="welcomepager_meeting_intro">Response and feedback on meeting and events are often long, tedious and awkward. We want to shift away from this method, with an app for your smartphone. The feedback process should be quick, easy and efficient.</string>
@@ -44,19 +43,18 @@
     <string name="welcomepager_anonymous_intro">All answers are registered anonymously, and can not be tracked back to you. Anonymous feedback is often more honest, than a signed response scheme. Neither the company nor the speaker can see who answered what.</string>
     <string name="welcomepager_feedback_title">Results and purpose.</string>
     <string name="welcomepager_feedback_intro">"Our platform visualises attendants impressions of the meeting to the company and speaker. "</string>
-    <string name="welcomepager_button_next">Next</string>
-    <string name="welcomepager_button_skip">Skip intro</string>
-    <string name="welcomepager_button_finish">Finish</string>
+    <string name="welcomepager_button_next">Suivant</string>
+    <string name="welcomepager_button_skip">Fermer introduction</string>
+    <string name="welcomepager_button_finish">Terminer</string>
 
     //CreateMeeting fragment//
-    <string name="createmeeting_title">New meeting</string>
+    <string name="createmeeting_title">Nouvelle réunion</string>
     <string name="createmeeting_intro">You may now enter the information regarding the meeting. A PIN-code will be automatically generated, to acccess the meeting.</string>
-    <string name="createMeetingTitleHint">Meeting title</string>
-    <string name="createMeetingDescHint">Meeting Description</string>
-    <string name="createMeetingCountHint">Attendance numbers</string>
-    <string name="createMeetingButtonText">Create new meeting</string>
-
-
+    <string name="createMeetingTitleHint">Titre de la réunion</string>
+    <string name="createMeetingDescHint">Description de la réunion</string>
+    <string name="createMeetingCountHint">Nombre de participants</string>
+    <string name="createMeetingButtonText">Créer une nouvelle réunion</string>
+    <string name="login_appinfotext">Cette application a été développée en collaboration avec le Groupe 3 de chez DTU Compute et SpinOff Aps.</string>
 
 
 </resources>
