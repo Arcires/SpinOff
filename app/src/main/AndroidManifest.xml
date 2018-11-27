@@ -21,7 +21,7 @@
             android:label="@string/title_activity_main_employee_ui" />
         <activity android:name=".AppInfoActivity" />
         <activity android:name=".employeeUI.SettingsActivity" />
-        <activity android:name=".WelcomePager.WelcomeActivity">
+        <activity android:name=".welcomepager.WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

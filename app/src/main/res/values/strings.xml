@@ -2,22 +2,21 @@
     <string name="app_name">SpinOff</string>
 
     //Login screen//
-    <string name="login_employee">Fortsæt som medarbejder</string>
+    <string name="login_employee">Medarbejder</string>
     <string name="login_company">Log ind som firma</string>
     <string name="login_logodesc">Logo til login screen</string>
     <string name="login_textview">&#169; 2018 SpinOff &amp; DTU Compute. Alle rettigheder forbeholdes.</string>
     <string name="login_appinfotext">Denne applikation er udviklet i samarbejde mellem Gruppe 3 fra DTU Compute og SpinOff Aps.\n\nEfterår 2018.\n\nAppversion: 0.1.0 &#169; 2018 Alle rettigheder forbeholdes.</string>
     <string name="login_appinfodtudesc">Logo til DTU</string>
 
-
     //Company login screen//
     <string name="company_login_intro">Firma log ind</string>
     <string name="company_login_buttontext">Log ind</string>
     <string name="company_login_help">Glemt kodeord?</string>
-    <string name="company_loginCVRText">CVR nummer</string>
+    <string name="company_loginCVRText">Firma mail</string>
     <string name="company_loginPassText">Firma kodeord</string>
     <string name="title_activity_main_employee_ui">MainEmployeeUI</string>
-
+    <string name="company_login_login_failed">Login mislykkedes. Prøv igen.</string>
 
     //Employee main UI screen//
     <string name="employee_ui_feedback">Feedback</string>
@@ -36,7 +35,6 @@
     <string name="employee_more_aboutus">Om os</string>
     <string name="employee_more_logout">Log ud</string>
 
-
     //Welcomepager screens//
     <string name="welcomepager_welcome_title">Velkommen</string>
     <string name="welcomepager_welcome_intro">Vi hos SpinOff vil gøre en forskel, både for dig som medarbejder, og for dig som mødeleder.\n\nFeedback og åben kritik af møders struktur og indhold er vigtigt for at møder optimeres.\n\nVi tilbyder en let og enkelt platform til organisationer og deres medarbejdere til at afhjælpe dette.</string>
@@ -50,7 +48,6 @@
     <string name="welcomepager_button_skip">Spring over</string>
     <string name="welcomepager_button_finish">Afslut intro</string>
 
-
     //CreateMeeting fragment//
     <string name="createmeeting_title">Nyt møde</string>
     <string name="createmeeting_intro">Du kan nu indtaste de oplysninger vedr. mødet. Der vil automatisk blive generet en PIN-kode, som bruges til at tilgå mødet.</string>
@@ -58,10 +55,6 @@
     <string name="createMeetingDescHint">Mødebeskrivelse</string>
     <string name="createMeetingCountHint">Antal deltagere</string>
     <string name="createMeetingButtonText">Opret nyt møde</string>
-
-
-
-
 
 
 </resources>

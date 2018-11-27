@@ -1,4 +1,4 @@
-package group3.spinoff.WelcomePager;
+package group3.spinoff.welcomepager;
 
 import android.content.Context;
 import android.support.annotation.NonNull;

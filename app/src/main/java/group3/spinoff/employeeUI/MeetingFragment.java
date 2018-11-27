@@ -10,9 +10,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import group3.spinoff.R;
 
 public class MeetingFragment extends Fragment {
+
+    FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    FirebaseUser user = mAuth.getCurrentUser();
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -30,6 +36,16 @@ public class MeetingFragment extends Fragment {
                 Toast.makeText(view.getContext(), "Leder efter møde: " + editTextMeetingPin.getText(), Toast.LENGTH_SHORT).show();
             }
         });
+
+        //Check if the current user is an employee or a company.
+        // If they have a user mail, they are registered company.
+        try {
+            if (user.getEmail() == null) {
+                buttonCreateMeeting.setVisibility(View.INVISIBLE);
+            }
+        } catch (Exception e) {
+            e.getMessage();
+        }
 
         buttonCreateMeeting.setOnClickListener(new View.OnClickListener() {
             @Override
