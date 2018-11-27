@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import group3.spinoff.employeeUI.FeedbackHomeFragment;
+import group3.spinoff.employeeUI.IDataObserver;
 
 import static android.support.constraint.Constraints.TAG;
 
@@ -24,7 +25,7 @@ public class FeedbackValueListener implements ValueEventListener {
     public ArrayList<HashMap<String, Object>> getFeedbacks(){return feedbacks;}
     public ArrayList<HashMap<String, Object>> getMeetings(){return meetings;}
 
-    private static FeedbackHomeFragment observer;
+    private IDataObserver observer;
 
     public FeedbackValueListener(){}
 

@@ -70,11 +70,11 @@ class FeedbackData {
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FeedbackHomeFragment extends Fragment {
+public class FeedbackHomeFragment extends Fragment implements IDataObserver {
 
     private String userID = "DEFAULT_USER_ID_1";
     private String companyID = "001";
-    private boolean isCompany = true;
+    private boolean isCompany = false;
     private boolean isConnectedToFeedback = false;
     private boolean isConnectedToMeeting = false;
 
@@ -133,8 +133,6 @@ public class FeedbackHomeFragment extends Fragment {
             }
         }
 
-
-        //FirebaseDB firebaseDB = new FirebaseDB();
 
 
         return recyclerView;
