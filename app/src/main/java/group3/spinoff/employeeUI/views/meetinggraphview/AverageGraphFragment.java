@@ -1,4 +1,4 @@
-package group3.spinoff.employeeUI.views.feedbackgraphview;
+package group3.spinoff.employeeUI.views.meetinggraphview;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;

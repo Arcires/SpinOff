@@ -1,4 +1,4 @@
-package group3.spinoff.employeeUI.views.feedbackgraphview;
+package group3.spinoff.employeeUI.views.meetinggraphview;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -16,7 +16,7 @@ import group3.spinoff.R;
 
 //Documentation can be found here: https://github.com/lopspower/CircularProgressBar
 
-public class MeetingFeedbackGraphsViewFragment extends Fragment {
+public class MeetingGraphViewFragment extends Fragment {
 
     private TextView textViewFeedbackGraphsMainTitle, textViewGraphsMeetingTitle,
             textViewGraphsMeetingTitleContent, textViewGraphsMeetingDesc,
@@ -33,7 +33,7 @@ public class MeetingFeedbackGraphsViewFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              final Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_feedbackgraphs, container, false);
+        View view = inflater.inflate(R.layout.fragment_meetinggraph, container, false);
 
         textViewFeedbackGraphsMainTitle = view.findViewById(R.id.textViewGraphsMainTitle);
         textViewGraphsMeetingTitle = view.findViewById(R.id.textViewGraphsMeetingTitle);

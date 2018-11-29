@@ -12,13 +12,9 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.common.util.Hex;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import org.w3c.dom.Text;
-
-import java.security.SecureRandom;
 import java.util.HashMap;
 
 import group3.spinoff.R;
@@ -51,7 +47,7 @@ public class CreateFeedbackViewFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_meetingfeedback, container, false);
+        View view = inflater.inflate(R.layout.fragment_meeting_view, container, false);
 
         editTextComment = view.findViewById(R.id.fragmentFeedbackComment);
 

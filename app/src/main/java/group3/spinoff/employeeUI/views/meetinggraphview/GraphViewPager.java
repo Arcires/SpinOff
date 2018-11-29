@@ -1,4 +1,4 @@
-package group3.spinoff.employeeUI.views.feedbackgraphview;
+package group3.spinoff.employeeUI.views.meetinggraphview;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
