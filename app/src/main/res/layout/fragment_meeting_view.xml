@@ -48,7 +48,7 @@
 
 
             <TextView
-                android:id="@+id/fragmentCreateFeedbackDescription"
+                android:id="@+id/textViewCreateFeedbackDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -76,7 +76,7 @@
                 android:textColor="@color/colorPrimaryWhite"
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/fragmentCreateFeedbackDescription" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewCreateFeedbackDescription"/>
 
             <RatingBar
                 android:id="@+id/ratingBarFeedback1"
@@ -175,10 +175,10 @@
                 android:ems="6"
                 android:fontFamily="@font/futurabook"
                 android:gravity="center"
+                android:hint="Comment section"
                 android:inputType="textMultiLine"
                 android:lines="2"
                 android:maxLines="2"
-                android:hint="Comment section"
                 android:textColor="@color/colorPrimaryWhite"
                 android:textSize="22sp"
                 app:layout_constraintStart_toStartOf="parent"

@@ -5,19 +5,25 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import group3.spinoff.R;
 import group3.spinoff.employeeUI.views.FeedbackViewFragment;
 
-public class MainEmployeeUI extends AppCompatActivity implements  View.OnClickListener, FeedbackViewFragment.OnFragmentInteractionListener {
+public class MainEmployeeUI extends AppCompatActivity implements View.OnClickListener, FeedbackViewFragment.OnFragmentInteractionListener {
 
     FrameLayout frameLayoutEmployee;
 
+    FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    FirebaseUser user = mAuth.getCurrentUser();
 
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListenerEmployee
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
         @Override
@@ -37,14 +43,17 @@ public class MainEmployeeUI extends AppCompatActivity implements  View.OnClickLi
         }
     };
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_employee_ui);
 
         BottomNavigationView navigation = findViewById(R.id.navigation_employee);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListenerEmployee);
         navigation.setSelectedItemId(R.id.navigation_meeting);
+
+        checkIfCompany(navigation);
 
         frameLayoutEmployee = findViewById(R.id.frameLayoutEmployee);
 
@@ -52,6 +61,14 @@ public class MainEmployeeUI extends AppCompatActivity implements  View.OnClickLi
         getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutEmployee, new MeetingFragment()).commit();
 
 
+    }
+
+    private void checkIfCompany(BottomNavigationView navigation) {
+        if (!user.isAnonymous()) {
+            Menu menuCompany = navigation.getMenu();
+            menuCompany.findItem(R.id.navigation_feedback).setIcon(R.drawable.ic_graph);
+            menuCompany.findItem(R.id.navigation_feedback).setTitle(R.string.employee_ui_statistics);
+        }
     }
 
 

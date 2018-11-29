@@ -31,7 +31,7 @@ public class RoleSelectionActivity extends AppCompatActivity implements View.OnC
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_role_selection);
 
-        textViewCompanyLogin = findViewById(R.id.textViewCompanyLogIn);
+        textViewCompanyLogin = findViewById(R.id.buttonCompanyLogIn);
         buttonEmployeeLogin = findViewById(R.id.buttonEmployeeLogIn);
         textViewCopyright = findViewById(R.id.textViewCopyright);
 

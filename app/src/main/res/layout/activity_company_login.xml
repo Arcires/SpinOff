@@ -58,12 +58,13 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewCompanyLoginText"
         tools:ignore="Autofill" />
 
+
     <EditText
         android:id="@+id/editTextCompanyPass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:drawableStart="@drawable/ic_verified_user"
         android:ems="10"
@@ -80,11 +81,11 @@
         tools:ignore="Autofill" />
 
     <Button
-        android:id="@+id/textViewCompanyLogIn"
+        android:id="@+id/buttonCompanyLogIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/button_logingreen"
         android:fontFamily="@font/futurabook"
@@ -94,22 +95,37 @@
         android:textSize="32sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextCompanyPass" />
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxTestUser" />
 
     <TextView
         android:id="@+id/textViewLoginHelp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginTop="4dp"
         android:fontFamily="@font/futurabook"
         android:text="@string/company_login_help"
         android:textColor="@color/colorPrimaryWhite"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewCompanyLogIn" />
+        app:layout_constraintTop_toBottomOf="@id/buttonCompanyLogIn" />
+
+    <CheckBox
+        android:id="@+id/checkBoxTestUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/futurabook"
+        android:text="Test firma"
+        android:layout_marginTop="8dp"
+        android:onClick="onClick"
+        android:buttonTint="@color/colorPrimary"
+        android:textColor="@color/colorPrimaryWhite"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextCompanyPass" />
 
 
 </android.support.constraint.ConstraintLayout>

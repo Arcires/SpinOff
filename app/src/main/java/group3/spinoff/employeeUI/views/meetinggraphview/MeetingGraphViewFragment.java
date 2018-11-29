@@ -14,6 +14,7 @@ import com.mikhaellopez.circularprogressbar.CircularProgressBar;
 
 import group3.spinoff.R;
 
+//Graph documentation: http://www.android-graphview.org/
 //Documentation can be found here: https://github.com/lopspower/CircularProgressBar
 
 public class MeetingGraphViewFragment extends Fragment {

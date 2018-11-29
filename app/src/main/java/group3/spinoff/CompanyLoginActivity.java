@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,7 +24,7 @@ public class CompanyLoginActivity extends AppCompatActivity implements View.OnCl
     private Button buttonCompanyLogIn;
     private TextView textViewLoginHelp;
     private EditText editTextCompanyMail, editTextCompanyPass;
-
+    private CheckBox checkBox;
     private FirebaseAuth mAuth;
 
 
@@ -32,7 +33,7 @@ public class CompanyLoginActivity extends AppCompatActivity implements View.OnCl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_company_login);
 
-        buttonCompanyLogIn = findViewById(R.id.textViewCompanyLogIn);
+        buttonCompanyLogIn = findViewById(R.id.buttonCompanyLogIn);
         buttonCompanyLogIn.setOnClickListener(this);
 
         textViewLoginHelp = findViewById(R.id.textViewLoginHelp);
@@ -40,6 +41,10 @@ public class CompanyLoginActivity extends AppCompatActivity implements View.OnCl
 
         editTextCompanyMail = findViewById(R.id.editTextCompanyMail);
         editTextCompanyPass = findViewById(R.id.editTextCompanyPass);
+
+        checkBox = findViewById(R.id.checkBoxTestUser);
+        checkBox.setOnClickListener(this);
+
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -54,13 +59,22 @@ public class CompanyLoginActivity extends AppCompatActivity implements View.OnCl
 
             if (mail.equals("") || pass.equals("")) {
                 Toast.makeText(this, "Indtast venligst både mail og password", Toast.LENGTH_SHORT).show();
+            } else {
+                firebaseSignIn(mail, pass);
             }
-            firebaseSignIn(mail, pass);
-
         } else if (view == textViewLoginHelp) {
             Toast.makeText(this, "Trykkede på Glemt kodeord", Toast.LENGTH_SHORT).show();
         }
+
+        if (checkBox.isChecked()) {
+            editTextCompanyMail.setText("dtu@spinoff.476");
+            editTextCompanyPass.setText("testpass");
+        } else {
+            editTextCompanyMail.setText("");
+            editTextCompanyPass.setText("");
+        }
     }
+
 
     private void firebaseSignIn(final String mail, final String pass) {
         mAuth.signInWithEmailAndPassword(mail, pass).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -68,7 +82,7 @@ public class CompanyLoginActivity extends AppCompatActivity implements View.OnCl
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     FirebaseUser user = mAuth.getCurrentUser();
-                    Toast.makeText(getApplicationContext(), "Userlogin successful: " + mail, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), R.string.company_login_login_success, Toast.LENGTH_SHORT).show();
                     Intent i = new Intent(getApplicationContext(), MainEmployeeUI.class);
                     finish();
                     startActivity(i);

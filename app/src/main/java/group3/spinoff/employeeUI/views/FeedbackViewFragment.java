@@ -106,7 +106,6 @@ public class FeedbackViewFragment extends Fragment {
         backArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Doesn't actually go back, but rather recreates the previous fragment again.
                 Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutEmployee, new FeedbackHomeFragment()).commit();
             }
         });

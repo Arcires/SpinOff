@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -39,6 +40,7 @@ public class MeetingFragment extends Fragment implements IDataObserver {
     String companyID;
     String pinCode;
 
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -49,7 +51,17 @@ public class MeetingFragment extends Fragment implements IDataObserver {
 
         final EditText editTextMeetingPin = view.findViewById(R.id.editTextEmployeeMeetingEnter);
 
-
+        final CheckBox checkBox = view.findViewById(R.id.checkBoxTestMeeting);
+        checkBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (checkBox.isChecked()) {
+                    editTextMeetingPin.setText("001118");
+                } else{
+                    editTextMeetingPin.setText("");
+                }
+            }
+        });
         buttonSearchMeeting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -71,17 +83,9 @@ public class MeetingFragment extends Fragment implements IDataObserver {
 
         //Check if the current user is an employee or a company.
         // If they have a user mail, they are registered company.
-        try {
-            String email = user.getEmail();
 
-            if (email == null) {
-                buttonCreateMeeting.setVisibility(View.INVISIBLE);
-            }else if(email.isEmpty()){
-                buttonCreateMeeting.setVisibility(View.INVISIBLE);
-            }
-
-        } catch (Exception e) {
-            e.getMessage();
+        if(user.isAnonymous()){
+            buttonCreateMeeting.setVisibility(View.INVISIBLE);
         }
 
         buttonCreateMeeting.setOnClickListener(new View.OnClickListener() {
@@ -101,8 +105,8 @@ public class MeetingFragment extends Fragment implements IDataObserver {
         String meetingTitle = (String) meetingValueListener.getMeets().get("Title");
         String meetingDesc = (String) meetingValueListener.getMeets().get("Desc");
 
-        if(meetingTitle!=null){
-            Toast.makeText(view.getContext(), "Meeting found !", Toast.LENGTH_SHORT).show();
+        if (meetingTitle != null) {
+            Toast.makeText(view.getContext(), "Meeting found!", Toast.LENGTH_SHORT).show();
 
             CreateFeedbackViewFragment createFeedbackViewFragment = new CreateFeedbackViewFragment();
             createFeedbackViewFragment.setValues(
@@ -115,7 +119,7 @@ public class MeetingFragment extends Fragment implements IDataObserver {
             getActivity().getSupportFragmentManager().beginTransaction().replace(
                     R.id.frameLayoutEmployee, createFeedbackViewFragment).commit();
 
-        }else{
+        } else {
             Toast.makeText(view.getContext(), "This Meeting does not exist.", Toast.LENGTH_SHORT).show();
         }
 

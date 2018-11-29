@@ -17,9 +17,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
+import java.util.Objects;
 import java.util.Random;
 
 import group3.spinoff.R;
+import group3.spinoff.employeeUI.MeetingFragment;
 
 public class CreateMeetingViewFragment extends Fragment {
 
@@ -53,7 +55,7 @@ public class CreateMeetingViewFragment extends Fragment {
         buttonCreateMeetingExit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(view.getContext(), "Exited meeting creation.", Toast.LENGTH_SHORT).show();
+                Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutEmployee, new MeetingFragment()).commit();
             }
         });
 

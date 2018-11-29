@@ -16,8 +16,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
+import java.util.Objects;
 
 import group3.spinoff.R;
+import group3.spinoff.employeeUI.MeetingFragment;
 import group3.spinoff.employeeUI.data.MeetingListElement;
 
 public class CreateFeedbackViewFragment extends Fragment {
@@ -52,7 +54,7 @@ public class CreateFeedbackViewFragment extends Fragment {
         editTextComment = view.findViewById(R.id.fragmentFeedbackComment);
 
         textViewTitle = view.findViewById(R.id.fragmentCreateFeedbackTitle);
-        textViewDescription = view.findViewById(R.id.fragmentCreateFeedbackDescription);
+        textViewDescription = view.findViewById(R.id.textViewCreateFeedbackDescription);
 
         ratingBarView_Q1 = view.findViewById(R.id.ratingBarFeedback1);
         ratingBarView_Q2 = view.findViewById(R.id.ratingBarFeedback2);
@@ -67,7 +69,7 @@ public class CreateFeedbackViewFragment extends Fragment {
         buttonfeedbackViewBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getActivity().finish();
+                Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutEmployee, new MeetingFragment()).commit();
             }
         });
         buttonfeedbackViewSubmit.setOnClickListener(new View.OnClickListener() {
