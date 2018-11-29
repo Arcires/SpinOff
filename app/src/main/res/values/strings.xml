@@ -59,5 +59,12 @@
     //CreateFeedback fragment//
     <string name="createfeedback_submit_button_text">+ Tilføj feedback</string>
 
+    //FeedbackGraphs fragment//
+    <string name="feedbackgraphs_maintitle">Mødetitel</string>
+    <string name="feedbackgraphs_meetingtitle">Mødetitel</string>
+    <string name="feedbackgraphs_meetingdescription">Mødebeskrivelse</string>
+    <string name="feedbackgraphs_meetingpeoplecount">Antal tilmeldte</string>
+    <string name="feedbackgraphs_meetinganswercount">Antal svar</string>
+
 
 </resources>

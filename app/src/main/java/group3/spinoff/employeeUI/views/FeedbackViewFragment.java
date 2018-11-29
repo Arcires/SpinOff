@@ -41,18 +41,14 @@ public class FeedbackViewFragment extends Fragment {
     private OnFragmentInteractionListener mListener;
 
     private Button backArrow;
-    private TextView titleView;
-    private TextView descriptionView;
-    private RatingBar ratingBarView_Q1;
-    private RatingBar ratingBarView_Q2;
-    private RatingBar ratingBarView_Q3;
-    private TextView commentView;
+    private TextView titleView, descriptionView, commentView;
+    private RatingBar ratingBarView_Q1, ratingBarView_Q2, ratingBarView_Q3;
 
     public FeedbackViewFragment() {
         // Required empty public constructor
     }
 
-    public static void setValues(MeetingListElement meetingListElement){
+    public static void setValues(MeetingListElement meetingListElement) {
         informations = meetingListElement;
     }
 
