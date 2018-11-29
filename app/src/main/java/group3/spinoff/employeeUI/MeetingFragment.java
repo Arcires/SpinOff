@@ -1,9 +1,9 @@
 package group3.spinoff.employeeUI;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
-import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,8 +16,6 @@ import com.google.firebase.auth.FirebaseUser;
 
 import group3.spinoff.R;
 import group3.spinoff.employeeUI.views.CreateMeetingViewFragment;
-
-import static android.support.constraint.Constraints.TAG;
 
 public class MeetingFragment extends Fragment {
 
@@ -32,12 +30,13 @@ public class MeetingFragment extends Fragment {
         final Button buttonSearchMeeting = view.findViewById(R.id.buttonSearchMeeting);
         final Button buttonCreateMeeting = view.findViewById(R.id.buttonCreateMeeting);
 
-        final EditText editTextMeetingPin = view.findViewById(R.id.editTextEmployeeMeetingEnter);
+        //final EditText editTextMeetingPin = view.findViewById(R.id.editTextEmployeeMeetingEnter);
 
         buttonSearchMeeting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(view.getContext(), "Leder efter møde: " + editTextMeetingPin.getText(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(view.getContext(), "Leder efter møde: " + "test", Toast.LENGTH_SHORT).show();
+                //editTextMeetingPin.getText()
             }
         });
 

@@ -1,10 +1,8 @@
 package group3.spinoff.employeeUI;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,13 +18,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import group3.spinoff.R;
 import group3.spinoff.employeeUI.data.MeetingListElement;
 import group3.spinoff.employeeUI.views.FeedbackViewFragment;
 import group3.spinoff.firebase.FeedbackValueListener;
 import group3.spinoff.firebase.MeetingValueListener;
-
-import static android.support.constraint.Constraints.TAG;
 
 class FeedbackData {
     List<MeetingListElement> meetings;
@@ -61,7 +59,7 @@ class FeedbackData {
 
         }
 
-        Log.d(TAG, "FEEDBACK: " + feedbacks);
+        //Log.d(TAG, "FEEDBACK: " + feedbacks);
 
     }
 }

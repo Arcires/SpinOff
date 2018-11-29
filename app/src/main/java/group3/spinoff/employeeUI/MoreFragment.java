@@ -3,8 +3,8 @@ package group3.spinoff.employeeUI;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,16 +25,17 @@ public class MoreFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_more,
                 container, false);
-
+        /*
         final Button buttonSettings = view.findViewById(R.id.buttonMoreSettings);
         final Button buttonRulesAndTerms = view.findViewById(R.id.buttonMoreTermsAndConditions);
         final Button buttonAboutUs = view.findViewById(R.id.buttonMoreAboutUs);
         final Button buttonLogOut = view.findViewById(R.id.buttonMoreLogOut);
+        */
 
         final FirebaseAuth mAuth = FirebaseAuth.getInstance();
         final FirebaseUser user = mAuth.getCurrentUser();
 
-
+        /*
         buttonSettings.setOnClickListener(new View.OnClickListener() {
                                               @Override
                                               public void onClick(View v) {
@@ -79,6 +80,7 @@ public class MoreFragment extends Fragment {
 
             }
         });
+        */
 
         return view;
     }

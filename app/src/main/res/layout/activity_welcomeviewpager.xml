@@ -6,7 +6,7 @@
     android:background="@color/colorBackground"
     tools:context=".welcomepager.WelcomeActivity">
 
-    <android.support.v4.view.ViewPager
+    <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPagerWelcome"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

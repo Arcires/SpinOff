@@ -2,12 +2,13 @@ package group3.spinoff.employeeUI;
 
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import group3.spinoff.R;
 import group3.spinoff.employeeUI.views.FeedbackViewFragment;
