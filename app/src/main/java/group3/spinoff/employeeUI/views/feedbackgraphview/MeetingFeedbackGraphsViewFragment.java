@@ -1,8 +1,9 @@
-package group3.spinoff.employeeUI.views;
+package group3.spinoff.employeeUI.views.feedbackgraphview;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,6 +25,8 @@ public class MeetingFeedbackGraphsViewFragment extends Fragment {
     private CircularProgressBar circularProgressBar;
 
     private Button buttonGraphsBack;
+
+    private ViewPager viewPager;
 
     @Override
 
@@ -51,6 +54,9 @@ public class MeetingFeedbackGraphsViewFragment extends Fragment {
                 getActivity().finish();
             }
         });
+
+        viewPager = view.findViewById(R.id.viewPagerGraphs);
+        viewPager.setAdapter(new GraphViewPager(getActivity().getSupportFragmentManager()));
 
         return view;
     }

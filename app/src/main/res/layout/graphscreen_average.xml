@@ -5,10 +5,9 @@
     android:background="@color/colorBackground">
 
     <com.jjoe64.graphview.GraphView
+        android:id="@+id/graphAverage"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/graphAverage" />
-
+        android:layout_height="match_parent" />
 
 
 </android.support.constraint.ConstraintLayout>
