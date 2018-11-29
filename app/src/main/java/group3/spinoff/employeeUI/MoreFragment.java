@@ -39,7 +39,8 @@ public class MoreFragment extends Fragment {
         buttonRulesAndTerms.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(view.getContext(), "Trykkede på Regler og vilkår.", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(getContext(), RulesPage.class);
+                startActivity(i);
             }
         });
         buttonAboutUs.setOnClickListener(new View.OnClickListener() {
