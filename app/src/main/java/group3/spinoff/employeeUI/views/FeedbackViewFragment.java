@@ -94,7 +94,7 @@ public class FeedbackViewFragment extends Fragment {
         ratingBarView_Q2 = view.findViewById(R.id.ratingBarFeedback2);
         ratingBarView_Q3 = view.findViewById(R.id.ratingBarFeedback3);
 
-        titleView.setText(informations.getCompanyName());
+        titleView.setText(informations.getTitle());
         descriptionView.setText(informations.getDescription());
         commentView.setText(informations.getComments());
 

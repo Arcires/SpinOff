@@ -8,8 +8,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -23,7 +26,9 @@ public class CreateMeetingViewFragment extends Fragment {
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference reference;
 
-    String company = "001";
+    FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    FirebaseUser user = mAuth.getCurrentUser();
+    String company = user.getEmail().split("\\.")[1];
 
     public CreateMeetingViewFragment(){}
 
@@ -35,6 +40,8 @@ public class CreateMeetingViewFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_createmeeting, container, false);
+
+        final TextView textViewCreateMeetingIntro = view.findViewById(R.id.createMeetingIntro);
         final EditText editTextCreateMeetingTitle = view.findViewById(R.id.editTextCreateMeetingTitle);
         final EditText editTextCreateMeetingDesc = view.findViewById(R.id.editTextCreateMeetingDesc);
         final EditText editTextCreateMeetingAttendants = view.findViewById(R.id.editTextCreateMeetingAttendants);
@@ -71,7 +78,9 @@ public class CreateMeetingViewFragment extends Fragment {
 
                     reference.updateChildren(newMeeting);
 
-                    Toast.makeText(view.getContext(), "The PIN Code is : " + company + random, Toast.LENGTH_SHORT).show();
+                    textViewCreateMeetingIntro.setText("Møde oprettet. Pinkoden til mødet er: " + company + random);
+
+                    Toast.makeText(view.getContext(), "The PIN Code is : " + company + random, Toast.LENGTH_LONG).show();
                 }
             }
         });

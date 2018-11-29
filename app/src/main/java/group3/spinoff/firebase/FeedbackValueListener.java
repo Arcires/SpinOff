@@ -12,19 +12,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import group3.spinoff.employeeUI.FeedbackHomeFragment;
+import group3.spinoff.employeeUI.IDataObserver;
 
 import static android.support.constraint.Constraints.TAG;
 
 public class FeedbackValueListener implements ValueEventListener {
 
-    private ArrayList<HashMap<String, Object>> feedbacks = new ArrayList<>();
+    private HashMap<String, HashMap<String, Object>> feedbacks = new HashMap<>();
 
-    private ArrayList<HashMap<String, Object>> meetings = new ArrayList<>();
+    public HashMap<String, HashMap<String, Object>> getFeedbacks(){return feedbacks;}
 
-    public ArrayList<HashMap<String, Object>> getFeedbacks(){return feedbacks;}
-    public ArrayList<HashMap<String, Object>> getMeetings(){return meetings;}
-
-    private static FeedbackHomeFragment observer;
+    private IDataObserver observer;
 
     public FeedbackValueListener(){}
 
@@ -36,8 +34,8 @@ public class FeedbackValueListener implements ValueEventListener {
     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
         Log.d(TAG, "[FIREBASE CONNECTION WORKS]");
 
-        GenericTypeIndicator<ArrayList<HashMap<String, Object>>> genericTypeIndicator =
-                new GenericTypeIndicator<ArrayList<HashMap<String, Object>>>() {};
+        GenericTypeIndicator<HashMap<String, HashMap<String, Object>>> genericTypeIndicator =
+                new GenericTypeIndicator<HashMap<String, HashMap<String, Object>>>() {};
 
         feedbacks = dataSnapshot.getValue(genericTypeIndicator);
 
