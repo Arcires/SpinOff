@@ -49,6 +49,7 @@ public class MeetingFragment extends Fragment implements IDataObserver {
 
         final EditText editTextMeetingPin = view.findViewById(R.id.editTextEmployeeMeetingEnter);
 
+
         buttonSearchMeeting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -57,8 +58,8 @@ public class MeetingFragment extends Fragment implements IDataObserver {
 
                 if (pin.length() > 5) {
 
-                    String companyID = pin.substring(0, 3);
-                    String pinCode = pin.substring(3);
+                    companyID = pin.substring(0, 3);
+                    pinCode = pin.substring(3);
 
                     meetingRef = database.getReference("Meeting/" + companyID + "/" + pinCode);
                     meetingRef.addValueEventListener(meetingValueListener);
@@ -71,7 +72,11 @@ public class MeetingFragment extends Fragment implements IDataObserver {
         //Check if the current user is an employee or a company.
         // If they have a user mail, they are registered company.
         try {
-            if (user.getEmail() == null || user.getEmail().isEmpty()) {
+            String email = user.getEmail();
+
+            if (email == null) {
+                buttonCreateMeeting.setVisibility(View.INVISIBLE);
+            }else if(email.isEmpty()){
                 buttonCreateMeeting.setVisibility(View.INVISIBLE);
             }
 

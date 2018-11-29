@@ -27,7 +27,7 @@ public class CreateMeetingViewFragment extends Fragment {
 
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
     FirebaseUser user = mAuth.getCurrentUser();
-    String company = user.getEmail().split(".")[1];
+    String company = user.getEmail().split("\\.")[1];
 
     public CreateMeetingViewFragment(){}
 

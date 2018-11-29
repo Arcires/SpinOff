@@ -12,11 +12,13 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.common.util.Hex;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import org.w3c.dom.Text;
 
+import java.security.SecureRandom;
 import java.util.HashMap;
 
 import group3.spinoff.R;
@@ -63,8 +65,8 @@ public class CreateFeedbackViewFragment extends Fragment {
         textViewTitle.setText(informations.getTitle());
         textViewDescription.setText(informations.getDescription());
 
-        final Button buttonfeedbackViewBack = view.findViewById(R.id.buttonSubmitFeedback);
-        final Button buttonfeedbackViewSubmit = view.findViewById(R.id.fragmentFeedbackBackButton);
+        final Button buttonfeedbackViewBack = view.findViewById(R.id.fragmentFeedbackBackButton);
+        final Button buttonfeedbackViewSubmit = view.findViewById(R.id.buttonSubmitFeedback);
 
         buttonfeedbackViewBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,11 +78,26 @@ public class CreateFeedbackViewFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                HashMap<String, Object> newMeeting = new HashMap<>();
+                HashMap<String, Object> newFeedback = new HashMap<>();
+                newFeedback.put("Comment", editTextComment.getText().toString());
+                newFeedback.put("Q1", ratingBarView_Q1.getRating());
+                newFeedback.put("Q2", ratingBarView_Q2.getRating());
+                newFeedback.put("Q3", ratingBarView_Q3.getRating());
 
-                reference = database.getReference("Meeting/" + companyID + "/" + pinCode);
+                reference = database.getReference("Meeting/" + companyID + "/" + pinCode +
+                        "/Feedback/Answers"+"/"+userID);
 
-                Toast.makeText(view.getContext(), "[Tilføj logik her!]", Toast.LENGTH_SHORT).show();
+                reference.updateChildren(newFeedback);
+
+                String token = String.format("%x",(int)(Math.random()*1000000));
+
+                reference = database.getReference("User/" + userID + "/" + token);
+
+                newFeedback.put("Desc", informations.getDescription());
+                newFeedback.put("Title", informations.getTitle());
+                reference.updateChildren(newFeedback);
+
+                Toast.makeText(view.getContext(), "Feedback added to Meeting "+companyID+pinCode, Toast.LENGTH_SHORT).show();
             }
         });
 

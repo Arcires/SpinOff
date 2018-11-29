@@ -13,6 +13,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -33,34 +35,34 @@ class FeedbackData {
 
 
     public FeedbackData(FeedbackValueListener feedbackValueListener, MeetingValueListener meetingValueListener) {
-        ArrayList<HashMap<String, Object>> feedbacks = feedbackValueListener.getFeedbacks();
+        HashMap<String, HashMap<String, Object>> feedbacks = feedbackValueListener.getFeedbacks();
         HashMap<String, HashMap<String, Object>> companymeetings = meetingValueListener.getMeetings();
 
         meetings = new ArrayList<>();
 
-        for (HashMap<String, Object> feed : feedbacks) {
+        if(feedbacks!=null) {
+            for (HashMap<String, Object> feed : feedbacks.values()) {
 
-            meetings.add(new MeetingListElement()
-            .setCompanyName(feed.get("CompanyName").toString())
-            .setDescription(feed.get("Desc").toString())
-            .setComments(feed.get("Comment").toString())
+                meetings.add(new MeetingListElement()
+                        .setTitle(feed.get("Title").toString())
+                        .setDescription(feed.get("Desc").toString())
+                        .setComments(feed.get("Comment").toString())
 
-                    .setQ1(Float.parseFloat(feed.get("Q1").toString()))
-                    .setQ2(Float.parseFloat(feed.get("Q2").toString()))
-                    .setQ3(Float.parseFloat(feed.get("Q3").toString())));
-
-
+                        .setQ1(Float.parseFloat(feed.get("Q1").toString()))
+                        .setQ2(Float.parseFloat(feed.get("Q2").toString()))
+                        .setQ3(Float.parseFloat(feed.get("Q3").toString())));
+            }
         }
 
-        for (HashMap<String, Object> meet : companymeetings.values()) {
+        if(companymeetings!=null) {
+            for (HashMap<String, Object> meet : companymeetings.values()) {
 
-            meetings.add(new MeetingListElement()
-            .setCompanyName(meet.get("Title").toString())
-            .setDescription(meet.get("Desc").toString())
-            .setActualPeople(Integer.parseInt(meet.get("ExpectedPeople").toString())));
-
+                meetings.add(new MeetingListElement()
+                        .setTitle(meet.get("Title").toString())
+                        .setDescription(meet.get("Desc").toString())
+                        .setActualPeople(Integer.parseInt(meet.get("ExpectedPeople").toString())));
+            }
         }
-
         Log.d(TAG, "FEEDBACK: " + feedbacks);
 
     }
@@ -71,6 +73,9 @@ class FeedbackData {
  * A simple {@link Fragment} subclass.
  */
 public class FeedbackHomeFragment extends Fragment implements IDataObserver {
+
+    FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    FirebaseUser user = mAuth.getCurrentUser();
 
     private String userID = "DEFAULT_USER_ID_1";
     private String companyID = "001";
@@ -104,6 +109,15 @@ public class FeedbackHomeFragment extends Fragment implements IDataObserver {
 
         feedbackValueListener = new FeedbackValueListener(this);
         meetingValueListener = new MeetingValueListener(this);
+
+        String email = user.getEmail();
+
+        if (email != null){
+            if(!email.isEmpty()){
+                isCompany = true;
+                companyID = email.split("\\.")[1];
+            }
+        }
 
         data = new FeedbackData(feedbackValueListener, meetingValueListener);
 
@@ -171,7 +185,7 @@ public class FeedbackHomeFragment extends Fragment implements IDataObserver {
 
         @Override
         public void onBindViewHolder(ListViewHolder vh, int position) {
-            vh.titleTextView.setText(data.meetings.get(position).getCompanyName());
+            vh.titleTextView.setText(data.meetings.get(position).getTitle());
             vh.descriptionTextView.setText(data.meetings.get(position).getDescription());  // TEXT HERE
         }
     };
