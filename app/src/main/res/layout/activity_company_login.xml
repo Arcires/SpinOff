@@ -94,7 +94,7 @@
         android:textAllCaps="false"
         android:textColor="@color/colorPrimaryWhite"
         android:textSize="32sp"
-        app:initialCornerAngle="20dp"
+        app:initialCornerAngle="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/checkBoxTestUser"
