@@ -1,11 +1,12 @@
 package group3.spinoff;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -17,11 +18,12 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import br.com.simplepass.loading_button_lib.customViews.CircularProgressButton;
 import group3.spinoff.employeeUI.MainEmployeeUI;
 
 public class CompanyLoginActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Button buttonCompanyLogIn;
+    private CircularProgressButton buttonCompanyLogIn;
     private TextView textViewLoginHelp;
     private EditText editTextCompanyMail, editTextCompanyPass;
     private CheckBox checkBox;
@@ -45,7 +47,6 @@ public class CompanyLoginActivity extends AppCompatActivity implements View.OnCl
         checkBox = findViewById(R.id.checkBoxTestUser);
         checkBox.setOnClickListener(this);
 
-
         mAuth = FirebaseAuth.getInstance();
 
     }
@@ -57,15 +58,18 @@ public class CompanyLoginActivity extends AppCompatActivity implements View.OnCl
             String mail = editTextCompanyMail.getText().toString();
             String pass = editTextCompanyPass.getText().toString();
 
+
             if (mail.equals("") || pass.equals("")) {
-                Toast.makeText(this, "Indtast venligst både mail og password", Toast.LENGTH_SHORT).show();
-            } else {
+                Toast.makeText(this, "Indtast venligst både mail og password.", Toast.LENGTH_SHORT).show();
+            } else if (isNetworkConnected()) {
+                buttonCompanyLogIn.startAnimation();
                 firebaseSignIn(mail, pass);
+            } else {
+                Toast.makeText(this, "Intet internet detekteret.\nTjek din netforbindelse", Toast.LENGTH_SHORT).show();
             }
         } else if (view == textViewLoginHelp) {
             Toast.makeText(this, "Trykkede på Glemt kodeord", Toast.LENGTH_SHORT).show();
         }
-
         if (checkBox.isChecked()) {
             editTextCompanyMail.setText("dtu@spinoff.476");
             editTextCompanyPass.setText("testpass");
@@ -90,9 +94,15 @@ public class CompanyLoginActivity extends AppCompatActivity implements View.OnCl
                     System.out.println("Userlogin failed: " + mail + ", " + pass + "\n" + task.getException());
                     Toast.makeText(getApplicationContext(), R.string.company_login_login_failed, Toast.LENGTH_SHORT).show();
                     editTextCompanyPass.setText("");
+                    buttonCompanyLogIn.revertAnimation();
                 }
             }
         });
+    }
 
+    private boolean isNetworkConnected() {
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        return cm.getActiveNetworkInfo() != null;
     }
 }

@@ -80,7 +80,8 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextCompanyMail"
         tools:ignore="Autofill" />
 
-    <Button
+    <!--Needs to define initialCornerAngle(below) to ensure proper return to prior layout if login fail.-->
+    <br.com.simplepass.loading_button_lib.customViews.CircularProgressButton
         android:id="@+id/buttonCompanyLogIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -93,9 +94,13 @@
         android:textAllCaps="false"
         android:textColor="@color/colorPrimaryWhite"
         android:textSize="32sp"
+        app:initialCornerAngle="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkBoxTestUser" />
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxTestUser"
+        app:spinning_bar_color="@color/colorPrimaryWhite"
+        app:spinning_bar_padding="6dp"
+        app:spinning_bar_width="4dp" />
 
     <TextView
         android:id="@+id/textViewLoginHelp"
@@ -116,12 +121,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:fontFamily="@font/futurabook"
-        android:text="Test firma"
         android:layout_marginTop="8dp"
-        android:onClick="onClick"
+        android:layout_marginEnd="8dp"
         android:buttonTint="@color/colorPrimary"
+        android:fontFamily="@font/futurabook"
+        android:onClick="onClick"
+        android:text="Test firma"
         android:textColor="@color/colorPrimaryWhite"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

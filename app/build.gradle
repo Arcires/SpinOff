@@ -32,6 +32,7 @@ dependencies {
 
     implementation 'com.jjoe64:graphview:4.2.2'
     implementation 'com.mikhaellopez:circularprogressbar:2.0.0'
+    implementation 'br.com.simplepass:loading-button-android:1.14.0'
 
 
     implementation 'com.google.firebase:firebase-core:16.0.5'
