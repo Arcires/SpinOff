@@ -38,13 +38,13 @@ public class CreateFeedbackViewFragment extends Fragment {
 
     private MeetingListElement informations;
 
-    public void setValues(MeetingListElement informations, String userID, String companyID, String pinCode){
+    public void setValues(MeetingListElement informations, String userID, String companyID, String pinCode) {
         this.informations = informations;
         this.companyID = companyID;
         this.pinCode = pinCode;
     }
 
-//fragmentCreateFeedbackTitle
+    //fragmentCreateFeedbackTitle
     //fragmentCreateFeedbackDescription
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -83,11 +83,11 @@ public class CreateFeedbackViewFragment extends Fragment {
                 newFeedback.put("Q3", ratingBarView_Q3.getRating());
 
                 reference = database.getReference("Meeting/" + companyID + "/" + pinCode +
-                        "/Feedback/Answers"+"/"+userID);
+                        "/Feedback/Answers" + "/" + userID);
 
                 reference.updateChildren(newFeedback);
 
-                String token = String.format("%x",(int)(Math.random()*1000000));
+                String token = String.format("%x", (int) (Math.random() * 1000000));
 
                 reference = database.getReference("User/" + userID + "/" + token);
 
@@ -95,7 +95,7 @@ public class CreateFeedbackViewFragment extends Fragment {
                 newFeedback.put("Title", informations.getTitle());
                 reference.updateChildren(newFeedback);
 
-                Toast.makeText(view.getContext(), "Feedback added to Meeting "+companyID+pinCode, Toast.LENGTH_SHORT).show();
+                Toast.makeText(view.getContext(), R.string.createfeedback_toast + companyID + pinCode, Toast.LENGTH_SHORT).show();
             }
         });
 

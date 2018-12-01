@@ -1,5 +1,8 @@
 package group3.spinoff.employeeUI.views;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -32,9 +35,10 @@ public class CreateMeetingViewFragment extends Fragment {
     FirebaseUser user = mAuth.getCurrentUser();
     String company = user.getEmail().split("\\.")[1];
 
-    public CreateMeetingViewFragment(){}
+    public CreateMeetingViewFragment() {
+    }
 
-    public void setCompany(String company){
+    public void setCompany(String company) {
         this.company = company;
     }
 
@@ -50,7 +54,6 @@ public class CreateMeetingViewFragment extends Fragment {
 
         final Button buttonCreateMeetingExit = view.findViewById(R.id.fragmentCreateMeetingBackButton);
         final Button buttonCreateMeeting = view.findViewById(R.id.buttonCreateMeeting);
-
 
         buttonCreateMeetingExit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,10 +83,28 @@ public class CreateMeetingViewFragment extends Fragment {
 
                     reference.updateChildren(newMeeting);
 
-                    textViewCreateMeetingIntro.setText("Møde oprettet. Pinkoden til mødet er: " + company + random);
+                    textViewCreateMeetingIntro.setText(R.string.createMeetingCreationConfirmation + company + random);
+                    Toast.makeText(view.getContext(), R.string.createMeetingCreationToast + company + random, Toast.LENGTH_LONG).show();
 
-                    Toast.makeText(view.getContext(), "The PIN Code is : " + company + random, Toast.LENGTH_LONG).show();
+                    changeButton(random);
                 }
+            }
+
+            private void changeButton(final String random) {
+                buttonCreateMeeting.setBackgroundResource(R.drawable.button_loginblue);
+                buttonCreateMeeting.setText(R.string.createMeetingLinkText);
+                buttonCreateMeeting.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        ClipboardManager clipboard = (ClipboardManager) Objects.requireNonNull(getContext()).getSystemService(Context.CLIPBOARD_SERVICE);
+
+                        ClipData clipData = ClipData.newPlainText("linkdata", getResources().getString(R.string.createMeetingLinkText) + " " + company + String.valueOf(random));
+
+                        Objects.requireNonNull(clipboard).setPrimaryClip(clipData);
+
+                        buttonCreateMeeting.setText(R.string.createMeetingLinkCopy);
+                    }
+                });
             }
         });
 
