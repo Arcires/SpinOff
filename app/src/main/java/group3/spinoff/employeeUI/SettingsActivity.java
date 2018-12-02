@@ -1,7 +1,6 @@
 package group3.spinoff.employeeUI;
 
 import android.os.Bundle;
-import android.preference.PreferenceActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -25,7 +24,7 @@ public class SettingsActivity extends AppCompatActivity {
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
-        overridePendingTransition(R.anim.slidein_anim, R.anim.slideout_anim);
+        overridePendingTransition(R.anim.slideinleft_anim, R.anim.slideoutright_anim);
         return true;
     }
 }

@@ -23,7 +23,7 @@ public class RulesPage extends AppCompatActivity {
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
-        overridePendingTransition(R.anim.slidein_anim, R.anim.slideout_anim);
+        overridePendingTransition(R.anim.slideinleft_anim, R.anim.slideoutright_anim);
         return true;
     }
 }

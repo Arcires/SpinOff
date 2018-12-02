@@ -10,8 +10,8 @@
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbarSet"
-        android:layout_width="392dp"
-        android:layout_height="65dp"
+        android:layout_width="403dp"
+        android:layout_height="61dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
@@ -19,16 +19,25 @@
         android:background="@color/colorPrimary"
         app:layout_constraintBottom_toTopOf="@+id/frameLayoutSet"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/SettingsBack"
+            android:background="?actionBarItemBackground"
+            android:src="@drawable/ic_arrow_back"
+            />
 
     </android.support.v7.widget.Toolbar>
 
     <FrameLayout
         android:id="@+id/frameLayoutSet"
         android:layout_width="382dp"
-        android:layout_height="488dp"
+        android:layout_height="487dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
