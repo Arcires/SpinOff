@@ -27,6 +27,7 @@
 
         </activity>
         <activity android:name=".employeeUI.SettingsActivity" />
+        <activity android:name=".employeeUI.RulesPage" />
     </application>
 
 </manifest>

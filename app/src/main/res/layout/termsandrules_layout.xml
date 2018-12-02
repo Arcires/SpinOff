@@ -11,12 +11,6 @@
         android:layout_height="45dp"
         android:background="@color/colorPrimary">
 
-        <Button
-            android:id="@+id/buttonTermsAndRulesBack"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:background="@drawable/ic_business" />
-
         <TextView
             android:id="@+id/textViewTermsAndRulesTitle"
             android:layout_width="wrap_content"

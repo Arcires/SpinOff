@@ -1,6 +1,8 @@
 package group3.spinoff.employeeUI;
 
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -33,6 +35,7 @@ public class MoreFragment extends Fragment {
                                               public void onClick(View v) {
                                                   Intent i = new Intent(getContext(), SettingsActivity.class);
                                                   startActivity(i);
+                                                  ((Activity) getContext()).overridePendingTransition(R.anim.slidein_anim, R.anim.slideout_anim);
                                               }
                                           }
         );
@@ -41,6 +44,7 @@ public class MoreFragment extends Fragment {
             public void onClick(View view) {
                 Intent i = new Intent(getContext(), RulesPage.class);
                 startActivity(i);
+                ((Activity) getContext()).overridePendingTransition(R.anim.slidein_anim, R.anim.slideout_anim);
             }
         });
         buttonAboutUs.setOnClickListener(new View.OnClickListener() {
@@ -48,6 +52,8 @@ public class MoreFragment extends Fragment {
             public void onClick(View view) {
                 Intent i = new Intent(getContext(), AppInfoActivity.class);
                 startActivity(i);
+                ((Activity) getContext()).overridePendingTransition(R.anim.slidein_anim, R.anim.slideout_anim);
+
             }
         });
         buttonLogOut.setOnClickListener(new View.OnClickListener() {

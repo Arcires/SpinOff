@@ -13,7 +13,7 @@ public class RulesPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.termsandrules_layout);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarSet);
+        Toolbar toolbar = findViewById(R.id.toolbarSet);
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -23,7 +23,7 @@ public class RulesPage extends AppCompatActivity {
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
-        overridePendingTransition(R.anim.slideout_right, R.anim.slidein_left);
+        overridePendingTransition(R.anim.slidein_anim, R.anim.slideout_anim);
         return true;
     }
 }

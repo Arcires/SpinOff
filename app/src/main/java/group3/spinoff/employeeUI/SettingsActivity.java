@@ -11,21 +11,21 @@ public class SettingsActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_settings);
+        setContentView(R.layout.settingsactivity);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarSet);
+        Toolbar toolbar = findViewById(R.id.toolbarSet);
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        getFragmentManager().beginTransaction().replace(R.id.frameLayoutSet, new SettingsFragment());
+        getFragmentManager().beginTransaction().replace(R.id.frameLayoutSet, new SettingsFragment()).commit();
     }
 
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
-        overridePendingTransition(R.anim.slideout_right, R.anim.slidein_left);
+        overridePendingTransition(R.anim.slidein_anim, R.anim.slideout_anim);
         return true;
     }
 }
