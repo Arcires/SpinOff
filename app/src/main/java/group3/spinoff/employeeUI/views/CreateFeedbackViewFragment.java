@@ -87,7 +87,7 @@ public class CreateFeedbackViewFragment extends Fragment {
 
                 reference.updateChildren(newFeedback);
 
-                String token = String.format("%x",(int)(Math.random()*1000000));
+                String token = companyID+pinCode;
 
                 reference = database.getReference("User/" + userID + "/" + token);
 

@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.mikhaellopez.circularprogressbar.CircularProgressBar;
 
 import group3.spinoff.R;
+import group3.spinoff.employeeUI.data.MeetingListElement;
 
 //Graph documentation: http://www.android-graphview.org/
 //Documentation can be found here: https://github.com/lopspower/CircularProgressBar
@@ -29,8 +30,13 @@ public class MeetingGraphViewFragment extends Fragment {
 
     private ViewPager viewPager;
 
-    @Override
+    MeetingListElement informations;
 
+    public void setValues(MeetingListElement meetingListElement){
+        this.informations = meetingListElement;
+    }
+
+    @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              final Bundle savedInstanceState) {
 
@@ -45,7 +51,13 @@ public class MeetingGraphViewFragment extends Fragment {
 
         //TODO Setting up the circular progress bar. Define the current progress(answer count) and the max progress (people count). MUST BE INTS!
         circularProgressBar = view.findViewById(R.id.circleProgressAnswerCount);
-        setCircularProgress();
+
+        setCircularProgress(informations.getActualPeople(), informations.getExpectedPeople());
+
+        textViewGraphsMeetingTitleContent.setText(informations.getTitle());
+        textViewGraphsMeetingDescContent.setText(informations.getDescription());
+        textViewGraphsCircleProgressCount.setText(informations.getActualPeople()
+                +"/"+informations.getExpectedPeople());
 
         buttonGraphsBack = view.findViewById(R.id.buttonGraphsBack);
         buttonGraphsBack.setOnClickListener(new View.OnClickListener() {
@@ -62,12 +74,9 @@ public class MeetingGraphViewFragment extends Fragment {
         return view;
     }
 
-    private void setCircularProgress() {
-        int progressCurrent = 50;
-        int progressMax = 100;
-
-        circularProgressBar.setProgress(progressCurrent);
-        circularProgressBar.setProgressMax(progressMax);
+    private void setCircularProgress(int current, int max) {
+        circularProgressBar.setProgress(current);
+        circularProgressBar.setProgressMax(max);
     }
 
 

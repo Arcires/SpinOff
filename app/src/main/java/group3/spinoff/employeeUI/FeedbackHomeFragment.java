@@ -25,6 +25,7 @@ import java.util.List;
 import group3.spinoff.R;
 import group3.spinoff.employeeUI.data.MeetingListElement;
 import group3.spinoff.employeeUI.views.FeedbackViewFragment;
+import group3.spinoff.employeeUI.views.meetinggraphview.MeetingGraphViewFragment;
 import group3.spinoff.firebase.FeedbackValueListener;
 import group3.spinoff.firebase.MeetingValueListener;
 
@@ -56,11 +57,45 @@ class FeedbackData {
 
         if(companymeetings!=null) {
             for (HashMap<String, Object> meet : companymeetings.values()) {
+                float q1_average = 0;
+                float q2_average = 0;
+                float q3_average = 0;
+
+                int actualpeople = 0;
+
+                try {
+                    HashMap<String, HashMap<String, HashMap<String, Object>>> list
+                            = (HashMap<String, HashMap<String, HashMap<String, Object>>>) meet.get("Feedback");
+
+                    HashMap<String, HashMap<String, Object>> answers = list.get("Answers");
+
+                    if(list != null){
+
+                        for(HashMap<String, Object> answer:answers.values()){
+                            ++actualpeople;
+
+                            q1_average = q1_average  + Float.parseFloat(answer.get("Q1").toString());
+                            q2_average = q2_average  + Float.parseFloat(answer.get("Q2").toString());
+                            q3_average = q3_average  + Float.parseFloat(answer.get("Q3").toString());
+                        }
+
+                        q1_average = q1_average / actualpeople;
+                        q2_average = q2_average / actualpeople;
+                        q3_average = q3_average / actualpeople;
+                    }
+                }catch(Exception e){
+                    e.printStackTrace();
+                }
 
                 meetings.add(new MeetingListElement()
                         .setTitle(meet.get("Title").toString())
                         .setDescription(meet.get("Desc").toString())
-                        .setActualPeople(Integer.parseInt(meet.get("ExpectedPeople").toString())));
+                        .setExpectedPeople(Integer.parseInt(meet.get("ExpectedPeople").toString()))
+                        .setActualPeople(actualpeople)
+                        .setQ1(q1_average)
+                        .setQ2(q2_average)
+                        .setQ3(q3_average));
+
             }
         }
         Log.d(TAG, "FEEDBACK: " + feedbacks);
@@ -211,10 +246,20 @@ public class FeedbackHomeFragment extends Fragment implements IDataObserver {
         public void onClick(View v) {
             final int position = getAdapterPosition();
 
-            FeedbackViewFragment.setValues(data.meetings.get(position));
+            if(!isCompany) {
+                FeedbackViewFragment feedbackViewFragment = new FeedbackViewFragment();
+                feedbackViewFragment.setValues(data.meetings.get(position));
 
-            getActivity().getSupportFragmentManager().beginTransaction().replace(
-                    R.id.frameLayoutEmployee, new FeedbackViewFragment()).commit();
+                getActivity().getSupportFragmentManager().beginTransaction().replace(
+                        R.id.frameLayoutEmployee, feedbackViewFragment).commit();
+
+            } else{
+                MeetingGraphViewFragment meetingGraphViewFragment = new MeetingGraphViewFragment();
+                meetingGraphViewFragment.setValues(data.meetings.get(position));
+
+                getActivity().getSupportFragmentManager().beginTransaction().replace(
+                        R.id.frameLayoutEmployee, meetingGraphViewFragment).commit();
+            }
 
         }
     }

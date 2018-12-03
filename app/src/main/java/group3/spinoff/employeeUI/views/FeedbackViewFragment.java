@@ -48,7 +48,7 @@ public class FeedbackViewFragment extends Fragment {
         // Required empty public constructor
     }
 
-    public static void setValues(MeetingListElement meetingListElement) {
+    public void setValues(MeetingListElement meetingListElement) {
         informations = meetingListElement;
     }
 
