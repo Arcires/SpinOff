@@ -44,7 +44,7 @@ public class CreateFeedbackViewFragment extends Fragment {
         this.pinCode = pinCode;
     }
 
-    //fragmentCreateFeedbackTitle
+//fragmentCreateFeedbackTitle
     //fragmentCreateFeedbackDescription
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -87,7 +87,7 @@ public class CreateFeedbackViewFragment extends Fragment {
 
                 reference.updateChildren(newFeedback);
 
-                String token = String.format("%x", (int) (Math.random() * 1000000));
+                String token = companyID+pinCode;
 
                 reference = database.getReference("User/" + userID + "/" + token);
 
