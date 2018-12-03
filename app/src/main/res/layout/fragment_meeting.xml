@@ -101,7 +101,7 @@
         android:layout_marginEnd="8dp"
         android:buttonTint="@color/colorPrimary"
         android:fontFamily="@font/futurabook"
-        android:text="Test møde"
+        android:text="@string/employee_ui_testmeetingtext"
         android:textColor="@color/colorPrimaryWhite"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -126,7 +126,7 @@
         android:buttonTint="@color/colorPrimary"
         android:fontFamily="@font/futurabook"
         android:onClick="onClick"
-        android:text="Test firma"
+        android:text="@string/company_login_test_comapnytext"
         android:textColor="@color/colorPrimaryWhite"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

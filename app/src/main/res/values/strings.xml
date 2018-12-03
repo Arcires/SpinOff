@@ -18,6 +18,8 @@
     <string name="company_login_login_failed">Login mislykkedes. Prøv igen.</string>
     <string name="company_login_login_success">Loggede ind på bruger</string>
     <string name="title_activity_main_employee_ui">MainEmployeeUI</string>
+    <string name="company_login_test_comapnytext">Test firma</string>
+
 
 
     //Employee main UI screen//
@@ -25,6 +27,7 @@
     <string name="employee_ui_meeting">Møder</string>
     <string name="employee_ui_more">Mere</string>
     <string name="employee_ui_statistics">Statistik</string>
+    <string name="employee_ui_testmeetingtext">Test møde</string>
 
 
     //Employee Meeting Fragment//

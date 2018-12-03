@@ -12,7 +12,10 @@ import android.widget.TextView;
 
 import com.mikhaellopez.circularprogressbar.CircularProgressBar;
 
+import java.util.Objects;
+
 import group3.spinoff.R;
+import group3.spinoff.employeeUI.FeedbackHomeFragment;
 import group3.spinoff.employeeUI.data.MeetingListElement;
 
 //Graph documentation: http://www.android-graphview.org/
@@ -64,7 +67,7 @@ public class MeetingGraphViewFragment extends Fragment {
 
             @Override
             public void onClick(View view) {
-                getActivity().finish();
+                Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutEmployee, new FeedbackHomeFragment()).commit();
             }
         });
 
