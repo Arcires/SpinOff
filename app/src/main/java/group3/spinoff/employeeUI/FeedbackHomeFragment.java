@@ -23,6 +23,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import group3.spinoff.R;
+import group3.spinoff.employeeUI.data.DummyUser;
 import group3.spinoff.employeeUI.data.MeetingListElement;
 import group3.spinoff.employeeUI.views.FeedbackViewFragment;
 import group3.spinoff.employeeUI.views.meetinggraphview.MeetingGraphViewFragment;
@@ -112,7 +113,7 @@ public class FeedbackHomeFragment extends Fragment implements IDataObserver {
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
     FirebaseUser user = mAuth.getCurrentUser();
 
-    private String userID = "DEFAULT_USER_ID_1";
+    private String userID = DummyUser.USERID;
     private String companyID = "001";
     private boolean isCompany = false;
     private boolean isConnectedToFeedback = false;
