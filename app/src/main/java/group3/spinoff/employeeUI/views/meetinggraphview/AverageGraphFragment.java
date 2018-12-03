@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.GridLabelRenderer;
+import com.jjoe64.graphview.series.BarGraphSeries;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
@@ -22,18 +24,45 @@ public class AverageGraphFragment extends Fragment {
 
         GraphView graph = view.findViewById(R.id.graphAverage);
 
-        LineGraphSeries<DataPoint> series = new LineGraphSeries<>(new DataPoint[]{
-                new DataPoint(0, 1),
-                new DataPoint(1, 5),
-                new DataPoint(2, 3)
-        });
-        graph.setTitle(getResources().getString(R.string.graphview_title_average));
-        graph.setTitleTextSize(56);
-        graph.addSeries(series);
+        setUpGraph(graph);
 
 
         return view;
 
+    }
+
+    private void setUpGraph(GraphView graph) {
+
+
+        GridLabelRenderer gridLabelRenderer = graph.getGridLabelRenderer();
+
+        BarGraphSeries<DataPoint> series = new BarGraphSeries<>(new DataPoint[]{
+                new DataPoint(1, 3),
+                new DataPoint(2, 5),
+                new DataPoint(3, 4)
+        });
+        series.setColor(getResources().getColor(R.color.colorPrimary));
+        series.setSpacing(15);
+        series.setDrawValuesOnTop(true);
+
+
+        gridLabelRenderer.setHorizontalAxisTitle("Spørgsmålsnummer");
+        gridLabelRenderer.setHorizontalAxisTitleColor(getResources().getColor(R.color.colorPrimaryWhite));
+        gridLabelRenderer.setVerticalAxisTitle("Antal point");
+        gridLabelRenderer.setVerticalAxisTitleColor(getResources().getColor(R.color.colorPrimaryWhite));
+        gridLabelRenderer.setGridColor(getResources().getColor(R.color.colorPrimaryWhite));
+        gridLabelRenderer.setHorizontalLabelsColor(getResources().getColor(R.color.colorPrimaryWhite));
+        gridLabelRenderer.setVerticalLabelsColor(getResources().getColor(R.color.colorPrimaryWhite));
+
+
+        graph.setTitle(getResources().getString(R.string.graphview_title_average));
+        graph.setTitleColor(getResources().getColor(R.color.colorPrimaryWhite));
+        graph.setTitleTextSize(56);
+        graph.setHorizontalScrollBarEnabled(true);
+
+
+
+        graph.addSeries(series);
     }
 
 }
