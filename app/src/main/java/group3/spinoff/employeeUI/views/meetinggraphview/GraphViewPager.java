@@ -2,9 +2,9 @@ package group3.spinoff.employeeUI.views.meetinggraphview;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 
-public class GraphViewPager extends FragmentPagerAdapter {
+public class GraphViewPager extends FragmentStatePagerAdapter {
 
     public GraphViewPager(FragmentManager fm) {
         super(fm);

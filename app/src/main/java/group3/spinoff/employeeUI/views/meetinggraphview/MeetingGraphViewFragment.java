@@ -64,7 +64,6 @@ public class MeetingGraphViewFragment extends Fragment {
 
         buttonGraphsBack = view.findViewById(R.id.buttonGraphsBack);
         buttonGraphsBack.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View view) {
                 Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutEmployee, new FeedbackHomeFragment()).commit();

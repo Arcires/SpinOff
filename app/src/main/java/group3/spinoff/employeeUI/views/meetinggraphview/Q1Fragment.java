@@ -27,6 +27,8 @@ public class Q1Fragment extends Fragment {
                 new DataPoint(1, 2),
                 new DataPoint(2, 2)
         });
+        graph.setTitle(getResources().getString(R.string.graphview_title_q1));
+        graph.setTitleTextSize(56);
         graph.addSeries(series);
 
         return view;

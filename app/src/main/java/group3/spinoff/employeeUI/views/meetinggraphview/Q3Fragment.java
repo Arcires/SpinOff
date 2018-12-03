@@ -13,25 +13,28 @@ import com.jjoe64.graphview.series.LineGraphSeries;
 
 import group3.spinoff.R;
 
-public class Q3Fragment extends Fragment{
+public class Q3Fragment extends Fragment {
 
-        @Override
-        public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            View view = inflater.inflate(R.layout.graphscreen_q3, container, false);
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.graphscreen_q3, container, false);
 
-            GraphView graph = view.findViewById(R.id.graph3);
+        GraphView graph = view.findViewById(R.id.graph3);
 
-            LineGraphSeries<DataPoint> series = new LineGraphSeries<>(new DataPoint[]{
-                    new DataPoint(0, 1),
-                    new DataPoint(1, 5),
-                    new DataPoint(2, 3)
-            });
-            graph.addSeries(series);
+        LineGraphSeries<DataPoint> series = new LineGraphSeries<>(new DataPoint[]{
+                new DataPoint(0, 1),
+                new DataPoint(1, 5),
+                new DataPoint(2, 3)
+        });
+        graph.setTitle(getResources().getString(R.string.graphview_title_q3));
+        graph.setTitleTextSize(56);
+
+        graph.addSeries(series);
 
 
-            return view;
+        return view;
 
-        }
+    }
 
 }

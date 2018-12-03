@@ -28,6 +28,9 @@ public class Q2Fragment extends Fragment {
                 new DataPoint(2, 3),
                 new DataPoint(3, 1)
         });
+        graph.setTitle(getResources().getString(R.string.graphview_title_q2));
+        graph.setTitleTextSize(56);
+
         graph.addSeries(series);
 
 

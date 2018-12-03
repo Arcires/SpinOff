@@ -27,6 +27,8 @@ public class AverageGraphFragment extends Fragment {
                 new DataPoint(1, 5),
                 new DataPoint(2, 3)
         });
+        graph.setTitle(getResources().getString(R.string.graphview_title_average));
+        graph.setTitleTextSize(56);
         graph.addSeries(series);
 
 

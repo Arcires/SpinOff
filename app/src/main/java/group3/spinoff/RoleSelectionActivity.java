@@ -51,6 +51,7 @@ public class RoleSelectionActivity extends AppCompatActivity implements View.OnC
     public void onClick(View view) {
         if (view == textViewCompanyLogin) {
             Intent i = new Intent(this, CompanyLoginActivity.class);
+            finish();
             startActivity(i);
         } else if (view == buttonEmployeeLogin) {
             mAuth.signInAnonymously().addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {

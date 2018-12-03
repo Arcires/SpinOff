@@ -29,6 +29,13 @@
     <string name="employee_ui_statistics">Statistik</string>
     <string name="employee_ui_testmeetingtext">Test møde</string>
 
+    //Graph views fragments//
+    <string name="graphview_title_average">Gennemsnit</string>
+    <string name="graphview_title_q1">Svar fra 1. spørgsmål</string>
+    <string name="graphview_title_q2">Svar fra 2. spørgsmål</string>
+    <string name="graphview_title_q3">Svar fra 3. spørgsmål</string>
+
+
 
     //Employee Meeting Fragment//
     <string name="employee_meeting_fragmenttext">Indtast møde PIN</string>
