@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    tools:context=".welcomepager.WelcomeActivity">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPagerWelcome"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true" />
+
+    <LinearLayout
+        android:id="@+id/dotsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="100dp"
+        android:gravity="center"
+        android:orientation="horizontal" />
+
+
+    <Button
+        android:id="@+id/buttonWelcomePagerNext"
+        android:layout_width="100dp"
+        android:layout_height="45dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/button_logingreen"
+        android:fontFamily="@font/futurabook"
+        android:text="@string/welcomepager_button_next"
+        android:textAllCaps="false"
+        android:textColor="@color/colorPrimaryWhite"
+        android:textSize="18sp" />
+
+
+    <Button
+        android:id="@+id/buttonWelcomePagerSkip"
+        android:layout_width="100dp"
+        android:layout_height="45dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/button_loginblue"
+        android:fontFamily="@font/futurabook"
+        android:text="@string/welcomepager_button_skip"
+        android:textAllCaps="false"
+        android:textColor="@color/colorPrimaryWhite"
+        android:textSize="18sp" />
+
+</RelativeLayout>

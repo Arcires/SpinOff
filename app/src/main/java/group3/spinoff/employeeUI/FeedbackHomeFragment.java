@@ -5,54 +5,134 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
+import java.util.HashMap;
 import java.util.List;
 
 import group3.spinoff.R;
+import group3.spinoff.employeeUI.data.MeetingListElement;
+import group3.spinoff.employeeUI.views.FeedbackViewFragment;
+import group3.spinoff.employeeUI.views.meetinggraphview.MeetingGraphViewFragment;
+import group3.spinoff.firebase.FeedbackValueListener;
+import group3.spinoff.firebase.MeetingValueListener;
 
-class LandeOgByerData {
-    List<String> lande = Arrays.asList("Danmark", "Norge", "Sverige", "Island", "Færøerne", "Finland",
-            "Frankrig", "Spanien", "Portugal", "Nepal", "Indien", "Kina", "Japan", "Thailand");
+import static android.support.constraint.Constraints.TAG;
 
-    List<List<String>> byer = Arrays.asList(
-            Arrays.asList("København", "Århus", "Odense", "Aalborg", "Ballerup"),
-            Arrays.asList("Oslo", "Trondheim"),
-            Arrays.asList("Stockholm", "Malmø", "Lund"),
-            Arrays.asList("Reykjavík", "Kópavogur", "Hafnarfjörður", "Dalvík"),
-            Arrays.asList("Tórshavn", "Klaksvík", "Fuglafjørður"),
-            Arrays.asList("Helsinki", "Espoo", "Tampere", "Vantaa"),
-            Arrays.asList("Paris", "Lyon"),
-            Arrays.asList("Madrid", "Barcelona", "Sevilla"),
-            Arrays.asList("Lissabon", "Porto"),
-            Arrays.asList("Kathmandu", "Bhaktapur"),
-            Arrays.asList("Mumbai", "Delhi", "Bangalore"),
-            Arrays.asList("Shanghai", "Zhengzhou"),
-            Arrays.asList("Tokyo", "Osaka", "Hiroshima", "Kawasaki", "Yokohama"),
-            Arrays.asList("Bankok", "Sura Thani", "Phuket"));
+class FeedbackData {
+    List<MeetingListElement> meetings;
+
+
+    public FeedbackData(FeedbackValueListener feedbackValueListener, MeetingValueListener meetingValueListener) {
+        HashMap<String, HashMap<String, Object>> feedbacks = feedbackValueListener.getFeedbacks();
+        HashMap<String, HashMap<String, Object>> companymeetings = meetingValueListener.getMeetings();
+
+        meetings = new ArrayList<>();
+
+        if(feedbacks!=null) {
+            for (HashMap<String, Object> feed : feedbacks.values()) {
+
+                meetings.add(new MeetingListElement()
+                        .setTitle(feed.get("Title").toString())
+                        .setDescription(feed.get("Desc").toString())
+                        .setComments(feed.get("Comment").toString())
+
+                        .setQ1(Float.parseFloat(feed.get("Q1").toString()))
+                        .setQ2(Float.parseFloat(feed.get("Q2").toString()))
+                        .setQ3(Float.parseFloat(feed.get("Q3").toString())));
+            }
+        }
+
+        if(companymeetings!=null) {
+            for (HashMap<String, Object> meet : companymeetings.values()) {
+                float q1_average = 0;
+                float q2_average = 0;
+                float q3_average = 0;
+
+                int actualpeople = 0;
+
+                try {
+                    HashMap<String, HashMap<String, HashMap<String, Object>>> list
+                            = (HashMap<String, HashMap<String, HashMap<String, Object>>>) meet.get("Feedback");
+
+                    HashMap<String, HashMap<String, Object>> answers = list.get("Answers");
+
+                    if(list != null){
+
+                        for(HashMap<String, Object> answer:answers.values()){
+                            ++actualpeople;
+
+                            q1_average = q1_average  + Float.parseFloat(answer.get("Q1").toString());
+                            q2_average = q2_average  + Float.parseFloat(answer.get("Q2").toString());
+                            q3_average = q3_average  + Float.parseFloat(answer.get("Q3").toString());
+                        }
+
+                        q1_average = q1_average / actualpeople;
+                        q2_average = q2_average / actualpeople;
+                        q3_average = q3_average / actualpeople;
+                    }
+                }catch(Exception e){
+                    e.printStackTrace();
+                }
+
+                meetings.add(new MeetingListElement()
+                        .setTitle(meet.get("Title").toString())
+                        .setDescription(meet.get("Desc").toString())
+                        .setExpectedPeople(Integer.parseInt(meet.get("ExpectedPeople").toString()))
+                        .setActualPeople(actualpeople)
+                        .setQ1(q1_average)
+                        .setQ2(q2_average)
+                        .setQ3(q3_average));
+
+            }
+        }
+        Log.d(TAG, "FEEDBACK: " + feedbacks);
+
+    }
 }
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FeedbackHomeFragment extends Fragment {
+public class FeedbackHomeFragment extends Fragment implements IDataObserver {
 
-    LandeOgByerData data = new LandeOgByerData();
+    FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    FirebaseUser user = mAuth.getCurrentUser();
 
-    HashSet<Integer> åbneLande = new HashSet<>(); // hvilke lande der lige nu er åbne
+    private String userID = "DEFAULT_USER_ID_1";
+    private String companyID = "001";
+    private boolean isCompany = false;
+    private boolean isConnectedToFeedback = false;
+    private boolean isConnectedToMeeting = false;
+
+    FeedbackValueListener feedbackValueListener;
+    MeetingValueListener meetingValueListener;
+
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference feedbackRef;
+    DatabaseReference meetingRef;
+
+    FeedbackData data;
 
     RecyclerView recyclerView;
 
+    public void refresh() {
+        data = new FeedbackData(feedbackValueListener, meetingValueListener);
+        adapter.notifyDataSetChanged();
+    }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -62,83 +142,86 @@ public class FeedbackHomeFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
         recyclerView.setAdapter(adapter);
 
-        //getActivity().setContentView(recyclerView);
+        feedbackValueListener = new FeedbackValueListener(this);
+        meetingValueListener = new MeetingValueListener(this);
 
-        if (savedInstanceState!=null) {
-            åbneLande = (HashSet<Integer>) savedInstanceState.getSerializable("åbneLande");
-            recyclerView.getLayoutManager().onRestoreInstanceState(savedInstanceState.getParcelable("liste"));
+        String email = user.getEmail();
+
+        if (email != null){
+            if(!email.isEmpty()){
+                isCompany = true;
+                companyID = email.split("\\.")[1];
+            }
         }
+
+        data = new FeedbackData(feedbackValueListener, meetingValueListener);
+
+        if (isCompany) {
+            try {
+                feedbackRef.removeEventListener(feedbackValueListener);
+            } catch (Exception e) {
+                e.getMessage();
+            }
+
+            if (!isConnectedToMeeting) {
+                meetingRef = database.getReference("Meeting/" + companyID);
+                meetingRef.addValueEventListener(meetingValueListener);
+                isConnectedToMeeting = true;
+            }
+        } else {
+            try {
+                meetingRef.removeEventListener(meetingValueListener);
+            } catch (Exception e) {
+                e.getMessage();
+            }
+
+            if (!isConnectedToFeedback) {
+                feedbackRef = database.getReference("User/" + userID);
+                feedbackRef.addValueEventListener(feedbackValueListener);
+                isConnectedToFeedback = true;
+            }
+        }
+
+
 
         return recyclerView;
     }
 
 
     @Override
-    public void onSaveInstanceState(Bundle outState) { // Understøttelse for skærmvending - kan evt udelades
+    public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putSerializable("åbneLande", åbneLande);
-        outState.putParcelable("liste", recyclerView.getLayoutManager().onSaveInstanceState());
     }
 
-    RecyclerView.Adapter adapter = new RecyclerView.Adapter<EkspanderbartListeelemViewholder>() {
+    RecyclerView.Adapter adapter = new RecyclerView.Adapter<ListViewHolder>() {
 
         @Override
-        public int getItemCount()  {
-            return data.lande.size();
+        public int getItemCount() {
+            return data.meetings.size();
         }
 
         @Override
-        public EkspanderbartListeelemViewholder onCreateViewHolder(ViewGroup parent, int viewType) {
-            LinearLayout rodLayout = new LinearLayout(parent.getContext());
-            rodLayout.setOrientation(LinearLayout.VERTICAL);
-            EkspanderbartListeelemViewholder vh = new EkspanderbartListeelemViewholder(rodLayout);
-            vh.rodLayout = rodLayout;
-            vh.landeview = getLayoutInflater().inflate(R.layout.lekt04_listeelement, parent, false);
-            vh.overskrift = vh.landeview.findViewById(R.id.listeelem_overskrift);
-            vh.beskrivelse = vh.landeview.findViewById(R.id.listeelem_beskrivelse);
-            vh.åbnLukBillede = vh.landeview.findViewById(R.id.listeelem_billede);
-            vh.landeview.setOnClickListener(vh);
-            vh.landeview.setBackgroundResource(android.R.drawable.list_selector_background); // giv visuelt feedback når der trykkes på baggrunden
-            vh.åbnLukBillede.setOnClickListener(vh);
-//      vh.åbnLukBillede.setBackgroundResource(android.R.drawable.btn_default);
-            vh.rodLayout.addView(vh.landeview);
+        public ListViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            LinearLayout linearLayout = new LinearLayout(parent.getContext());
+            linearLayout.setOrientation(LinearLayout.VERTICAL);
+            ListViewHolder vh = new ListViewHolder(linearLayout);
+            vh.linearLayout = linearLayout;
+            vh.feedbackView = getLayoutInflater().inflate(R.layout.feedback_list_elements, parent, false);
+            vh.titleTextView = vh.feedbackView.findViewById(R.id.feedback_list_elements_title);
+            vh.descriptionTextView = vh.feedbackView.findViewById(R.id.feedback_list_elements_description);
+            vh.logoImageView = vh.feedbackView.findViewById(R.id.feedback_list_elements_image);
+            vh.feedbackView.setOnClickListener(vh);
+            vh.feedbackView.setBackgroundResource(android.R.drawable.list_selector_background);
+            vh.logoImageView.setOnClickListener(vh);
+//      vh.logoImageView.setBackgroundResource(android.R.drawable.btn_default);
+            vh.linearLayout.addView(vh.feedbackView);
             return vh;
         }
 
         @Override
-        public void onBindViewHolder(EkspanderbartListeelemViewholder vh, int position) {
-            boolean åben = åbneLande.contains(position);
-            vh.overskrift.setText(data.lande.get(position) +" åben="+åben);
-            vh.beskrivelse.setText("Land nummer " + position + " på vh@"+Integer.toHexString(vh.hashCode()));
-
-            if (!åben) {
-                vh.åbnLukBillede.setImageResource(android.R.drawable.ic_input_add); // vis 'åbn' ikon
-                for (View underview : vh.underviews) underview.setVisibility(View.GONE); // skjul underelementer
-            } else {
-                vh.åbnLukBillede.setImageResource(android.R.drawable.ic_delete); // vis 'luk' ikon
-
-                List<String> byerILandet = data.byer.get(position);
-
-                while (vh.underviews.size()<byerILandet.size()) { // sørg for at der er nok underviews
-                    TextView underView = new TextView(vh.rodLayout.getContext());
-                    //underView.setPadding(0, 20, 0, 20);
-                    underView.setBackgroundResource(android.R.drawable.list_selector_background);
-                    underView.setOnClickListener(vh);      // lad viewholderen håndtere evt klik
-                    underView.setId(vh.underviews.size()); // unik ID så vi senere kan se hvilket af underviewne der klikkes på
-                    vh.rodLayout.addView(underView);
-                    vh.underviews.add(underView);
-                }
-
-                for (int i=0; i<vh.underviews.size(); i++) { // sæt underviews til at vise det rigtige indhold
-                    TextView underView = vh.underviews.get(i);
-                    if (i<byerILandet.size()) {
-                        underView.setText(byerILandet.get(i));
-                        underView.setVisibility(View.VISIBLE);
-                    } else {
-                        underView.setVisibility(View.GONE);      // for underviewet skal ikke bruges
-                    }
-                }
-            }
+        public void onBindViewHolder(ListViewHolder vh, int position) {
+            vh.titleTextView.setText(data.meetings.get(position).getTitle());
+            vh.descriptionTextView.setText(data.meetings.get(position).getDescription());  // TEXT HERE
         }
     };
 
@@ -148,15 +231,14 @@ public class FeedbackHomeFragment extends Fragment {
      * med findViewById() kun behøver at ske EN gang.
      * Se https://developer.android.com/training/material/lists-cards.html
      */
-    class EkspanderbartListeelemViewholder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        LinearLayout rodLayout;
-        TextView overskrift;
-        TextView beskrivelse;
-        ImageView åbnLukBillede;
-        View landeview;
-        ArrayList<TextView> underviews = new ArrayList<>();
+    class ListViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        LinearLayout linearLayout;
+        TextView titleTextView;
+        TextView descriptionTextView;
+        ImageView logoImageView;
+        View feedbackView;
 
-        public EkspanderbartListeelemViewholder(View itemView) {
+        public ListViewHolder(View itemView) {
             super(itemView);
         }
 
@@ -164,15 +246,21 @@ public class FeedbackHomeFragment extends Fragment {
         public void onClick(View v) {
             final int position = getAdapterPosition();
 
-            if (v == åbnLukBillede || v==landeview) { // Klik på billede åbner/lukker for listen af byer i dette land
-                boolean åben = åbneLande.contains(position);
-                if (åben) åbneLande.remove(position); // luk
-                else åbneLande.add(position); // åbn
-                adapter.notifyItemChanged(position);
-            } else {
-                int id = v.getId();
-                Toast.makeText(v.getContext(), "Klik på by nummer " + id + " i "+data.lande.get(position), Toast.LENGTH_SHORT).show();
+            if(!isCompany) {
+                FeedbackViewFragment feedbackViewFragment = new FeedbackViewFragment();
+                feedbackViewFragment.setValues(data.meetings.get(position));
+
+                getActivity().getSupportFragmentManager().beginTransaction().replace(
+                        R.id.frameLayoutEmployee, feedbackViewFragment).commit();
+
+            } else{
+                MeetingGraphViewFragment meetingGraphViewFragment = new MeetingGraphViewFragment();
+                meetingGraphViewFragment.setValues(data.meetings.get(position));
+
+                getActivity().getSupportFragmentManager().beginTransaction().replace(
+                        R.id.frameLayoutEmployee, meetingGraphViewFragment).commit();
             }
+
         }
     }
 

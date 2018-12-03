@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbarCreateMeeting"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@color/colorPrimary">
+
+            <Button
+                android:id="@+id/fragmentCreateMeetingBackButton"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="@drawable/ic_arrow_back" />
+
+            <TextView
+                android:id="@+id/fragmentFeedbackTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/futurabook"
+                android:text="@string/createmeeting_title"
+                android:textColor="@color/colorPrimaryWhite"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/toolbarCreateMeeting" />
+
+        </android.support.v7.widget.Toolbar>
+
+        <TextView
+            android:id="@+id/createMeetingIntro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/futurabook"
+            android:gravity="center"
+            android:text="@string/createmeeting_intro"
+            android:textColor="@color/colorPrimaryWhite"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbarCreateMeeting" />
+
+        <View
+            android:id="@+id/separatorDesc"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="2dp"
+            android:background="@color/colorPrimary"
+            app:layout_constraintTop_toBottomOf="@id/createMeetingIntro" />
+
+
+        <EditText
+            android:id="@+id/editTextCreateMeetingTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="8dp"
+            android:drawableStart="@drawable/ic_title"
+            android:ems="12"
+            android:hint="@string/createMeetingTitleHint"
+            android:inputType="text"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimaryWhite"
+            android:textColorHint="@color/colorPrimaryWhite"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/separatorDesc"
+            tools:ignore="Autofill" />
+
+        <EditText
+            android:id="@+id/editTextCreateMeetingDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="8dp"
+            android:drawableStart="@drawable/ic_library"
+            android:hint="@string/createMeetingDescHint"
+            android:inputType="textMultiLine"
+            android:lines="6"
+            android:maxLines="10"
+            android:minLines="3"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimaryWhite"
+            android:textColorHint="@color/colorPrimaryWhite"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextCreateMeetingTitle"
+            tools:ignore="Autofill" />
+
+        <EditText
+            android:id="@+id/editTextCreateMeetingAttendants"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="8dp"
+            android:drawableStart="@drawable/ic_peoplemeeting"
+            android:ems="10"
+            android:hint="@string/createMeetingCountHint"
+            android:inputType="number"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimaryWhite"
+            android:textColorHint="@color/colorPrimaryWhite"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextCreateMeetingDesc"
+            tools:ignore="Autofill" />
+
+        <Button
+            android:id="@+id/buttonCreateMeeting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/button_logingreen"
+            android:fontFamily="@font/futurabook"
+            android:text="@string/createMeetingButtonText"
+            android:textAllCaps="false"
+            android:textColor="@color/colorPrimaryWhite"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/editTextCreateMeetingAttendants" />
+
+
+    </android.support.constraint.ConstraintLayout>
+
+
+</android.support.constraint.ConstraintLayout>

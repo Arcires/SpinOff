@@ -8,5 +8,6 @@
     <color name="colorPrimaryBlue">#42a3c6</color>
     <color name="colorPrimaryWhite">#ffffff</color>
 
-
+    <color name="active_dots">#fffafa</color>
+    <color name="inactive_dots">#93978b</color>
 </resources>

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground">
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbarGraphs"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/colorPrimary">
+
+        <Button
+            android:id="@+id/buttonGraphsBack"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/ic_arrow_back" />
+
+        <TextView
+            android:id="@+id/textViewGraphsMainTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/futurabook"
+            android:text="@string/feedbackgraphs_maintitle"
+            android:textColor="@color/colorPrimaryWhite"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+    </android.support.v7.widget.Toolbar>
+
+    <TextView
+        android:id="@+id/textViewGraphsMeetingTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/futurabook"
+        android:text="@string/feedbackgraphs_meetingtitle"
+        android:textColor="@color/colorPrimaryWhite"
+        android:textSize="22sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbarGraphs"
+        app:layout_constraintWidth_percent="0.5" />
+
+    <TextView
+        android:id="@+id/textViewGraphsMeetingTitleContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/futurabook"
+        android:maxLines="1"
+        android:text="@string/feedbackgraphs_meetingtitle"
+        android:textColor="@color/colorPrimaryWhite"
+        android:textSize="18sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewGraphsMeetingTitle"
+        app:layout_constraintWidth_percent="0.5" />
+
+    <TextView
+        android:id="@+id/textViewGraphsMeetingDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/futurabook"
+        android:gravity="center"
+        android:text="@string/feedbackgraphs_meetingdescription"
+        android:textColor="@color/colorPrimaryWhite"
+        android:textSize="22sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewGraphsMeetingTitleContent"
+        app:layout_constraintWidth_percent="0.5" />
+
+    <TextView
+        android:id="@+id/textViewGraphsMeetingDescContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/futurabook"
+        android:maxLines="1"
+        android:text="@string/feedbackgraphs_meetingdescription"
+        android:textColor="@color/colorPrimaryWhite"
+        android:textSize="18sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewGraphsMeetingDesc"
+        app:layout_constraintWidth_percent="0.5" />
+
+
+    <View
+        android:id="@+id/separatorInfo"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="2dp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintTop_toBottomOf="@id/textViewGraphsMeetingDescContent" />
+
+    <com.mikhaellopez.circularprogressbar.CircularProgressBar
+        android:id="@+id/circleProgressAnswerCount"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:cpb_background_progressbar_color="@color/colorPrimaryWhite"
+        app:cpb_background_progressbar_width="10dp"
+        app:cpb_progressbar_color="@color/colorPrimary"
+        app:cpb_progressbar_width="10dp"
+        app:layout_constraintBottom_toTopOf="@id/separatorInfo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarGraphs" />
+
+
+    <TextView
+        android:id="@+id/textViewGraphsCircProgressCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/futurabook"
+        android:maxLines="2"
+        android:text="@string/feedbackgraphs_meetinganswercount"
+        android:textColor="@color/colorPrimaryWhite"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@id/circleProgressAnswerCount"
+        app:layout_constraintEnd_toEndOf="@id/circleProgressAnswerCount"
+        app:layout_constraintStart_toStartOf="@id/circleProgressAnswerCount"
+        app:layout_constraintTop_toTopOf="@id/circleProgressAnswerCount" />
+
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPagerGraphs"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/separatorInfo" />
+
+    <LinearLayout
+        android:id="@+id/dotsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@id/viewPagerGraphs" />
+
+
+</android.support.constraint.ConstraintLayout>

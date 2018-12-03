@@ -61,7 +61,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/button_logingreen"
         android:fontFamily="@font/futurabook"
@@ -71,7 +71,7 @@
         android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextEmployeeMeetingEnter" />
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxTestMeeting" />
 
 
     <Button
@@ -90,4 +90,22 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonSearchMeeting" />
+
+
+    <CheckBox
+        android:id="@+id/checkBoxTestMeeting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:buttonTint="@color/colorPrimary"
+        android:fontFamily="@font/futurabook"
+        android:text="@string/employee_ui_testmeetingtext"
+        android:textColor="@color/colorPrimaryWhite"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextEmployeeMeetingEnter" />
+
+
 </android.support.constraint.ConstraintLayout>
