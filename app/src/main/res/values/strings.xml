@@ -60,7 +60,7 @@
     <string name="createMeetingCountHint">Antal deltagere</string>
     <string name="createMeetingButtonText">Opret nyt møde</string>
     <string name="createMeetingLinkText">Hej alle.\nJeg har lavet et møde via SpinOff, med PIN-koden: </string>
-    <string name="createMeetingButtonText">Tryk på knappen for at kopiere et link til mødet</string>
+    <string name="createMeetingButtonTextNewText">Tryk på knappen for at kopiere et link til mødet</string>
     <string name="createMeetingCreationConfirmation">Møde oprettet. Pinkoden til mødet er: </string>
     <string name="createMeetingCreationToast">Pinkoden er: </string>
     <string name="createMeetingLinkCopy">Link kopieret</string>
