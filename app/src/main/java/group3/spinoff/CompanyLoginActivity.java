@@ -3,6 +3,7 @@ package group3.spinoff;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -12,10 +13,12 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import androidx.appcompat.widget.Toolbar;
 import group3.spinoff.employeeUI.MainEmployeeUI;
 
 public class CompanyLoginActivity extends AppCompatActivity implements View.OnClickListener {
@@ -25,6 +28,7 @@ public class CompanyLoginActivity extends AppCompatActivity implements View.OnCl
     private EditText editTextCompanyMail, editTextCompanyPass;
 
     private FirebaseAuth mAuth;
+    private Toolbar toolbar;
 
 
     @Override
@@ -43,6 +47,16 @@ public class CompanyLoginActivity extends AppCompatActivity implements View.OnCl
 
         mAuth = FirebaseAuth.getInstance();
 
+        toolbar = findViewById(R.id.toolbarSettings);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setCustomView(R.layout.actionbar);
+        TextView tv = getSupportActionBar().getCustomView().findViewById(R.id.tvTitle);
+        tv.setText("Firma log ind");
+        getSupportActionBar().setHomeAsUpIndicator(getResources().getDrawable(R.drawable.ic_arrow_back));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
     }
 
     @Override
@@ -52,13 +66,14 @@ public class CompanyLoginActivity extends AppCompatActivity implements View.OnCl
             String mail = editTextCompanyMail.getText().toString();
             String pass = editTextCompanyPass.getText().toString();
 
-            if (mail.equals("") || pass.equals("")) {
+            if (mail.isEmpty() || pass.isEmpty()) {
                 Toast.makeText(this, "Indtast venligst både mail og password", Toast.LENGTH_SHORT).show();
             }
             firebaseSignIn(mail, pass);
 
         } else if (view == textViewLoginHelp) {
-            Toast.makeText(this, "Trykkede på Glemt kodeord", Toast.LENGTH_SHORT).show();
+            Snackbar.make(view, R.string.snackbar_forgot_pass, Snackbar.LENGTH_SHORT).show();
+            //Toast.makeText(this, "Trykkede på Glemt kodeord", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -80,5 +95,11 @@ public class CompanyLoginActivity extends AppCompatActivity implements View.OnCl
             }
         });
 
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }

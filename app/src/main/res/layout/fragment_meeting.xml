@@ -10,17 +10,14 @@
 
     <TextView
         android:id="@+id/textViewEmployeeMeetingText"
+        style="@style/AppTheme.Headline"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:fontFamily="@font/futurabook"
         android:text="@string/employee_meeting_fragmenttext"
         android:textAlignment="center"
-        android:textColor="@color/colorPrimaryWhite"
-        android:textSize="28sp"
-        app:layout_constraintTop_toBottomOf="@id/imageViewLogoEmployeeMeeting" />
+        app:layout_constraintTop_toBottomOf="@id/imageViewLogoEmployeeMeeting"
+        tools:layout_editor_absoluteX="8dp" />
 
     <!--<EditText
         android:id="@+id/editTextEmployeeMeetingEnter"

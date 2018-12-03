@@ -18,8 +18,12 @@ import group3.spinoff.AppInfoActivity;
 import group3.spinoff.R;
 import group3.spinoff.RoleSelectionActivity;
 
-public class MoreFragment extends Fragment {
+public class MoreFragment extends Fragment implements View.OnClickListener {
 
+    private Button buttonSettings;
+    private Button buttonAccount;
+    private Button buttonHelp;
+    private Button buttonLogout;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -31,6 +35,18 @@ public class MoreFragment extends Fragment {
         final Button buttonAboutUs = view.findViewById(R.id.buttonMoreAboutUs);
         final Button buttonLogOut = view.findViewById(R.id.buttonMoreLogOut);
         */
+
+        buttonSettings = view.findViewById(R.id.buttonMoreSettings);
+        buttonSettings.setOnClickListener(this);
+
+        buttonAccount = view.findViewById(R.id.buttonMoreAccount);
+        buttonAccount.setOnClickListener(this);
+
+        buttonHelp = view.findViewById(R.id.buttonMoreHelp);
+        buttonHelp.setOnClickListener(this);
+
+        buttonLogout = view.findViewById(R.id.buttonMoreLogout);
+        buttonLogout.setOnClickListener(this);
 
         final FirebaseAuth mAuth = FirebaseAuth.getInstance();
         final FirebaseUser user = mAuth.getCurrentUser();
@@ -83,5 +99,16 @@ public class MoreFragment extends Fragment {
         */
 
         return view;
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.buttonMoreSettings:
+                Intent i = new Intent(getContext(), SettingsActivity.class);
+                startActivity(i);
+                break;
+        }
+
     }
 }

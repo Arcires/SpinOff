@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -19,63 +20,32 @@
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbarFeedback"
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:background="@color/colorPrimary">
-
-                <Button
-                    android:id="@+id/fragmentFeedbackBackButton"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:background="@drawable/ic_arrow_back" />
-
-                <TextView
-                    android:id="@+id/fragmentFeedbackTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:fontFamily="@font/futurabook"
-                    android:text="Meeting title"
-                    android:textColor="@color/colorPrimaryWhite"
-                    android:textSize="22sp"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/toolbarFeedback" />
-            </androidx.appcompat.widget.Toolbar>
+                android:layout_height="wrap_content"
+                android:theme="@style/ToolbarTheme"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
 
             <TextView
                 android:id="@+id/fragmentFeedbackDescription"
+                style="@style/AppTheme.Headline"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
-                android:fontFamily="@font/futurabook"
                 android:text="Meeting description"
-                android:textColor="@color/colorPrimaryWhite"
-                android:textSize="18sp"
-                android:textStyle="italic"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/toolbarFeedback"
-                tools:layout_editor_absoluteY="49dp" />
+                app:layout_constraintTop_toBottomOf="@id/toolbarFeedback" />
 
             <TextView
                 android:id="@+id/fragmentFeedbackQ1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginEnd="8dp"
-                android:fontFamily="@font/futurabook"
+                android:layout_marginTop="24dp"
                 android:text="Question 1"
-                android:textColor="@color/colorPrimaryWhite"
-                android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/fragmentFeedbackDescription" />
 
@@ -91,27 +61,16 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/fragmentFeedbackQ1" />
 
-            <View
-                android:id="@+id/separatorQ1"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/colorPrimary"
-                app:layout_constraintTop_toBottomOf="@id/ratingBarFeedback1" />
-
 
             <TextView
                 android:id="@+id/fragmentFeedbackQ2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="8dp"
-                android:fontFamily="@font/futurabook"
+                android:layout_marginTop="16dp"
                 android:text="Question 2"
-                android:textColor="@color/colorPrimaryWhite"
-                android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/separatorQ1" />
+                app:layout_constraintTop_toBottomOf="@+id/ratingBarFeedback1" />
 
             <RatingBar
                 android:id="@+id/ratingBarFeedback2"
@@ -125,26 +84,15 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/fragmentFeedbackQ2" />
 
-            <View
-                android:id="@+id/separatorQ2"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/colorPrimary"
-                app:layout_constraintTop_toBottomOf="@id/ratingBarFeedback2" />
-
             <TextView
                 android:id="@+id/fragmentFeedbackQ3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="8dp"
-                android:fontFamily="@font/futurabook"
+                android:layout_marginTop="16dp"
                 android:text="Question 3"
-                android:textColor="@color/colorPrimaryWhite"
-                android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/separatorQ2" />
+                app:layout_constraintTop_toBottomOf="@+id/ratingBarFeedback2" />
 
             <RatingBar
                 android:id="@+id/ratingBarFeedback3"
@@ -158,49 +106,41 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/fragmentFeedbackQ3" />
 
-            <View
-                android:id="@+id/separatorQ3"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout2"
+                style="@style/AppTheme.TextInputLayout"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/colorPrimary"
-                app:layout_constraintTop_toBottomOf="@id/ratingBarFeedback3" />
-
-            <EditText
-                android:id="@+id/fragmentFeedbackComment"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="8dp"
-                android:drawableStart="@drawable/ic_comment"
-                android:ems="6"
-                android:fontFamily="@font/futurabook"
-                android:gravity="center"
-                android:inputType="textMultiLine"
-                android:lines="2"
-                android:maxLines="2"
-                android:text="Comment section"
-                android:textColor="@color/colorPrimaryWhite"
-                android:textSize="22sp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/separatorQ3"
-                tools:ignore="Autofill" />
+                app:layout_constraintTop_toBottomOf="@+id/ratingBarFeedback3">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/fragmentFeedbackComment"
+                    style="@style/AppTheme.TextInputEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Comment section"
+                    android:inputType="textMultiLine"
+                    android:maxLines="1"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="20dp" />
+            </com.google.android.material.textfield.TextInputLayout>
 
 
             <Button
                 android:id="@+id/buttonSubmitFeedback"
-                android:layout_width="100dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="8dp"
-                android:background="@drawable/button_logingreen"
-                android:fontFamily="@font/futurabook"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
                 android:text="@string/createfeedback_submit_button_text"
                 android:textAllCaps="false"
-                android:textColor="@color/colorPrimaryWhite"
-                android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/separatorQ3" />
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">SpinOff</string>
 
+    <string name="placeholder_text" translatable="false">Placeholder</string>
+
     //Login screen//
     <string name="login_employee">Medarbejder</string>
     <string name="login_company">Log ind som firma</string>
@@ -58,6 +60,12 @@
 
     //CreateFeedback fragment//
     <string name="createfeedback_submit_button_text">+ Tilføj feedback</string>
+
+    <string name="snackbar_email_pass_empty">Indtast venligst både mail og password</string>
+    <string name="snackbar_forgot_pass">Trykkede på Glemt kodeord</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>

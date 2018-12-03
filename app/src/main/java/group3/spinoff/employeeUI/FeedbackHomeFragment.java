@@ -147,62 +147,62 @@ public class FeedbackHomeFragment extends Fragment {
     RecyclerView.Adapter adapter = new RecyclerView.Adapter<ListViewHolder>() {
 
         @Override
-        public int getItemCount() {
-            return data.meetings.size();
-        }
-
-        @Override
-        public ListViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            LinearLayout linearLayout = new LinearLayout(parent.getContext());
-            linearLayout.setOrientation(LinearLayout.VERTICAL);
-            ListViewHolder vh = new ListViewHolder(linearLayout);
-            vh.linearLayout = linearLayout;
-            vh.feedbackView = getLayoutInflater().inflate(R.layout.feedback_list_elements, parent, false);
-            vh.titleTextView = vh.feedbackView.findViewById(R.id.feedback_list_elements_title);
-            vh.descriptionTextView = vh.feedbackView.findViewById(R.id.feedback_list_elements_description);
-            vh.logoImageView = vh.feedbackView.findViewById(R.id.feedback_list_elements_image);
-            vh.feedbackView.setOnClickListener(vh);
-            vh.feedbackView.setBackgroundResource(android.R.drawable.list_selector_background);
-            vh.logoImageView.setOnClickListener(vh);
-//      vh.logoImageView.setBackgroundResource(android.R.drawable.btn_default);
-            vh.linearLayout.addView(vh.feedbackView);
-            return vh;
-        }
-
-        @Override
-        public void onBindViewHolder(ListViewHolder vh, int position) {
-            vh.titleTextView.setText(data.meetings.get(position).getCompanyName());
-            vh.descriptionTextView.setText(data.meetings.get(position).getDescription());  // TEXT HERE
-        }
-    };
-
-
-    /**
-     * En Viewholder husker forskellige views i et listeelement, sådan at søgninger i viewhierakiet
-     * med findViewById() kun behøver at ske EN gang.
-     * Se https://developer.android.com/training/material/lists-cards.html
-     */
-    class ListViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        LinearLayout linearLayout;
-        TextView titleTextView;
-        TextView descriptionTextView;
-        ImageView logoImageView;
-        View feedbackView;
-
-        public ListViewHolder(View itemView) {
-            super(itemView);
-        }
-
-        @Override
-        public void onClick(View v) {
-            final int position = getAdapterPosition();
-
-            FeedbackViewFragment.setValues(data.meetings.get(position));
-
-            getActivity().getSupportFragmentManager().beginTransaction().replace(
-                    R.id.frameLayoutEmployee, new FeedbackViewFragment()).commit();
-
-        }
+    public int getItemCount() {
+        return data.meetings.size();
     }
+
+    @Override
+    public ListViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        LinearLayout linearLayout = new LinearLayout(parent.getContext());
+        linearLayout.setOrientation(LinearLayout.VERTICAL);
+        ListViewHolder vh = new ListViewHolder(linearLayout);
+        vh.linearLayout = linearLayout;
+        vh.feedbackView = getLayoutInflater().inflate(R.layout.feedback_list_elements, parent, false);
+        vh.titleTextView = vh.feedbackView.findViewById(R.id.feedback_list_elements_title);
+        vh.descriptionTextView = vh.feedbackView.findViewById(R.id.feedback_list_elements_description);
+        //vh.logoImageView = vh.feedbackView.findViewById(R.id.feedback_list_elements_image);
+        vh.feedbackView.setOnClickListener(vh);
+        vh.feedbackView.setBackgroundResource(android.R.drawable.list_selector_background);
+        //vh.logoImageView.setOnClickListener(vh);
+//      vh.logoImageView.setBackgroundResource(android.R.drawable.btn_default);
+        vh.linearLayout.addView(vh.feedbackView);
+        return vh;
+    }
+
+    @Override
+    public void onBindViewHolder(ListViewHolder vh, int position) {
+        vh.titleTextView.setText(data.meetings.get(position).getCompanyName());
+        vh.descriptionTextView.setText(data.meetings.get(position).getDescription());  // TEXT HERE
+    }
+};
+
+
+/**
+ * En Viewholder husker forskellige views i et listeelement, sådan at søgninger i viewhierakiet
+ * med findViewById() kun behøver at ske EN gang.
+ * Se https://developer.android.com/training/material/lists-cards.html
+ */
+class ListViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    LinearLayout linearLayout;
+    TextView titleTextView;
+    TextView descriptionTextView;
+    ImageView logoImageView;
+    View feedbackView;
+
+    public ListViewHolder(View itemView) {
+        super(itemView);
+    }
+
+    @Override
+    public void onClick(View v) {
+        final int position = getAdapterPosition();
+
+        FeedbackViewFragment.setValues(data.meetings.get(position));
+
+        getActivity().getSupportFragmentManager().beginTransaction().add(
+                R.id.frameLayoutEmployee, new FeedbackViewFragment()).addToBackStack("FeedbackListItem").commit();
+
+    }
+}
 
 }

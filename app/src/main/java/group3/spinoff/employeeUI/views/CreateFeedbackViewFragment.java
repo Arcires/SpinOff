@@ -29,16 +29,9 @@ public class CreateFeedbackViewFragment extends Fragment {
         ratingBarView_Q2 = view.findViewById(R.id.ratingBarFeedback2);
         ratingBarView_Q3 = view.findViewById(R.id.ratingBarFeedback3);
 
-        final Button buttonfeedbackViewBack = view.findViewById(R.id.buttonSubmitFeedback);
-        final Button buttonfeedbackViewSubmit = view.findViewById(R.id.fragmentFeedbackBackButton);
+        final Button buttonFeedbackViewSubmit = view.findViewById(R.id.buttonSubmitFeedback);
 
-        buttonfeedbackViewBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getActivity().finish();
-            }
-        });
-        buttonfeedbackViewSubmit.setOnClickListener(new View.OnClickListener() {
+        buttonFeedbackViewSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(view.getContext(), "[Tilføj logik her!]", Toast.LENGTH_SHORT).show();

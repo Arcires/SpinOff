@@ -1,62 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@android:color/background_dark"
-    android:backgroundTint="@android:color/holo_green_dark"
-    android:padding="20dp"
-    tools:background="@android:color/black">
+    android:background="@drawable/simple_list_button"
+    android:clickable="true"
+    android:focusable="true">
 
 
-    <ImageView
-        android:id="@+id/feedback_list_elements_image"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="5dip"
-        android:layout_marginLeft="5dip"
-        android:layout_marginTop="5dip"
-        android:layout_marginEnd="5dip"
-        android:layout_marginRight="5dip"
-        android:layout_marginBottom="5dip"
-        android:scaleType="centerCrop"
-        android:src="@drawable/ic_business" />
-
-    <TextView
-        android:id="@+id/feedback_list_elements_meetingornot"
+    <View
+        android:id="@+id/divider"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/feedback_list_elements_title"
-        android:layout_marginStart="-3dp"
-        android:layout_marginTop="-15dp"
-        android:layout_toEndOf="@+id/feedback_list_elements_image"
-        android:textColor="@android:color/holo_orange_dark"
-        android:textSize="12sp"
-        android:textStyle="bold" />
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/feedback_list_elements_title"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/feedback_list_elements_image"
-        android:layout_marginStart="-10dp"
-        android:layout_marginTop="11dp"
-        android:layout_toEndOf="@+id/feedback_list_elements_image"
-        android:text="TITLE"
-        android:textColor="@android:color/white"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/placeholder_text"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/feedback_list_elements_description"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/feedback_list_elements_title"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="-2dp"
-        android:text="description"
-        android:textColor="@android:color/white"
-        android:textSize="12sp" />
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/placeholder_text"
+        android:textColor="@color/lightText"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/feedback_list_elements_title" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:contentDescription="go_to_feedback_item"
+        android:tint="@color/lightText"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_chevron_right" />
 
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

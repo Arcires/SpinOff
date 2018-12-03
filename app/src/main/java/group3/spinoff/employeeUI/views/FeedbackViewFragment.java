@@ -4,7 +4,12 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -90,7 +95,7 @@ public class FeedbackViewFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_feedback_view, container, false);
 
-        titleView = view.findViewById(R.id.fragmentFeedbackTitle);
+        //titleView = view.findViewById(R.id.fragmentFeedbackTitle);
         descriptionView = view.findViewById(R.id.fragmentFeedbackDescription);
         commentView = view.findViewById(R.id.fragmentFeedbackComment);
 
@@ -98,7 +103,7 @@ public class FeedbackViewFragment extends Fragment {
         ratingBarView_Q2 = view.findViewById(R.id.ratingBarFeedback2);
         ratingBarView_Q3 = view.findViewById(R.id.ratingBarFeedback3);
 
-        titleView.setText(informations.getCompanyName());
+        //titleView.setText(informations.getCompanyName());
         descriptionView.setText(informations.getDescription());
         commentView.setText(informations.getComments());
 
@@ -106,14 +111,28 @@ public class FeedbackViewFragment extends Fragment {
         ratingBarView_Q2.setRating(informations.getQ2());
         ratingBarView_Q3.setRating(informations.getQ3());
 
-        backArrow = view.findViewById(R.id.fragmentFeedbackBackButton);
-        backArrow.setOnClickListener(new View.OnClickListener() {
+        Toolbar toolbar = view.findViewById(R.id.toolbarFeedback);
+        ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
+        ActionBar ab = ((AppCompatActivity) getActivity()).getSupportActionBar();
+
+        ab.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        ab.setCustomView(R.layout.actionbar);
+        ab.setHomeAsUpIndicator(getResources().getDrawable(R.drawable.ic_arrow_back));
+
+        ab.setDisplayHomeAsUpEnabled(true);
+        ab.setDisplayShowHomeEnabled(true);
+
+
+        TextView tv = ab.getCustomView().findViewById(R.id.tvTitle);
+        tv.setText(informations.getCompanyName());
+        //backArrow = view.findViewById(R.id.fragmentFeedbackBackButton);
+        /*backArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Doesn't actually go back, but rather recreates the previous fragment again.
                 Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutEmployee, new FeedbackHomeFragment()).commit();
             }
-        });
+        });*/
 
         return view;
     }

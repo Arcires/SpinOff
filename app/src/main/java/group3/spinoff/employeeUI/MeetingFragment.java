@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -44,7 +45,7 @@ public class MeetingFragment extends Fragment {
         // If they have a user mail, they are registered company.
         try {
             if (user.getEmail() == null || user.getEmail().isEmpty()) {
-                buttonCreateMeeting.setVisibility(View.INVISIBLE);
+                //buttonCreateMeeting.setVisibility(View.INVISIBLE);
             }
 
         } catch (Exception e) {
@@ -55,8 +56,8 @@ public class MeetingFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 getActivity().getSupportFragmentManager().beginTransaction().replace(
-                        R.id.frameLayoutEmployee, new CreateMeetingViewFragment()).commit();
-                Toast.makeText(view.getContext(), "Trykkede på Lav nyt møde.", Toast.LENGTH_SHORT).show();
+                        R.id.frameLayoutEmployee, new CreateMeetingViewFragment()).addToBackStack("CreateMeeting").commit();
+                //Toast.makeText(view.getContext(), "Trykkede på Lav nyt møde.", Toast.LENGTH_SHORT).show();
             }
         });
 

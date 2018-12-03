@@ -25,7 +25,7 @@
         android:id="@+id/navigation_employee"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:itemBackground="@color/colorSecondary"
+        app:itemBackground="@color/colorPrimaryDark"
         app:itemIconTint="@drawable/bottom_nav_item_state_color"
         app:itemTextColor="@drawable/bottom_nav_item_state_color"
         app:layout_constraintBottom_toBottomOf="parent"

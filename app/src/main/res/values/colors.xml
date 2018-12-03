@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#8ec642</color>
-    <color name="colorSecondary">#1c1c23</color>
+    <color name="colorPrimaryDark">#1c1c23</color>
 
-    <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#8fc643</color>
     <!--<color name="colorAccent">#D81B60</color>-->
     <color name="colorBackground">#32343D</color>
@@ -14,7 +13,9 @@
     <color name="inactive_dots">#93978b</color>
 
     <color name="colorWhite">#ffffff</color>
+    <color name="lightText">#90919b</color>
     <color name="bottomNavigationInactive">#757575</color>
     <color name="colorInactive">#757575</color>
     <color name="textFieldBackground">#2A2B33</color>
+    <color name="darkRipple">#32333c</color>
 </resources>

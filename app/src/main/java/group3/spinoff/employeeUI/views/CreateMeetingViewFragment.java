@@ -2,14 +2,19 @@ package group3.spinoff.employeeUI.views;
 
 import android.os.Bundle;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -39,20 +44,33 @@ public class CreateMeetingViewFragment extends Fragment {
         final EditText editTextCreateMeetingDesc = view.findViewById(R.id.editTextCreateMeetingDesc);
         final EditText editTextCreateMeetingAttendants = view.findViewById(R.id.editTextCreateMeetingAttendants);
 
-        final Button buttonCreateMeetingExit = view.findViewById(R.id.fragmentCreateMeetingBackButton);
         final Button buttonCreateMeeting = view.findViewById(R.id.buttonCreateMeeting);
 
+        Toolbar toolbar = view.findViewById(R.id.toolbarCreateMeeting);
+        ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
 
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setCustomView(R.layout.actionbar);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setHomeAsUpIndicator(getResources().getDrawable(R.drawable.ic_arrow_back));
+
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        TextView tv = ((AppCompatActivity)getActivity()).getSupportActionBar().getCustomView().findViewById(R.id.tvTitle);
+        tv.setText("Opret nyt møde");
+        /*
         buttonCreateMeetingExit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(view.getContext(), "Exited meeting creation.", Toast.LENGTH_SHORT).show();
             }
         });
+        */
 
         buttonCreateMeeting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
 
                 if (!editTextCreateMeetingTitle.getText().toString().isEmpty()
                         && !editTextCreateMeetingDesc.getText().toString().isEmpty()
@@ -73,6 +91,7 @@ public class CreateMeetingViewFragment extends Fragment {
 
                     Toast.makeText(view.getContext(), "The PIN Code is : " + company + random, Toast.LENGTH_SHORT).show();
                 }
+                Snackbar.make(view.findViewById(R.id.frameLayoutEmployee), "trykkede på nyt møde", Snackbar.LENGTH_LONG).show();
             }
         });
 
