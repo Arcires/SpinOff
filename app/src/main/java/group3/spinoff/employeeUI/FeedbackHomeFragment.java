@@ -89,13 +89,14 @@ class FeedbackData {
                 }
 
                 meetings.add(new MeetingListElement()
-                        .setTitle(meet.get("Title").toString())
+                        .setTitle((String) meet.get("Title"))
                         .setDescription(meet.get("Desc").toString())
                         .setExpectedPeople(Integer.parseInt(meet.get("ExpectedPeople").toString()))
                         .setActualPeople(actualpeople)
                         .setQ1(q1_average)
                         .setQ2(q2_average)
-                        .setQ3(q3_average));
+                        .setQ3(q3_average)
+                        .setComments((String) meet.get("Comment")));
 
             }
         }

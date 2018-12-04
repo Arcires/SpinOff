@@ -70,8 +70,11 @@ public class MeetingGraphViewFragment extends Fragment {
             }
         });
 
+        GraphViewPager graphViewPager = new GraphViewPager(getActivity().getSupportFragmentManager());
+        graphViewPager.setValues(informations);
+
         viewPager = view.findViewById(R.id.viewPagerGraphs);
-        viewPager.setAdapter(new GraphViewPager(getActivity().getSupportFragmentManager()));
+        viewPager.setAdapter(graphViewPager);
 
         return view;
     }

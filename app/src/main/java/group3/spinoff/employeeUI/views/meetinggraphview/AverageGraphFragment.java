@@ -14,8 +14,15 @@ import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
 import group3.spinoff.R;
+import group3.spinoff.employeeUI.data.MeetingListElement;
 
 public class AverageGraphFragment extends Fragment {
+
+    MeetingListElement informations;
+
+    public void setValues(MeetingListElement meetingListElement){
+        this.informations = meetingListElement;
+    }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -37,14 +44,14 @@ public class AverageGraphFragment extends Fragment {
         GridLabelRenderer gridLabelRenderer = graph.getGridLabelRenderer();
 
         BarGraphSeries<DataPoint> series = new BarGraphSeries<>(new DataPoint[]{
-                new DataPoint(1, 3),
-                new DataPoint(2, 5),
-                new DataPoint(3, 4)
+                new DataPoint(1, 1),
+                new DataPoint(1, informations.getQ1()),
+                new DataPoint(2, informations.getQ2()),
+                new DataPoint(3, informations.getQ3())
         });
         series.setColor(getResources().getColor(R.color.colorPrimary));
         series.setSpacing(15);
         series.setDrawValuesOnTop(true);
-
 
         gridLabelRenderer.setHorizontalAxisTitle(getResources().getString(R.string.grapview_graphxlabel));
         gridLabelRenderer.setHorizontalAxisTitleColor(getResources().getColor(R.color.colorPrimaryWhite));
