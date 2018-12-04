@@ -44,7 +44,7 @@ public class AverageGraphFragment extends Fragment {
         GridLabelRenderer gridLabelRenderer = graph.getGridLabelRenderer();
 
         BarGraphSeries<DataPoint> series = new BarGraphSeries<>(new DataPoint[]{
-                new DataPoint(1, 1),
+                new DataPoint(1, 0),
                 new DataPoint(1, informations.getQ1()),
                 new DataPoint(2, informations.getQ2()),
                 new DataPoint(3, informations.getQ3())

@@ -64,6 +64,8 @@ class FeedbackData {
 
                 int actualpeople = 0;
 
+                ArrayList<String> commentsList = new ArrayList<>();
+
                 try {
                     HashMap<String, HashMap<String, HashMap<String, Object>>> list
                             = (HashMap<String, HashMap<String, HashMap<String, Object>>>) meet.get("Feedback");
@@ -78,6 +80,8 @@ class FeedbackData {
                             q1_average = q1_average  + Float.parseFloat(answer.get("Q1").toString());
                             q2_average = q2_average  + Float.parseFloat(answer.get("Q2").toString());
                             q3_average = q3_average  + Float.parseFloat(answer.get("Q3").toString());
+
+                            commentsList.add((String) answer.get("Comment"));
                         }
 
                         q1_average = q1_average / actualpeople;
@@ -96,7 +100,7 @@ class FeedbackData {
                         .setQ1(q1_average)
                         .setQ2(q2_average)
                         .setQ3(q3_average)
-                        .setComments((String) meet.get("Comment")));
+                        .setCommentsList(commentsList));
 
             }
         }
