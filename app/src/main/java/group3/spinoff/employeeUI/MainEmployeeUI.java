@@ -31,9 +31,11 @@ public class MainEmployeeUI extends AppCompatActivity implements View.OnClickLis
             switch (item.getItemId()) {
                 case R.id.navigation_more:
                     getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutEmployee, new MoreFragment()).commit();
+                    overridePendingTransition(R.anim.slideinleft_anim, R.anim.slideoutright_anim);
                     return true;
                 case R.id.navigation_feedback:
                     getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutEmployee, new FeedbackHomeFragment()).commit();
+                    overridePendingTransition(R.anim.slideinleft_anim, R.anim.slideoutright_anim);
                     return true;
                 case R.id.navigation_meeting:
                     getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutEmployee, new MeetingFragment()).commit();

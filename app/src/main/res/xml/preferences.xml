@@ -9,6 +9,17 @@
         android:title="Notifikationer"
         android:buttonTint="@color/colorPrimary">
     </SwitchPreference>
+    <SwitchPreference
+        android:defaultValue="true"
+        android:key="SocialRecommendations"
+        android:summaryOff="Modtager ikke sociale anbefalinger"
+        android:summaryOn="Modtager sociale anbefalinger"
+        android:title="Sociale Anbefalinger"
+        android:buttonTint="@color/colorPrimary"
+        >
+
+    </SwitchPreference>
+
 
 
 </PreferenceScreen>

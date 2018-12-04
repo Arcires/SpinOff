@@ -22,6 +22,7 @@ public class AppInfoActivity extends AppCompatActivity implements View.OnClickLi
     public void onClick(View view) {
         if (view == buttonAboutUsExit) {
             finish();
+            overridePendingTransition(R.anim.slideinleft_anim, R.anim.slideoutright_anim);
         }
     }
 }

@@ -53,8 +53,12 @@
     //Employee More Fragment//
     <string name="employee_more_settingsbuttontext">Indstillinger</string>
     <string name="employee_more_termsofservicebuttontext">Regler og vilkår</string>
+
+
+
     <string name="employee_more_aboutus">Om os</string>
-    <string name="employee_more_logout">Log ud</string>
+        <string name="employee_more_logout">Log ud</string>
+
 
     //Welcomepager screens//
     <string name="welcomepager_welcome_title">Velkommen</string>

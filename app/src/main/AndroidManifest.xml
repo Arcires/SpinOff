@@ -41,6 +41,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".employeeUI.SettingsActivity" />
+        <activity android:name=".employeeUI.RulesPage" />
     </application>
 
 </manifest>
