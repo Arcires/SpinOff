@@ -12,11 +12,14 @@
         android:layout_height="45dp"
         android:background="@color/colorPrimary">
 
-        <Button
+        <ImageButton
             android:id="@+id/buttonAboutUsBack"
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:background="@drawable/ic_arrow_back" />
+            android:src="?attr/homeAsUpIndicator"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            />
 
         <TextView
             android:id="@+id/activityAboutUsTitle"

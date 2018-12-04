@@ -11,6 +11,15 @@
         android:layout_height="45dp"
         android:background="@color/colorPrimary">
 
+        <ImageButton
+            android:id="@+id/termsAndRulesBack"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="?attr/homeAsUpIndicator"
+            android:background="@color/colorPrimary"
+            android:clickable="true"
+            />
+
         <TextView
             android:id="@+id/textViewTermsAndRulesTitle"
             android:layout_width="wrap_content"
@@ -28,6 +37,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/toolbarSet" />
+
 
     </android.support.v7.widget.Toolbar>
 
