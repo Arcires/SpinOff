@@ -49,15 +49,11 @@ public class CreateMeetingViewFragment extends Fragment {
         Toolbar toolbar = view.findViewById(R.id.toolbarCreateMeeting);
         ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
 
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setCustomView(R.layout.actionbar);
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setHomeAsUpIndicator(getResources().getDrawable(R.drawable.ic_arrow_back));
+        ActionBar ab = ((AppCompatActivity)getActivity()).getSupportActionBar();
+        ab.setDisplayHomeAsUpEnabled(true);
+        ab.setDisplayShowTitleEnabled(false);
 
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        TextView tv = ((AppCompatActivity)getActivity()).getSupportActionBar().getCustomView().findViewById(R.id.tvTitle);
-        tv.setText("Opret nyt møde");
         /*
         buttonCreateMeetingExit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,7 +87,7 @@ public class CreateMeetingViewFragment extends Fragment {
 
                     Toast.makeText(view.getContext(), "The PIN Code is : " + company + random, Toast.LENGTH_SHORT).show();
                 }
-                Snackbar.make(view.findViewById(R.id.frameLayoutEmployee), "trykkede på nyt møde", Snackbar.LENGTH_LONG).show();
+                Snackbar.make(view, "trykkede på nyt møde", Snackbar.LENGTH_LONG).show();
             }
         });
 

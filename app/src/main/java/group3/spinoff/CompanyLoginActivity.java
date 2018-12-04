@@ -49,14 +49,8 @@ public class CompanyLoginActivity extends AppCompatActivity implements View.OnCl
 
         toolbar = findViewById(R.id.toolbarSettings);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-        getSupportActionBar().setCustomView(R.layout.actionbar);
-        TextView tv = getSupportActionBar().getCustomView().findViewById(R.id.tvTitle);
-        tv.setText("Firma log ind");
-        getSupportActionBar().setHomeAsUpIndicator(getResources().getDrawable(R.drawable.ic_arrow_back));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
     }
 
     @Override

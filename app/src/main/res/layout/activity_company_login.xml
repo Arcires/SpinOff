@@ -15,7 +15,15 @@
         android:layout_height="wrap_content"
         android:theme="@style/ToolbarTheme"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+        <TextView
+            style="@android:style/TextAppearance.Material.Widget.ActionBar.Title"
+            android:id="@+id/textViewCompanyTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login_company"
+            android:layout_gravity="center" />
+    </androidx.appcompat.widget.Toolbar>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout2"

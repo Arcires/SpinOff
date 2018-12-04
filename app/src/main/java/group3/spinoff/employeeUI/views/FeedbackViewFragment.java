@@ -95,7 +95,7 @@ public class FeedbackViewFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_feedback_view, container, false);
 
-        //titleView = view.findViewById(R.id.fragmentFeedbackTitle);
+        titleView = view.findViewById(R.id.fragmentFeedbackTitle);
         descriptionView = view.findViewById(R.id.fragmentFeedbackDescription);
         commentView = view.findViewById(R.id.fragmentFeedbackComment);
 
@@ -103,7 +103,7 @@ public class FeedbackViewFragment extends Fragment {
         ratingBarView_Q2 = view.findViewById(R.id.ratingBarFeedback2);
         ratingBarView_Q3 = view.findViewById(R.id.ratingBarFeedback3);
 
-        //titleView.setText(informations.getCompanyName());
+        titleView.setText(informations.getCompanyName());
         descriptionView.setText(informations.getDescription());
         commentView.setText(informations.getComments());
 
@@ -113,18 +113,11 @@ public class FeedbackViewFragment extends Fragment {
 
         Toolbar toolbar = view.findViewById(R.id.toolbarFeedback);
         ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
+
         ActionBar ab = ((AppCompatActivity) getActivity()).getSupportActionBar();
-
-        ab.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-        ab.setCustomView(R.layout.actionbar);
-        ab.setHomeAsUpIndicator(getResources().getDrawable(R.drawable.ic_arrow_back));
-
         ab.setDisplayHomeAsUpEnabled(true);
-        ab.setDisplayShowHomeEnabled(true);
+        ab.setDisplayShowTitleEnabled(false);
 
-
-        TextView tv = ab.getCustomView().findViewById(R.id.tvTitle);
-        tv.setText(informations.getCompanyName());
         //backArrow = view.findViewById(R.id.fragmentFeedbackBackButton);
         /*backArrow.setOnClickListener(new View.OnClickListener() {
             @Override

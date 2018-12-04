@@ -19,14 +19,8 @@ public class SettingsActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbarSettings);
         setSupportActionBar(toolbar);
 
-        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-        getSupportActionBar().setCustomView(R.layout.actionbar);
-        getSupportActionBar().setHomeAsUpIndicator(getResources().getDrawable(R.drawable.ic_arrow_back));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-
-        TextView tv = getSupportActionBar().getCustomView().findViewById(R.id.tvTitle);
-        tv.setText("Appindstillinger");
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         getSupportFragmentManager().beginTransaction().replace(R.id.settings_container, new SettingsFragment()).commit();
     }
