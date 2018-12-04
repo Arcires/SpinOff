@@ -1,8 +1,10 @@
 package group3.spinoff.employeeUI.views;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -61,19 +63,13 @@ public class CreateFeedbackViewFragment extends Fragment {
         ratingBarView_Q2 = view.findViewById(R.id.ratingBarFeedback2);
         ratingBarView_Q3 = view.findViewById(R.id.ratingBarFeedback3);
 
+        final Button buttonFeedbackViewSubmit = view.findViewById(R.id.buttonSubmitFeedback);
         textViewTitle.setText(informations.getTitle());
         textViewDescription.setText(informations.getDescription());
 
-        final Button buttonfeedbackViewBack = view.findViewById(R.id.fragmentFeedbackBackButton);
         final Button buttonfeedbackViewSubmit = view.findViewById(R.id.buttonSubmitFeedback);
 
-        buttonfeedbackViewBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutEmployee, new MeetingFragment()).commit();
-            }
-        });
-        buttonfeedbackViewSubmit.setOnClickListener(new View.OnClickListener() {
+        buttonFeedbackViewSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 

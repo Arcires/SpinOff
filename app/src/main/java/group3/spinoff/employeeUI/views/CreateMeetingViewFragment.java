@@ -4,8 +4,13 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +21,7 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -52,20 +58,28 @@ public class CreateMeetingViewFragment extends Fragment {
         final EditText editTextCreateMeetingDesc = view.findViewById(R.id.editTextCreateMeetingDesc);
         final EditText editTextCreateMeetingAttendants = view.findViewById(R.id.editTextCreateMeetingAttendants);
 
-        final Button buttonCreateMeetingExit = view.findViewById(R.id.fragmentCreateMeetingBackButton);
         final Button buttonCreateMeeting = view.findViewById(R.id.buttonCreateMeeting);
 
+        Toolbar toolbar = view.findViewById(R.id.toolbarCreateMeeting);
+        ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
+
+        ActionBar ab = ((AppCompatActivity) getActivity()).getSupportActionBar();
+        ab.setDisplayHomeAsUpEnabled(true);
+        ab.setDisplayShowTitleEnabled(false);
+
+
+        /*
         buttonCreateMeetingExit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutEmployee, new MeetingFragment()).commit();
+                Toast.makeText(view.getContext(), "Exited meeting creation.", Toast.LENGTH_SHORT).show();
             }
         });
+        */
 
         buttonCreateMeeting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 if (!editTextCreateMeetingTitle.getText().toString().isEmpty()
                         && !editTextCreateMeetingDesc.getText().toString().isEmpty()
                         && !editTextCreateMeetingAttendants.getText().toString().isEmpty()) {
@@ -88,6 +102,7 @@ public class CreateMeetingViewFragment extends Fragment {
 
                     changeButton(random);
                 }
+                Snackbar.make(view, "trykkede på nyt møde", Snackbar.LENGTH_LONG).show();
             }
 
             private void changeButton(final String random) {

@@ -1,35 +1,40 @@
 package group3.spinoff.employeeUI;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.Button;
-import android.widget.FrameLayout;
+import android.widget.TextView;
 
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.preference.PreferenceFragmentCompat;
 import group3.spinoff.R;
 
-public class SettingsActivity extends AppCompatActivity implements View.OnClickListener {
-
-    private Button buttonSettingsBack;
-    private FrameLayout frameLayoutSettings;
+public class SettingsActivity extends AppCompatActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-        buttonSettingsBack = findViewById(R.id.SettingsBack);
-        buttonSettingsBack.setOnClickListener(this);
+        Toolbar toolbar = findViewById(R.id.toolbarSettings);
+        setSupportActionBar(toolbar);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
+        getSupportFragmentManager().beginTransaction().replace(R.id.settings_container, new SettingsFragment()).commit();
+    }
 
+    public static class SettingsFragment extends PreferenceFragmentCompat {
+        @Override
+        public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+            setPreferencesFromResource(R.xml.preferences, rootKey);
+        }
     }
 
     @Override
-    public void onClick(View view) {
-        if (view == buttonSettingsBack) {
-            finish();
-            overridePendingTransition(R.anim.slideinleft_anim, R.anim.slideoutright_anim);
-        }
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }

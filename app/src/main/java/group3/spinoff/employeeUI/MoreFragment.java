@@ -4,8 +4,8 @@ package group3.spinoff.employeeUI;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,23 +19,40 @@ import group3.spinoff.AppInfoActivity;
 import group3.spinoff.R;
 import group3.spinoff.RoleSelectionActivity;
 
-public class MoreFragment extends Fragment {
+public class MoreFragment extends Fragment implements View.OnClickListener {
 
+    private Button buttonSettings;
+    private Button buttonAccount;
+    private Button buttonHelp;
+    private Button buttonLogout;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_more,
                 container, false);
-
+        /*
         final Button buttonSettings = view.findViewById(R.id.buttonMoreSettings);
         final Button buttonRulesAndTerms = view.findViewById(R.id.buttonMoreTermsAndConditions);
         final Button buttonAboutUs = view.findViewById(R.id.buttonMoreAboutUs);
         final Button buttonLogOut = view.findViewById(R.id.buttonMoreLogOut);
+        */
+
+        buttonSettings = view.findViewById(R.id.buttonMoreSettings);
+        buttonSettings.setOnClickListener(this);
+
+        buttonAccount = view.findViewById(R.id.buttonMoreAccount);
+        buttonAccount.setOnClickListener(this);
+
+        buttonHelp = view.findViewById(R.id.buttonMoreHelp);
+        buttonHelp.setOnClickListener(this);
+
+        buttonLogout = view.findViewById(R.id.buttonMoreLogout);
+        buttonLogout.setOnClickListener(this);
 
         final FirebaseAuth mAuth = FirebaseAuth.getInstance();
         final FirebaseUser user = mAuth.getCurrentUser();
 
-
+        /*
         buttonSettings.setOnClickListener(new View.OnClickListener() {
                                               @Override
                                               public void onClick(View v) {
@@ -85,7 +102,19 @@ public class MoreFragment extends Fragment {
 
             }
         });
+        */
 
         return view;
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.buttonMoreSettings:
+                Intent i = new Intent(getContext(), SettingsActivity.class);
+                startActivity(i);
+                break;
+        }
+
     }
 }

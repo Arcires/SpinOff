@@ -1,49 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorBackground">
+    android:layout_height="match_parent">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbarSet"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarSettings"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:background="@color/colorPrimary">
-
-        <Button
-            android:id="@+id/SettingsBack"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:background="@drawable/ic_arrow_back" />
-
+        android:layout_height="wrap_content"
+        android:theme="@style/ToolbarTheme"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
         <TextView
+            style="@android:style/TextAppearance.Material.Widget.ActionBar.Title"
+            android:id="@+id/settingsTitleTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            android:fontFamily="@font/futurabook"
-            android:text="Indstillinger"
-
-            android:textColor="@color/colorPrimaryWhite"
-            android:textSize="22sp"
-            android:textStyle="bold" />
-
-    </android.support.v7.widget.Toolbar>
+            android:text="@string/employee_more_settingsbuttontext"
+            android:layout_gravity="center" />
+    </androidx.appcompat.widget.Toolbar>
 
     <FrameLayout
-        android:id="@+id/frameLayoutSet"
+        android:id="@+id/settings_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="12dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbarSet" />
-</android.support.constraint.ConstraintLayout>
+        app:layout_constraintTop_toBottomOf="@+id/toolbarSettings">
+
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

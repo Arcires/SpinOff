@@ -4,9 +4,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.viewpager.widget.ViewPager;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -26,7 +26,7 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
     private LinearLayout layoutDots;
     private ImageView[] imageViewdots;
 
-    private Button buttonNext, buttonSkip;
+    private Button buttonFinish, buttonSkip;
 
     SharedPreferences sharedPrefs;
     SharedPreferences.Editor editor;
@@ -47,10 +47,10 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
         viewPagerAdapter = new ViewPagerAdapter(viewPagerLayouts, this);
         viewPager.setAdapter(viewPagerAdapter);
 
-        buttonNext = findViewById(R.id.buttonWelcomePagerNext);
+        buttonFinish = findViewById(R.id.buttonWelcomePagerFinish);
         buttonSkip = findViewById(R.id.buttonWelcomePagerSkip);
 
-        buttonNext.setOnClickListener(this);
+        buttonFinish.setOnClickListener(this);
         buttonSkip.setOnClickListener(this);
 
         layoutDots = findViewById(R.id.dotsLayout);
@@ -67,8 +67,8 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
             public void onPageSelected(int position) {
                 createDots(position);
                 if (position == viewPagerLayouts.length - 1) {
-                    buttonNext.setText(R.string.welcomepager_button_finish);
                     buttonSkip.setVisibility(View.INVISIBLE);
+                    buttonFinish.setVisibility(View.VISIBLE);
                 }
             }
 
@@ -105,12 +105,14 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onClick(View view) {
-        if (view == buttonNext) {
-            loadNextSlide();
-        } else if (view == buttonSkip) {
+        if (view == buttonSkip || view == buttonFinish) {
+            //loadNextSlide();
             loadHome();
             editor.putBoolean("skipWelcomePager", true).apply();
-        }
+        } /*else if (view == buttonSkip) {
+            loadHome();
+            editor.putBoolean("skipWelcomePager", true).apply();
+        }*/
     }
 
     private void loadNextSlide() {

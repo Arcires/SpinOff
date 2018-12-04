@@ -1,15 +1,23 @@
 package group3.spinoff.employeeUI;
 
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import androidx.fragment.app.FragmentManager;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -58,10 +66,9 @@ public class MainEmployeeUI extends AppCompatActivity implements View.OnClickLis
         checkIfCompany(navigation);
 
         frameLayoutEmployee = findViewById(R.id.frameLayoutEmployee);
-
-        getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutEmployee, new FeedbackHomeFragment()).commit();
+        getSupportFragmentManager().addOnBackStackChangedListener(this);
+        //getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutEmployee, new FeedbackHomeFragment()).commit();
         getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutEmployee, new MeetingFragment()).commit();
-
 
     }
 
@@ -82,5 +89,20 @@ public class MainEmployeeUI extends AppCompatActivity implements View.OnClickLis
     @Override
     public void onFragmentInteraction(Uri uri) {
 
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        getSupportFragmentManager().popBackStack();
+
+        //getSupportFragmentManager().getBackStackEntryAt(0).getName();
+        //Toast.makeText(getApplicationContext(),"Backtack name: " + getSupportFragmentManager().getBackStackEntryAt(0).getName(), Toast.LENGTH_LONG).show();
+        //onBackPressed();
+        return true;
+    }
+
+    @Override
+    public void onBackStackChanged() {
+        //Toast.makeText(getApplicationContext(),getSupportFragmentManager().getBackStackEntryCount(),Toast.LENGTH_LONG);
     }
 }

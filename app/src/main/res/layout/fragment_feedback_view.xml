@@ -7,41 +7,24 @@
     android:background="@color/colorBackground"
     tools:context=".employeeUI.views.FeedbackViewFragment">
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <android.support.v7.widget.Toolbar
+        <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbarFeedback"
             android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:background="@color/colorPrimary">
-
-            <Button
-                android:id="@+id/fragmentFeedbackBackButton"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:background="@drawable/ic_arrow_back" />
+            android:layout_height="wrap_content"
+            android:theme="@style/ToolbarTheme">
 
             <TextView
+                style="@android:style/TextAppearance.Material.Widget.ActionBar.Title"
                 android:id="@+id/fragmentFeedbackTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
-                android:fontFamily="@font/futurabook"
-                android:text="Meeting title"
-                android:textColor="@color/colorPrimaryWhite"
-                android:textSize="22sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/toolbarFeedback" />
-        </android.support.v7.widget.Toolbar>
-
+                android:text="@string/placeholder_text"
+                android:layout_gravity="center" />
+        </androidx.appcompat.widget.Toolbar>
 
         <TextView
             android:id="@+id/fragmentFeedbackDescription"
@@ -50,15 +33,10 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
-            android:fontFamily="@font/futurabook"
             android:text="Meeting description"
-            android:textColor="@color/colorPrimaryWhite"
-            android:textSize="18sp"
-            android:textStyle="italic"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/toolbarFeedback"
-            tools:layout_editor_absoluteY="49dp" />
+            app:layout_constraintTop_toBottomOf="@id/toolbarFeedback" />
 
         <TextView
             android:id="@+id/fragmentFeedbackQ1"
@@ -66,11 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="40dp"
-            android:layout_marginEnd="8dp"
-            android:fontFamily="@font/futurabook"
             android:text="Question 1"
-            android:textColor="@color/colorPrimaryWhite"
-            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/fragmentFeedbackDescription" />
 
@@ -90,7 +64,7 @@
             android:id="@+id/separatorQ1"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/colorPrimary"
+            android:background="?android:attr/listDivider"
             app:layout_constraintTop_toBottomOf="@id/ratingBarFeedback1" />
 
 
@@ -100,11 +74,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="20dp"
-            android:layout_marginEnd="8dp"
-            android:fontFamily="@font/futurabook"
             android:text="Question 2"
-            android:textColor="@color/colorPrimaryWhite"
-            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/separatorQ1" />
 
@@ -124,7 +94,7 @@
             android:id="@+id/separatorQ2"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/colorPrimary"
+            android:background="?android:attr/listDivider"
             app:layout_constraintTop_toBottomOf="@id/ratingBarFeedback2" />
 
         <TextView
@@ -133,11 +103,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="20dp"
-            android:layout_marginEnd="8dp"
-            android:fontFamily="@font/futurabook"
             android:text="Question 3"
-            android:textColor="@color/colorPrimaryWhite"
-            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/separatorQ2" />
 
@@ -157,7 +123,7 @@
             android:id="@+id/separatorQ3"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/colorPrimary"
+            android:background="?android:attr/listDivider"
             app:layout_constraintTop_toBottomOf="@id/ratingBarFeedback3" />
 
         <TextView
@@ -167,14 +133,11 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
-            android:fontFamily="@font/futurabook"
             android:text="Comment section"
-            android:textColor="@color/colorPrimaryWhite"
-            android:textSize="22sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/separatorQ3" />
 
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
