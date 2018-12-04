@@ -20,6 +20,7 @@ import java.util.Objects;
 
 import group3.spinoff.R;
 import group3.spinoff.employeeUI.MeetingFragment;
+import group3.spinoff.employeeUI.data.DummyUser;
 import group3.spinoff.employeeUI.data.MeetingListElement;
 
 public class CreateFeedbackViewFragment extends Fragment {
@@ -32,7 +33,7 @@ public class CreateFeedbackViewFragment extends Fragment {
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference reference;
 
-    private String userID = "DEFAULT_USER_ID_1";
+    private String userID = DummyUser.USERID;
     private String companyID = "000";
     private String pinCode = "000";
 
@@ -44,7 +45,7 @@ public class CreateFeedbackViewFragment extends Fragment {
         this.pinCode = pinCode;
     }
 
-//fragmentCreateFeedbackTitle
+    //fragmentCreateFeedbackTitle
     //fragmentCreateFeedbackDescription
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -87,7 +88,7 @@ public class CreateFeedbackViewFragment extends Fragment {
 
                 reference.updateChildren(newFeedback);
 
-                String token = companyID+pinCode;
+                String token = companyID + pinCode;
 
                 reference = database.getReference("User/" + userID + "/" + token);
 
@@ -95,7 +96,7 @@ public class CreateFeedbackViewFragment extends Fragment {
                 newFeedback.put("Title", informations.getTitle());
                 reference.updateChildren(newFeedback);
 
-                Toast.makeText(view.getContext(), R.string.createfeedback_toast + companyID + pinCode, Toast.LENGTH_SHORT).show();
+                Toast.makeText(view.getContext(), getResources().getString(R.string.createfeedback_toast) + companyID + pinCode, Toast.LENGTH_SHORT).show();
             }
         });
 

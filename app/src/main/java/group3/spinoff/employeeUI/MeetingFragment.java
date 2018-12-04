@@ -1,9 +1,10 @@
 package group3.spinoff.employeeUI;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,13 +18,14 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Objects;
+
+import br.com.simplepass.loading_button_lib.customViews.CircularProgressButton;
 import group3.spinoff.R;
 import group3.spinoff.employeeUI.data.MeetingListElement;
 import group3.spinoff.employeeUI.views.CreateFeedbackViewFragment;
 import group3.spinoff.employeeUI.views.CreateMeetingViewFragment;
 import group3.spinoff.firebase.MeetingValueListener;
-
-import static android.support.constraint.Constraints.TAG;
 
 public class MeetingFragment extends Fragment implements IDataObserver {
 
@@ -40,13 +42,15 @@ public class MeetingFragment extends Fragment implements IDataObserver {
     String companyID;
     String pinCode;
 
+    CircularProgressButton buttonSearchMeeting;
+
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_meeting, container, false);
 
-        final Button buttonSearchMeeting = view.findViewById(R.id.buttonSearchMeeting);
+        buttonSearchMeeting = view.findViewById(R.id.buttonSearchMeeting);
         final Button buttonCreateMeeting = view.findViewById(R.id.buttonCreateMeeting);
 
         final EditText editTextMeetingPin = view.findViewById(R.id.editTextEmployeeMeetingEnter);
@@ -57,7 +61,7 @@ public class MeetingFragment extends Fragment implements IDataObserver {
             public void onClick(View view) {
                 if (checkBox.isChecked()) {
                     editTextMeetingPin.setText("001118");
-                } else{
+                } else {
                     editTextMeetingPin.setText("");
                 }
             }
@@ -68,32 +72,43 @@ public class MeetingFragment extends Fragment implements IDataObserver {
 
                 String pin = editTextMeetingPin.getText().toString();
 
-                if (pin.length() > 5) {
+                if (pin.length() > 5 && isConnected()) {
 
                     companyID = pin.substring(0, 3);
                     pinCode = pin.substring(3);
 
                     meetingRef = database.getReference("Meeting/" + companyID + "/" + pinCode);
                     meetingRef.addValueEventListener(meetingValueListener);
-
-                    Toast.makeText(view.getContext(), "Leder efter møde: " + companyID + "/" + pinCode, Toast.LENGTH_SHORT).show();
+                    buttonSearchMeeting.startAnimation();
+                } else {
+                    Toast.makeText(getContext(), "Intet internet detekteret.\nTjek din netforbindelse", Toast.LENGTH_SHORT).show();
                 }
+            }
+
+            private boolean isConnected() {
+                ConnectivityManager cm = (ConnectivityManager) Objects.requireNonNull(getActivity()).getSystemService((Context.CONNECTIVITY_SERVICE));
+
+                return Objects.requireNonNull(cm).getActiveNetworkInfo() != null;
+
             }
         });
 
         //Check if the current user is an employee or a company.
         // If they have a user mail, they are registered company.
 
-        if(user.isAnonymous()){
+        if (user.isAnonymous())
+
+        {
             buttonCreateMeeting.setVisibility(View.INVISIBLE);
         }
 
-        buttonCreateMeeting.setOnClickListener(new View.OnClickListener() {
+        buttonCreateMeeting.setOnClickListener(new View.OnClickListener()
+
+        {
             @Override
             public void onClick(View view) {
-                getActivity().getSupportFragmentManager().beginTransaction().replace(
+                Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction().replace(
                         R.id.frameLayoutEmployee, new CreateMeetingViewFragment()).commit();
-                Toast.makeText(view.getContext(), "Trykkede på Lav nyt møde.", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -116,11 +131,12 @@ public class MeetingFragment extends Fragment implements IDataObserver {
                     user.getDisplayName(),
                     companyID, pinCode);
 
-            getActivity().getSupportFragmentManager().beginTransaction().replace(
+            Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction().replace(
                     R.id.frameLayoutEmployee, createFeedbackViewFragment).commit();
 
         } else {
             Toast.makeText(view.getContext(), "This Meeting does not exist.", Toast.LENGTH_SHORT).show();
+            buttonSearchMeeting.revertAnimation();
         }
 
         meetingValueListener.init();

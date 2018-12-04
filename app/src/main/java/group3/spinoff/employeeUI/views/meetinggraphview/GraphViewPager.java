@@ -2,25 +2,39 @@ package group3.spinoff.employeeUI.views.meetinggraphview;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 
-public class GraphViewPager extends FragmentPagerAdapter {
+import group3.spinoff.employeeUI.data.MeetingListElement;
+
+public class GraphViewPager extends FragmentStatePagerAdapter {
+
+    MeetingListElement informations;
+
+    public void setValues(MeetingListElement meetingListElement){
+        this.informations = meetingListElement;
+    }
 
     public GraphViewPager(FragmentManager fm) {
         super(fm);
     }
 
+    AverageGraphFragment averageGraphFragment = new AverageGraphFragment();
+    Q1Fragment q1Fragment = new Q1Fragment();
+    Q2Fragment q2Fragment = new Q2Fragment();
+    Q3Fragment q3Fragment = new Q3Fragment();
+
     @Override
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-                return new AverageGraphFragment(); //View average graph first.
+                averageGraphFragment.setValues(informations);
+                return averageGraphFragment; //View average graph first.
             case 1:
-                return new Q1Fragment(); //View average graph first.
+                return q1Fragment; //View average graph first.
             case 2:
-                return new Q2Fragment(); //View average graph first.
+                return q2Fragment; //View average graph first.
             case 3:
-                return new Q3Fragment(); //View average graph first.
+                return q3Fragment; //View average graph first.
         }
         return null;
     }

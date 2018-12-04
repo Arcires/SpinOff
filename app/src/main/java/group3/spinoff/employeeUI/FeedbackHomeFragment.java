@@ -23,6 +23,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import group3.spinoff.R;
+import group3.spinoff.employeeUI.data.DummyUser;
 import group3.spinoff.employeeUI.data.MeetingListElement;
 import group3.spinoff.employeeUI.views.FeedbackViewFragment;
 import group3.spinoff.employeeUI.views.meetinggraphview.MeetingGraphViewFragment;
@@ -63,6 +64,8 @@ class FeedbackData {
 
                 int actualpeople = 0;
 
+                ArrayList<String> commentsList = new ArrayList<>();
+
                 try {
                     HashMap<String, HashMap<String, HashMap<String, Object>>> list
                             = (HashMap<String, HashMap<String, HashMap<String, Object>>>) meet.get("Feedback");
@@ -77,6 +80,8 @@ class FeedbackData {
                             q1_average = q1_average  + Float.parseFloat(answer.get("Q1").toString());
                             q2_average = q2_average  + Float.parseFloat(answer.get("Q2").toString());
                             q3_average = q3_average  + Float.parseFloat(answer.get("Q3").toString());
+
+                            commentsList.add((String) answer.get("Comment"));
                         }
 
                         q1_average = q1_average / actualpeople;
@@ -88,13 +93,14 @@ class FeedbackData {
                 }
 
                 meetings.add(new MeetingListElement()
-                        .setTitle(meet.get("Title").toString())
+                        .setTitle((String) meet.get("Title"))
                         .setDescription(meet.get("Desc").toString())
                         .setExpectedPeople(Integer.parseInt(meet.get("ExpectedPeople").toString()))
                         .setActualPeople(actualpeople)
                         .setQ1(q1_average)
                         .setQ2(q2_average)
-                        .setQ3(q3_average));
+                        .setQ3(q3_average)
+                        .setCommentsList(commentsList));
 
             }
         }
@@ -112,7 +118,7 @@ public class FeedbackHomeFragment extends Fragment implements IDataObserver {
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
     FirebaseUser user = mAuth.getCurrentUser();
 
-    private String userID = "DEFAULT_USER_ID_1";
+    private String userID = DummyUser.USERID;
     private String companyID = "001";
     private boolean isCompany = false;
     private boolean isConnectedToFeedback = false;

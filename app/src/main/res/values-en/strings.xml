@@ -55,8 +55,33 @@
     <string name="createMeetingDescHint">Meeting Description</string>
     <string name="createMeetingCountHint">Attendance numbers</string>
     <string name="createMeetingButtonText">Create new meeting</string>
-
-
+    <string name="login_employee_noinput">Please insert both mail and password</string>
+    <string name="login_employee_failed">Anonymous login failed. Please check your connection.</string>
+    <string name="login_employee_success">Logged in as anonymous employee.</string>
+    <string name="company_login_forgot_password">Pushed \'Forgot password\'</string>
+    <string name="company_login_login_success">Logged into user</string>
+    <string name="company_login_test_comapnytext">Test company</string>
+    <string name="general_no_internet">No internet detected. Please check your connection.</string>
+    <string name="employee_ui_statistics">Statistics</string>
+    <string name="employee_ui_testmeetingtext">Test meeting</string>
+    <string name="graphview_title_average">Average of questions</string>
+    <string name="graphview_title_q1">Answers from 1st question</string>
+    <string name="graphview_title_q2">Answers from 2nd question</string>
+    <string name="graphview_title_q3">Answers from 3rd question</string>
+    <string name="grapview_graphxlabel">Question number</string>
+    <string name="grapview_graphylabel">Point amount</string>
+    <string name="createMeetingLinkText">Hey everyone. I have made a meeting using SpinOff. Its PIN is:</string>
+    <string name="createMeetingButtonTextNewText">Push the button to copy a link to the meeting</string>
+    <string name="createMeetingCreationConfirmation">Meeting created. PIN to the meeting is:</string>
+    <string name="createMeetingCreationToast">PIN is:</string>
+    <string name="createMeetingLinkCopy">Link copied</string>
+    <string name="createfeedback_submit_button_text">+ Add feedback</string>
+    <string name="createfeedback_toast">Feedback added to meeting:</string>
+    <string name="feedbackgraphs_maintitle">Meeting title</string>
+    <string name="feedbackgraphs_meetingtitle">Meeting title</string>
+    <string name="feedbackgraphs_meetingdescription">Meeting description</string>
+    <string name="feedbackgraphs_meetingpeoplecount">People count</string>
+    <string name="feedbackgraphs_meetinganswercount">Answer count</string>
 
 
 </resources>

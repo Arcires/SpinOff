@@ -24,9 +24,20 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:fontFamily="@font/futurabook"
+        android:paddingBottom="16dp"
         android:text="itemcontent"
         android:textColor="@color/colorPrimaryWhite"
         android:textSize="14sp"
         android:textStyle="italic" />
+
+    <View
+        android:id="@+id/separatorInfo"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_alignBottom="@id/textViewMeetingInfoValue"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="2dp"
+        android:background="@color/colorPrimary" />
+
 
 </RelativeLayout>

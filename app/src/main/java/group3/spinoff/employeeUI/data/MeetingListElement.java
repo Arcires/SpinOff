@@ -1,5 +1,7 @@
 package group3.spinoff.employeeUI.data;
 
+import java.util.ArrayList;
+
 public class MeetingListElement {
 
     String companyName = "NULL COMPANY";
@@ -13,6 +15,16 @@ public class MeetingListElement {
 
     int expectedPeople = 0;
     int actualPeople = 0;
+
+    ArrayList<String> commentsList = new ArrayList<>();
+
+    public MeetingListElement addToComments(String comment){
+        commentsList.add(comment);
+        return this;
+    }
+
+    public ArrayList<String> getCommentsList(){return commentsList;}
+    public MeetingListElement setCommentsList(ArrayList<String> commentsList){this.commentsList = commentsList; return this;}
 
     public MeetingListElement(){}
 
