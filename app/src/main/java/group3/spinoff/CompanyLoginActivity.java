@@ -60,7 +60,6 @@ public class CompanyLoginActivity extends AppCompatActivity implements View.OnCl
             String mail = editTextCompanyMail.getText().toString();
             String pass = editTextCompanyPass.getText().toString();
 
-
             if (mail.equals("") || pass.equals("")) {
                 Toast.makeText(this, R.string.login_employee_noinput, Toast.LENGTH_SHORT).show();
             } else if (isNetworkConnected()) {

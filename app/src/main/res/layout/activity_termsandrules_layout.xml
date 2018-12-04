@@ -11,26 +11,23 @@
         android:layout_height="45dp"
         android:background="@color/colorPrimary">
 
-        <ImageButton
+        <Button
             android:id="@+id/termsAndRulesBack"
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:src="?attr/homeAsUpIndicator"
-            android:background="@color/colorPrimary"
-            android:clickable="true"
-            />
+            android:background="@drawable/ic_arrow_back" />
 
         <TextView
             android:id="@+id/textViewTermsAndRulesTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:foregroundGravity="center"
+            android:layout_gravity="center"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             android:fontFamily="@font/futurabook"
-            android:layout_gravity="center"
+            android:foregroundGravity="center"
             android:text="Regler og Vilkår"
             android:textColor="@color/colorPrimaryWhite"
             android:textSize="22sp"
