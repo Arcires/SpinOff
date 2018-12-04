@@ -34,7 +34,8 @@
     <string name="graphview_title_q1">Svar fra 1. spørgsmål</string>
     <string name="graphview_title_q2">Svar fra 2. spørgsmål</string>
     <string name="graphview_title_q3">Svar fra 3. spørgsmål</string>
-
+    <string name="grapview_graphxlabel">Spørgsmålsnummer</string>
+    <string name="grapview_graphylabel">Antal point</string>
 
 
     //Employee Meeting Fragment//

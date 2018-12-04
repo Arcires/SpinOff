@@ -46,9 +46,9 @@ public class AverageGraphFragment extends Fragment {
         series.setDrawValuesOnTop(true);
 
 
-        gridLabelRenderer.setHorizontalAxisTitle("Spørgsmålsnummer");
+        gridLabelRenderer.setHorizontalAxisTitle(getResources().getString(R.string.grapview_graphxlabel));
         gridLabelRenderer.setHorizontalAxisTitleColor(getResources().getColor(R.color.colorPrimaryWhite));
-        gridLabelRenderer.setVerticalAxisTitle("Antal point");
+        gridLabelRenderer.setVerticalAxisTitle(getResources().getString(R.string.grapview_graphylabel));
         gridLabelRenderer.setVerticalAxisTitleColor(getResources().getColor(R.color.colorPrimaryWhite));
         gridLabelRenderer.setGridColor(getResources().getColor(R.color.colorPrimaryWhite));
         gridLabelRenderer.setHorizontalLabelsColor(getResources().getColor(R.color.colorPrimaryWhite));
