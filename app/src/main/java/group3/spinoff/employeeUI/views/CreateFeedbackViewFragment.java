@@ -1,10 +1,6 @@
 package group3.spinoff.employeeUI.views;
 
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,10 +14,13 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
-import java.util.Objects;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
 import group3.spinoff.R;
-import group3.spinoff.employeeUI.MeetingFragment;
 import group3.spinoff.employeeUI.data.DummyUser;
 import group3.spinoff.employeeUI.data.MeetingListElement;
 
@@ -67,7 +66,13 @@ public class CreateFeedbackViewFragment extends Fragment {
         textViewTitle.setText(informations.getTitle());
         textViewDescription.setText(informations.getDescription());
 
-        final Button buttonfeedbackViewSubmit = view.findViewById(R.id.buttonSubmitFeedback);
+        Toolbar toolbar = view.findViewById(R.id.toolbarFeedback);
+        ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
+
+        ActionBar ab = ((AppCompatActivity) getActivity()).getSupportActionBar();
+        ab.setDisplayHomeAsUpEnabled(true);
+        ab.setDisplayShowTitleEnabled(false);
+
 
         buttonFeedbackViewSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,6 +100,7 @@ public class CreateFeedbackViewFragment extends Fragment {
                 Toast.makeText(view.getContext(), getResources().getString(R.string.createfeedback_toast) + companyID + pinCode, Toast.LENGTH_SHORT).show();
             }
         });
+
 
         return view;
 

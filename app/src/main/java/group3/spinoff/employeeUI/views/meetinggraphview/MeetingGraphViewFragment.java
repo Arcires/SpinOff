@@ -2,9 +2,6 @@ package group3.spinoff.employeeUI.views.meetinggraphview;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +16,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
 
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 import group3.spinoff.R;
 import group3.spinoff.employeeUI.FeedbackHomeFragment;
 import group3.spinoff.employeeUI.data.MeetingListElement;

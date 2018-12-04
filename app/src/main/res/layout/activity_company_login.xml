@@ -110,24 +110,17 @@
     <CheckBox
         android:id="@+id/checkBoxTestUser"
         android:layout_width="wrap_content"
-        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_height="50dp"
         android:layout_marginStart="8dp"
-        android:layout_marginStart="26dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginEnd="8dp"
         android:buttonTint="@color/colorPrimary"
         android:fontFamily="@font/futurabook"
         android:onClick="onClick"
-        android:text="@string/company_login_help"
-        android:text="@string/company_login_test_comapnytext"
+        android:text="@string/company_login_test_companytext"
         android:textColor="@color/colorPrimaryWhite"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout3"
-        app:layout_constraintTop_toBottomOf="@id/editTextCompanyPass" />
-
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

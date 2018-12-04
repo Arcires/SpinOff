@@ -3,12 +3,6 @@ package group3.spinoff.employeeUI;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
-
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +11,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -25,6 +19,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Objects;
 
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 import br.com.simplepass.loading_button_lib.customViews.CircularProgressButton;
 import group3.spinoff.R;
 import group3.spinoff.employeeUI.data.MeetingListElement;
@@ -58,16 +54,16 @@ public class MeetingFragment extends Fragment implements IDataObserver {
         buttonSearchMeeting = view.findViewById(R.id.buttonSearchMeeting);
         final Button buttonCreateMeeting = view.findViewById(R.id.buttonCreateMeeting);
 
-        final EditText editTextMeetingPin = view.findViewById(R.id.editTextEmployeeMeetingEnter);
+        final TextInputEditText textInputEditTextPin = view.findViewById(R.id.textInputEditTextPin);
 
         final CheckBox checkBox = view.findViewById(R.id.checkBoxTestMeeting);
         checkBox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (checkBox.isChecked()) {
-                    editTextMeetingPin.setText("001118");
+                    textInputEditTextPin.setText("001118");
                 } else {
-                    editTextMeetingPin.setText("");
+                    textInputEditTextPin.setText("");
                 }
             }
         });
@@ -75,7 +71,7 @@ public class MeetingFragment extends Fragment implements IDataObserver {
             @Override
             public void onClick(View view) {
 
-                String pin = editTextMeetingPin.getText().toString();
+                String pin = textInputEditTextPin.getText().toString();
 
                 if (pin.length() > 5 && isConnected()) {
 
@@ -104,7 +100,7 @@ public class MeetingFragment extends Fragment implements IDataObserver {
         if (user.isAnonymous()) {
             buttonCreateMeeting.setVisibility(View.INVISIBLE);
         }
-        buttonCreateMeeting.setOnClickListener(new View.OnClickListener(){
+        buttonCreateMeeting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction().replace(
@@ -132,7 +128,7 @@ public class MeetingFragment extends Fragment implements IDataObserver {
                     companyID, pinCode);
 
             Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction().replace(
-                    R.id.frameLayoutEmployee, createFeedbackViewFragment).commit();
+                    R.id.frameLayoutEmployee, createFeedbackViewFragment).addToBackStack(null).commit();
 
         } else {
             Toast.makeText(view.getContext(), "This Meeting does not exist.", Toast.LENGTH_SHORT).show();

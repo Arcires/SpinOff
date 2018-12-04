@@ -1,10 +1,10 @@
 package group3.spinoff.employeeUI;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import androidx.appcompat.app.AppCompatActivity;
 import group3.spinoff.R;
 
 public class RulesPage extends AppCompatActivity implements View.OnClickListener {

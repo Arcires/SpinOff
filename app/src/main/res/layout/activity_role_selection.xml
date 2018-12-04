@@ -9,15 +9,16 @@
 
     <br.com.simplepass.loading_button_lib.customViews.CircularProgressButton
         android:id="@+id/buttonEmployeeLogIn"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/button_logingreen"
         android:fontFamily="@font/futurabook"
         android:text="@string/login_employee"
         android:textAllCaps="false"
-        android:textColor="@color/colorPrimaryWhite"
         android:textSize="26sp"
         app:initialCornerAngle="10dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -26,25 +27,6 @@
         app:spinning_bar_color="@color/colorPrimaryWhite"
         app:spinning_bar_padding="6dp"
         app:spinning_bar_width="4dp" />
-
-    <TextView
-        android:id="@+id/buttonCompanyLogIn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@color/colorBackground"
-        android:text="@string/login_company"
-        android:textAlignment="center"
-        android:textAllCaps="false"
-        android:textColor="@color/colorPrimaryWhite"
-        android:textSize="14sp"
-        android:textStyle="italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonEmployeeLogIn" />
 
     <ImageView
         android:id="@+id/imageViewLogoRoleSelection"
@@ -56,23 +38,25 @@
         android:contentDescription="@string/login_logodesc"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.45"
+        app:layout_constraintHeight_percent="0.44"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/spinoff_small_clean" />/>
+        app:layout_constraintVertical_bias="0.13"
+        app:srcCompat="@drawable/spinoff_small_clean" />
 
     <Button
         android:id="@+id/buttonCompanyLogIn"
         style="@style/materialDarkButtonStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="64dp"
         android:text="@string/login_company"
         android:textAllCaps="false"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/buttonEmployeeLogIn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

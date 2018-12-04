@@ -1,30 +1,23 @@
 package group3.spinoff.employeeUI;
 
-import android.graphics.PorterDuff;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-import androidx.fragment.app.FragmentManager;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 import group3.spinoff.R;
 import group3.spinoff.employeeUI.views.FeedbackViewFragment;
 
-public class MainEmployeeUI extends AppCompatActivity implements View.OnClickListener, FeedbackViewFragment.OnFragmentInteractionListener {
+public class MainEmployeeUI extends AppCompatActivity implements View.OnClickListener, FeedbackViewFragment.OnFragmentInteractionListener, FragmentManager.OnBackStackChangedListener {
 
     FrameLayout frameLayoutEmployee;
 
@@ -105,4 +98,5 @@ public class MainEmployeeUI extends AppCompatActivity implements View.OnClickLis
     public void onBackStackChanged() {
         //Toast.makeText(getApplicationContext(),getSupportFragmentManager().getBackStackEntryCount(),Toast.LENGTH_LONG);
     }
+
 }

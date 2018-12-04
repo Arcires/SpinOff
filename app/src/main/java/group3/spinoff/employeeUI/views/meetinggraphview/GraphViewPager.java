@@ -1,16 +1,16 @@
 package group3.spinoff.employeeUI.views.meetinggraphview;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
 
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentStatePagerAdapter;
 import group3.spinoff.employeeUI.data.MeetingListElement;
 
 public class GraphViewPager extends FragmentStatePagerAdapter {
 
     MeetingListElement informations;
 
-    public void setValues(MeetingListElement meetingListElement){
+    public void setValues(MeetingListElement meetingListElement) {
         this.informations = meetingListElement;
     }
 

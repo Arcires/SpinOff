@@ -2,11 +2,14 @@ package group3.spinoff;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
-import android.graphics.Paint;
+
 import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,7 +25,6 @@ import group3.spinoff.employeeUI.MainEmployeeUI;
 public class RoleSelectionActivity extends AppCompatActivity implements View.OnClickListener {
 
     private CircularProgressButton buttonEmployeeLogin;
-    private TextView textViewCompanyLogin, textViewCopyright;
     private Button buttonCompanyLogin;
 
     private FirebaseAuth mAuth;
@@ -36,13 +38,9 @@ public class RoleSelectionActivity extends AppCompatActivity implements View.OnC
 
         buttonCompanyLogin = findViewById(R.id.buttonCompanyLogIn);
         buttonEmployeeLogin = findViewById(R.id.buttonEmployeeLogIn);
-        //textViewCopyright = findViewById(R.id.textViewCopyright);
 
         buttonCompanyLogin.setOnClickListener(this);
         buttonEmployeeLogin.setOnClickListener(this);
-
-        //textViewCompanyLogin.setPaintFlags(textViewCompanyLogin.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-        //textViewCopyright.setPaintFlags(textViewCopyright.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser user;

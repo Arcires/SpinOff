@@ -21,6 +21,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -31,6 +32,8 @@ import group3.spinoff.employeeUI.views.FeedbackViewFragment;
 import group3.spinoff.employeeUI.views.meetinggraphview.MeetingGraphViewFragment;
 import group3.spinoff.firebase.FeedbackValueListener;
 import group3.spinoff.firebase.MeetingValueListener;
+
+import static androidx.constraintlayout.motion.widget.MotionScene.TAG;
 
 class FeedbackData {
     List<MeetingListElement> meetings;
@@ -46,13 +49,13 @@ class FeedbackData {
             for (HashMap<String, Object> feed : feedbacks.values()) {
 
                 meetings.add(new MeetingListElement()
-                        .setTitle(feed.get("Title").toString())
-                        .setDescription(feed.get("Desc").toString())
-                        .setComments(feed.get("Comment").toString())
+                        .setTitle(Objects.requireNonNull(feed.get("Title")).toString())
+                        .setDescription(Objects.requireNonNull(feed.get("Desc")).toString())
+                        .setComments(Objects.requireNonNull(feed.get("Comment")).toString())
 
-                        .setQ1(Float.parseFloat(feed.get("Q1").toString()))
-                        .setQ2(Float.parseFloat(feed.get("Q2").toString()))
-                        .setQ3(Float.parseFloat(feed.get("Q3").toString())));
+                        .setQ1(Float.parseFloat(Objects.requireNonNull(feed.get("Q1")).toString()))
+                        .setQ2(Float.parseFloat(Objects.requireNonNull(feed.get("Q2")).toString()))
+                        .setQ3(Float.parseFloat(Objects.requireNonNull(feed.get("Q3")).toString())));
             }
         }
 
@@ -255,15 +258,15 @@ public class FeedbackHomeFragment extends Fragment implements IDataObserver {
                 FeedbackViewFragment feedbackViewFragment = new FeedbackViewFragment();
                 feedbackViewFragment.setValues(data.meetings.get(position));
 
-                getActivity().getSupportFragmentManager().beginTransaction().replace(
-                        R.id.frameLayoutEmployee, feedbackViewFragment).commit();
+                getActivity().getSupportFragmentManager().beginTransaction().add(
+                        R.id.frameLayoutEmployee, feedbackViewFragment).addToBackStack(null).commit();
 
             } else {
                 MeetingGraphViewFragment meetingGraphViewFragment = new MeetingGraphViewFragment();
                 meetingGraphViewFragment.setValues(data.meetings.get(position));
 
-                getActivity().getSupportFragmentManager().beginTransaction().replace(
-                        R.id.frameLayoutEmployee, meetingGraphViewFragment).commit();
+                getActivity().getSupportFragmentManager().beginTransaction().add(
+                        R.id.frameLayoutEmployee, meetingGraphViewFragment).addToBackStack(null).commit();
             }
 
         }

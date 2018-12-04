@@ -13,11 +13,14 @@
         style="@style/AppTheme.Headline"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:text="@string/employee_meeting_fragmenttext"
         android:textAlignment="center"
-        app:layout_constraintTop_toBottomOf="@id/imageViewLogoEmployeeMeeting"
-        tools:layout_editor_absoluteX="8dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageViewLogoEmployeeMeeting" />
 
     <!--<EditText
         android:id="@+id/editTextEmployeeMeetingEnter"
@@ -46,6 +49,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewEmployeeMeetingText">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textInputEditTextPin"
             style="@style/AppTheme.TextInputEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -123,6 +127,6 @@
         android:textColor="@color/colorPrimaryWhite"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextEmployeeMeetingEnter" />
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

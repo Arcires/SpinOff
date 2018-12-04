@@ -60,7 +60,7 @@
     <string name="login_employee_success">Logged in as anonymous employee.</string>
     <string name="company_login_forgot_password">Pushed \'Forgot password\'</string>
     <string name="company_login_login_success">Logged into user</string>
-    <string name="company_login_test_comapnytext">Test company</string>
+    <string name="company_login_test_companytext">Test company</string>
     <string name="general_no_internet">No internet detected. Please check your connection.</string>
     <string name="employee_ui_statistics">Statistics</string>
     <string name="employee_ui_testmeetingtext">Test meeting</string>

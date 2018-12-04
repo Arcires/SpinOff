@@ -3,13 +3,6 @@ package group3.spinoff.employeeUI.views;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.fragment.app.Fragment;
-
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,10 +10,12 @@ import android.widget.Button;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
-import java.util.Objects;
-
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
 import group3.spinoff.R;
-import group3.spinoff.employeeUI.FeedbackHomeFragment;
 import group3.spinoff.employeeUI.data.MeetingListElement;
 
 /**
@@ -92,7 +87,7 @@ public class FeedbackViewFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_feedback_view, container, false);
 
         titleView = view.findViewById(R.id.fragmentFeedbackTitle);
-        descriptionView = view.findViewById(R.id.fragmentFeedbackDescription);
+        descriptionView = view.findViewById(R.id.textViewCreateFeedbackDescription);
         commentView = view.findViewById(R.id.fragmentFeedbackComment);
 
         ratingBarView_Q1 = view.findViewById(R.id.ratingBarFeedback1);
@@ -108,7 +103,7 @@ public class FeedbackViewFragment extends Fragment {
         ratingBarView_Q3.setRating(informations.getQ3());
 
         Toolbar toolbar = view.findViewById(R.id.toolbarFeedback);
-        ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
+        ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
 
         ActionBar ab = ((AppCompatActivity) getActivity()).getSupportActionBar();
         ab.setDisplayHomeAsUpEnabled(true);

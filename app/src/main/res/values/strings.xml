@@ -24,7 +24,7 @@
     <string name="company_login_login_failed">Login mislykkedes. Prøv igen.</string>
     <string name="company_login_login_success">Loggede ind på bruger</string>
     <string name="title_activity_main_employee_ui">MainEmployeeUI</string>
-    <string name="company_login_test_comapnytext">Test firma</string>
+    <string name="company_login_test_companytext">Test firma</string>
 
     //General//
     <string name="general_no_internet">Intet internet detekteret. Tjek din netforbindelse</string>
