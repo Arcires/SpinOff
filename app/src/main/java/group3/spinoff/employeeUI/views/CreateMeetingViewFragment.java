@@ -96,11 +96,11 @@ public class CreateMeetingViewFragment extends Fragment {
 
                     reference.updateChildren(newMeeting);
 
-                    Toast.makeText(view.getContext(), R.string.createMeetingCreationToast + company + random, Toast.LENGTH_LONG).show();
+                    Toast.makeText(view.getContext(), getResources().getString(R.string.createMeetingCreationToast) + company + random, Toast.LENGTH_LONG).show();
 
                     changeButton(random);
                 }
-                Snackbar.make(view, "trykkede på nyt møde", Snackbar.LENGTH_LONG).show();
+//              Snackbar.make(view, "trykkede på nyt møde", Snackbar.LENGTH_LONG).show();
             }
 
             private void changeButton(final String random) {

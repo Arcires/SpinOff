@@ -98,6 +98,24 @@ public class CreateFeedbackViewFragment extends Fragment {
                 reference.updateChildren(newFeedback);
 
                 Toast.makeText(view.getContext(), getResources().getString(R.string.createfeedback_toast) + companyID + pinCode, Toast.LENGTH_SHORT).show();
+
+                disableUI();
+
+
+            }
+
+            private void disableUI() {
+                ratingBarView_Q1.setEnabled(false);
+                ratingBarView_Q2.setEnabled(false);
+                ratingBarView_Q3.setEnabled(false);
+
+
+                editTextComment.setEnabled(false);
+                editTextComment.setAlpha(.5f);
+
+                buttonFeedbackViewSubmit.setAlpha(.5f);
+                buttonFeedbackViewSubmit.setEnabled(false);
+
             }
         });
 

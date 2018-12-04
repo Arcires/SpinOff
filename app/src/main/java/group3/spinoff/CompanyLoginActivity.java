@@ -1,14 +1,10 @@
 package group3.spinoff;
 
+
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -22,10 +18,11 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import androidx.appcompat.widget.Toolbar;
-
 import java.util.Objects;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import br.com.simplepass.loading_button_lib.customViews.CircularProgressButton;
 import group3.spinoff.employeeUI.MainEmployeeUI;
 

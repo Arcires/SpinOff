@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -25,8 +26,11 @@ public class MoreFragment extends Fragment implements View.OnClickListener {
     private Button buttonLogOut;
     private Button buttonInfo;
 
-    FirebaseAuth mAuth;
-    FirebaseUser user;
+    FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    FirebaseUser user = mAuth.getCurrentUser();
+
+
+    TextView textViewLoginType;
 
 
     @Override
@@ -40,12 +44,15 @@ public class MoreFragment extends Fragment implements View.OnClickListener {
 
         buttonSettings.setOnClickListener(this);
 
+        textViewLoginType = view.findViewById(R.id.textViewLoginType);
+
+        textViewLoginType.setText(setupUserType());
+
         buttonLogOut.setOnClickListener(this);
 
         buttonInfo.setOnClickListener(this);
 
         mAuth = FirebaseAuth.getInstance();
-        user = mAuth.getCurrentUser();
 
         /*
         buttonSettings.setOnClickListener(new View.OnClickListener() {
@@ -102,6 +109,26 @@ public class MoreFragment extends Fragment implements View.OnClickListener {
         return view;
     }
 
+    private String setupUserType() {
+
+        String loginEntity, loginOutput;
+
+        try {
+            if (user.isAnonymous()) {
+                loginOutput = getResources().getString(R.string.general_employee);
+                return loginOutput;
+            } else {
+                loginEntity = user.getEmail().split("@")[0];
+                loginOutput = loginEntity.substring(0, 1).toUpperCase() + loginEntity.substring(1);
+                return loginOutput;
+            }
+        } catch (Exception e) {
+            loginOutput = getResources().getString(R.string.general_error_reading);
+            return loginOutput;
+        }
+    }
+
+
     @Override
     public void onClick(View view) {
 
@@ -120,10 +147,10 @@ public class MoreFragment extends Fragment implements View.OnClickListener {
                 try {
                     if (user != null) {
                         if (user.getEmail() != null) {
-                            System.out.println("Loggede ud fra bruger: " + user.getEmail());
-                            Toast.makeText(getActivity(), "Loggede ud fra bruger: " + user.getEmail(), Toast.LENGTH_SHORT).show();
+                            System.out.println(getResources().getString(R.string.employee_more_loggedoutcompanytext) + user.getEmail());
+                            Toast.makeText(getActivity(), getResources().getString(R.string.employee_more_loggedoutcompanytext) + user.getEmail(), Toast.LENGTH_SHORT).show();
                         } else {
-                            Toast.makeText(getActivity(), "Loggede ud som anonym medarbejder", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), getResources().getString(R.string.employee_more_loggedoutemployeetext), Toast.LENGTH_SHORT).show();
                         }
                         mAuth.signOut();
                         Intent k = new Intent(view.getContext(), RoleSelectionActivity.class);

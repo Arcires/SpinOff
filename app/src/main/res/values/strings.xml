@@ -28,6 +28,9 @@
 
     //General//
     <string name="general_no_internet">Intet internet detekteret. Tjek din netforbindelse</string>
+    <string name="general_employee">Anonym medarbejder</string>
+    <string name="general_error_reading">Datafejl</string>
+
 
 
     //Employee main UI screen//
@@ -55,11 +58,11 @@
     //Employee More Fragment//
     <string name="employee_more_settingsbuttontext">Indstillinger</string>
     <string name="employee_more_termsofservicebuttontext">Regler og vilkår</string>
-
-
-
     <string name="employee_more_aboutus">Om os</string>
-        <string name="employee_more_logout">Log ud</string>
+    <string name="employee_more_logout">Log ud</string>
+    <string name="employee_more_loggedoutcompanytext">Loggede ud fra bruger:\\u0020</string>
+    <string name="employee_more_loggedoutemployeetext">Loggede ud fra anonym medarbejder</string>
+    <string name="employee_more_loggedouterror">Log ud mislykkedes. Ingen bruger registreret</string>
 
 
     //Welcomepager screens//
@@ -82,16 +85,16 @@
     <string name="createMeetingDescHint">Mødebeskrivelse</string>
     <string name="createMeetingCountHint">Antal deltagere</string>
     <string name="createMeetingButtonText">Opret nyt møde</string>
-    <string name="createMeetingLinkText">Hej alle.\nJeg har lavet et møde via SpinOff, med PIN-koden: </string>
+    <string name="createMeetingLinkText">Hej alle. Jeg har lavet et møde via SpinOff, med PIN-koden:\\u0020</string>
     <string name="createMeetingButtonTextNewText">Tryk på knappen for at kopiere et link til mødet</string>
     <string name="createMeetingCreationConfirmation">Møde oprettet. Pinkoden til mødet er: </string>
-    <string name="createMeetingCreationToast">Pinkoden er: </string>
+    <string name="createMeetingCreationToast">Pinkoden er:\\u0020</string>
     <string name="createMeetingLinkCopy">Link kopieret</string>
 
 
     //CreateFeedback fragment//
     <string name="createfeedback_submit_button_text">+ Tilføj feedback</string>
-    <string name="createfeedback_toast">Feedback tilføjet til møde: </string>
+    <string name="createfeedback_toast">Feedback tilføjet til møde:\u0020</string>
 
 
     //FeedbackGraphs fragment//
