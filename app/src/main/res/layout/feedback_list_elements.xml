@@ -54,9 +54,19 @@
         android:layout_below="@+id/feedback_list_elements_title"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="-2dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="16dp"
         android:text="description"
         android:textColor="@android:color/white"
         android:textSize="12sp" />
+
+    <View
+        android:id="@+id/separatorInfo"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_alignBottom="@id/feedback_list_elements_description"
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorPrimary" />
 
 
 </RelativeLayout>

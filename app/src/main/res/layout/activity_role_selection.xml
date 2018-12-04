@@ -7,7 +7,7 @@
     android:background="@color/colorBackground"
     tools:context=".RoleSelectionActivity">
 
-    <Button
+    <br.com.simplepass.loading_button_lib.customViews.CircularProgressButton
         android:id="@+id/buttonEmployeeLogIn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,9 +19,13 @@
         android:textAllCaps="false"
         android:textColor="@color/colorPrimaryWhite"
         android:textSize="26sp"
+        app:initialCornerAngle="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageViewLogoRoleSelection" />
+        app:layout_constraintTop_toBottomOf="@id/imageViewLogoRoleSelection"
+        app:spinning_bar_color="@color/colorPrimaryWhite"
+        app:spinning_bar_padding="6dp"
+        app:spinning_bar_width="4dp" />
 
     <TextView
         android:id="@+id/buttonCompanyLogIn"
