@@ -18,6 +18,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.util.Objects;
+
 import br.com.simplepass.loading_button_lib.customViews.CircularProgressButton;
 import group3.spinoff.employeeUI.MainEmployeeUI;
 
@@ -60,15 +62,15 @@ public class CompanyLoginActivity extends AppCompatActivity implements View.OnCl
 
 
             if (mail.equals("") || pass.equals("")) {
-                Toast.makeText(this, "Indtast venligst både mail og password.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.login_employee_noinput, Toast.LENGTH_SHORT).show();
             } else if (isNetworkConnected()) {
                 buttonCompanyLogIn.startAnimation();
                 firebaseSignIn(mail, pass);
             } else {
-                Toast.makeText(this, "Intet internet detekteret.\nTjek din netforbindelse", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.general_no_internet, Toast.LENGTH_SHORT).show();
             }
         } else if (view == textViewLoginHelp) {
-            Toast.makeText(this, "Trykkede på Glemt kodeord", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.company_login_forgot_password, Toast.LENGTH_SHORT).show();
         }
         if (checkBox.isChecked()) {
             editTextCompanyMail.setText("dtu@spinoff.476");
@@ -103,6 +105,6 @@ public class CompanyLoginActivity extends AppCompatActivity implements View.OnCl
     private boolean isNetworkConnected() {
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
 
-        return cm.getActiveNetworkInfo() != null;
+        return Objects.requireNonNull(cm).getActiveNetworkInfo() != null;
     }
 }
