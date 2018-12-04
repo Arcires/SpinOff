@@ -33,7 +33,6 @@ public class MainEmployeeUI extends AppCompatActivity implements  View.OnClickLi
                     return true;
                 case R.id.navigation_enterpin:
                     getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutEmployee, new MeetingFragment()).commit();
-                    overridePendingTransition(R.anim.slideinleft_anim, R.anim.slideoutright_anim);
                     return true;
             }
             return false;
