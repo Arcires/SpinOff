@@ -1,27 +1,29 @@
 package group3.spinoff;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import android.view.View;
 import android.widget.Button;
 
-public class AppInfoActivity extends AppCompatActivity implements View.OnClickListener {
-
-    private Button buttonAboutUsExit;
+public class AppInfoActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_app_info);
 
-        buttonAboutUsExit = findViewById(R.id.buttonAboutUsBack);
-        buttonAboutUsExit.setOnClickListener(this);
+        Toolbar toolbar = findViewById(R.id.toolbarAboutUs);
+        setSupportActionBar(toolbar);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
     }
 
     @Override
-    public void onClick(View view) {
-        if (view == buttonAboutUsExit) {
-            finish();
-        }
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }

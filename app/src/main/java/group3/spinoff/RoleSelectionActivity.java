@@ -2,16 +2,20 @@ package group3.spinoff;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
-import android.graphics.Paint;
+
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -22,7 +26,7 @@ import group3.spinoff.employeeUI.MainEmployeeUI;
 public class RoleSelectionActivity extends AppCompatActivity implements View.OnClickListener {
 
     private CircularProgressButton buttonEmployeeLogin;
-    private TextView textViewCompanyLogin, textViewCopyright;
+    private Button buttonCompanyLogin;
 
     private FirebaseAuth mAuth;
 
@@ -33,16 +37,11 @@ public class RoleSelectionActivity extends AppCompatActivity implements View.OnC
         setContentView(R.layout.activity_role_selection);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
-
-        textViewCompanyLogin = findViewById(R.id.buttonCompanyLogIn);
+        buttonCompanyLogin = findViewById(R.id.buttonCompanyLogIn);
         buttonEmployeeLogin = findViewById(R.id.buttonEmployeeLogIn);
-        textViewCopyright = findViewById(R.id.textViewCopyright);
 
-        textViewCompanyLogin.setOnClickListener(this);
+        buttonCompanyLogin.setOnClickListener(this);
         buttonEmployeeLogin.setOnClickListener(this);
-
-        textViewCompanyLogin.setPaintFlags(textViewCompanyLogin.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-        textViewCopyright.setPaintFlags(textViewCopyright.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser user;
@@ -51,9 +50,8 @@ public class RoleSelectionActivity extends AppCompatActivity implements View.OnC
 
     @Override
     public void onClick(View view) {
-        if (view == textViewCompanyLogin) {
+        if (view == buttonCompanyLogin) {
             Intent i = new Intent(this, CompanyLoginActivity.class);
-            finish();
             startActivity(i);
         } else if (view == buttonEmployeeLogin) {
             buttonEmployeeLogin.startAnimation();

@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">SpinOff</string>
 
+    <string name="placeholder_text" translatable="false">Placeholder</string>
+
     //Login screen//
     <string name="login_employee">Medarbejder</string>
     <string name="login_company">Log ind som firma</string>
@@ -22,10 +24,13 @@
     <string name="company_login_login_failed">Login mislykkedes. Prøv igen.</string>
     <string name="company_login_login_success">Loggede ind på bruger</string>
     <string name="title_activity_main_employee_ui">MainEmployeeUI</string>
-    <string name="company_login_test_comapnytext">Test firma</string>
+    <string name="company_login_test_companytext">Test firma</string>
 
     //General//
     <string name="general_no_internet">Intet internet detekteret. Tjek din netforbindelse</string>
+    <string name="general_employee">Anonym medarbejder</string>
+    <string name="general_error_reading">Datafejl</string>
+
 
 
     //Employee main UI screen//
@@ -55,6 +60,10 @@
     <string name="employee_more_termsofservicebuttontext">Regler og vilkår</string>
     <string name="employee_more_aboutus">Om os</string>
     <string name="employee_more_logout">Log ud</string>
+    <string name="employee_more_loggedoutcompanytext">Loggede ud fra bruger:\\u0020</string>
+    <string name="employee_more_loggedoutemployeetext">Loggede ud fra anonym medarbejder</string>
+    <string name="employee_more_loggedouterror">Log ud mislykkedes. Ingen bruger registreret</string>
+
 
     //Welcomepager screens//
     <string name="welcomepager_welcome_title">Velkommen</string>
@@ -76,16 +85,16 @@
     <string name="createMeetingDescHint">Mødebeskrivelse</string>
     <string name="createMeetingCountHint">Antal deltagere</string>
     <string name="createMeetingButtonText">Opret nyt møde</string>
-    <string name="createMeetingLinkText">Hej alle.\nJeg har lavet et møde via SpinOff, med PIN-koden: </string>
+    <string name="createMeetingLinkText">Hej alle. Jeg har lavet et møde via SpinOff, med PIN-koden:\\u0020</string>
     <string name="createMeetingButtonTextNewText">Tryk på knappen for at kopiere et link til mødet</string>
     <string name="createMeetingCreationConfirmation">Møde oprettet. Pinkoden til mødet er: </string>
-    <string name="createMeetingCreationToast">Pinkoden er: </string>
+    <string name="createMeetingCreationToast">Pinkoden er:\\u0020</string>
     <string name="createMeetingLinkCopy">Link kopieret</string>
 
 
     //CreateFeedback fragment//
     <string name="createfeedback_submit_button_text">+ Tilføj feedback</string>
-    <string name="createfeedback_toast">Feedback tilføjet til møde: </string>
+    <string name="createfeedback_toast">Feedback tilføjet til møde:\u0020</string>
 
 
     //FeedbackGraphs fragment//
@@ -94,6 +103,13 @@
     <string name="feedbackgraphs_meetingdescription">Mødebeskrivelse</string>
     <string name="feedbackgraphs_meetingpeoplecount">Antal tilmeldte</string>
     <string name="feedbackgraphs_meetinganswercount">Antal svar</string>
+    <string name="feedbackgraphs_comments">Kommentarer</string>
+
+    <string name="snackbar_email_pass_empty">Indtast venligst både mail og password</string>
+    <string name="snackbar_forgot_pass">Trykkede på Glemt kodeord</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>

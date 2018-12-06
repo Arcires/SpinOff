@@ -1,11 +1,10 @@
 package group3.spinoff;
 
+
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -14,12 +13,16 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import java.util.Objects;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import br.com.simplepass.loading_button_lib.customViews.CircularProgressButton;
 import group3.spinoff.employeeUI.MainEmployeeUI;
 
@@ -30,6 +33,7 @@ public class CompanyLoginActivity extends AppCompatActivity implements View.OnCl
     private EditText editTextCompanyMail, editTextCompanyPass;
     private CheckBox checkBox;
     private FirebaseAuth mAuth;
+    private Toolbar toolbar;
 
 
     @Override
@@ -51,6 +55,10 @@ public class CompanyLoginActivity extends AppCompatActivity implements View.OnCl
 
         mAuth = FirebaseAuth.getInstance();
 
+        toolbar = findViewById(R.id.toolbarSettings);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
     }
 
     @Override
@@ -60,8 +68,7 @@ public class CompanyLoginActivity extends AppCompatActivity implements View.OnCl
             String mail = editTextCompanyMail.getText().toString();
             String pass = editTextCompanyPass.getText().toString();
 
-
-            if (mail.equals("") || pass.equals("")) {
+            if (mail.equals("") || pass.equals("") || mail.isEmpty() || pass.isEmpty()) {
                 Toast.makeText(this, R.string.login_employee_noinput, Toast.LENGTH_SHORT).show();
             } else if (isNetworkConnected()) {
                 buttonCompanyLogIn.startAnimation();
@@ -70,7 +77,8 @@ public class CompanyLoginActivity extends AppCompatActivity implements View.OnCl
                 Toast.makeText(this, R.string.general_no_internet, Toast.LENGTH_SHORT).show();
             }
         } else if (view == textViewLoginHelp) {
-            Toast.makeText(this, R.string.company_login_forgot_password, Toast.LENGTH_SHORT).show();
+            Snackbar.make(view, R.string.snackbar_forgot_pass, Snackbar.LENGTH_SHORT).show();
+            //Toast.makeText(this, "Trykkede på Glemt kodeord", Toast.LENGTH_SHORT).show();
         }
         if (checkBox.isChecked()) {
             editTextCompanyMail.setText("dtu@spinoff.476");
@@ -81,7 +89,6 @@ public class CompanyLoginActivity extends AppCompatActivity implements View.OnCl
         }
     }
 
-
     private void firebaseSignIn(final String mail, final String pass) {
         mAuth.signInWithEmailAndPassword(mail, pass).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
@@ -90,7 +97,8 @@ public class CompanyLoginActivity extends AppCompatActivity implements View.OnCl
                     FirebaseUser user = mAuth.getCurrentUser();
                     Toast.makeText(getApplicationContext(), R.string.company_login_login_success, Toast.LENGTH_SHORT).show();
                     Intent i = new Intent(getApplicationContext(), MainEmployeeUI.class);
-                    finish();
+                    i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    finishAffinity();
                     startActivity(i);
                 } else {
                     System.out.println("Userlogin failed: " + mail + ", " + pass + "\n" + task.getException());
@@ -106,5 +114,11 @@ public class CompanyLoginActivity extends AppCompatActivity implements View.OnCl
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
 
         return Objects.requireNonNull(cm).getActiveNetworkInfo() != null;
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }

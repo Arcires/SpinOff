@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarRules"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ToolbarTheme">
+
+        <TextView
+            android:id="@+id/appRulesTerms"
+            style="@android:style/TextAppearance.Material.Widget.ActionBar.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/employee_more_termsofservicebuttontext" />
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <TextView
+        android:id="@+id/textViewDataTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="1. Indsamling af data"
+        android:textAllCaps="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarRules" />
+
+    <TextView
+        android:id="@+id/textViewDataText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:background="@color/colorBackground"
+        android:text="Vi indsamler som udgangspunkt ikke personlige informationer ind eller data.
+1.a Dog bliver alle nedbrud rapporteret og anvendt til fremtidige forbedringer.
+1.b: Enhedsinformationer og app-data kan i den sammenhæng blive brugt til at identificere problemer/bugs"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDataTitle" />
+
+    <TextView
+        android:id="@+id/textViewSpeechTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/colorBackground"
+        android:text="2. Den gode tone"
+        android:textAllCaps="true"
+        android:textColor="@color/colorPrimaryWhite"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDataText" />
+
+    <TextView
+        android:id="@+id/textViewSpeechText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:background="@color/colorBackground"
+        android:text="Brugere af appen tilskyndes at huske på formålet med appen, at forbedre møder og arrangementer, og at holde holdninger vedr. mødelederens personlige karakteristika ude af tilbagemeldinger.
+2.a: udvis en pæn og ordentligt talemåde - gå efter bolden, ikke manden."
+        android:textColor="@color/colorPrimaryWhite"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSpeechTitle" />
+
+    <TextView
+        android:id="@+id/textViewStatusTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/colorBackground"
+        android:text="3. Status"
+        android:textAllCaps="true"
+        android:textColor="@color/colorPrimaryWhite"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSpeechText" />
+
+    <TextView
+        android:id="@+id/textViewStatusText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:background="@color/colorBackground"
+        android:text="Denne app er stadig i tidlig alfa version, og af denne grund kan der opstå problemer og mangler. Yderligere rapporteringer om problemer kan indsendes til s154424@student.dtu.dk"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewStatusTitle" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

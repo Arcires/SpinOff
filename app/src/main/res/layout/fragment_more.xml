@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,85 +8,78 @@
     android:background="@color/colorBackground"
     tools:context=".employeeUI.MoreFragment">
 
-    <Button
-        android:id="@+id/buttonMoreSettings"
+
+    <TextView
+        android:id="@+id/textViewLoginText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Du er logget ind som:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewLoginType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/button_logingreen"
-        android:fontFamily="@font/futurabook"
+        android:text="@string/placeholder_text"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewLoginText" />
+
+
+    <Button
+        android:id="@+id/buttonMoreSettings"
+        style="?attr/borderlessButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="0"
         android:text="@string/employee_more_settingsbuttontext"
-        android:textAllCaps="false"
-        android:textColor="@color/colorPrimaryWhite"
-        android:textSize="28sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.20" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewLoginType" />
 
     <Button
-        android:id="@+id/buttonMoreTermsAndConditions"
-        android:layout_width="wrap_content"
+        android:id="@+id/buttonMoreInfo"
+        style="?attr/borderlessButtonStyle"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/button_logingreen"
-        android:fontFamily="@font/futurabook"
-        android:text="@string/employee_more_termsofservicebuttontext"
-        android:textAllCaps="false"
-        android:textColor="@color/colorPrimaryWhite"
-        android:textSize="28sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.40" />
-
-
-    <Button
-        android:id="@+id/buttonMoreAboutUs"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/button_logingreen"
-        android:fontFamily="@font/futurabook"
+        android:layout_marginTop="2dp"
         android:text="@string/employee_more_aboutus"
-        android:textAllCaps="false"
-        android:textColor="@color/colorPrimaryWhite"
-        android:textSize="28sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.60" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonMoreSettings" />
+
 
     <Button
-        android:id="@+id/buttonMoreLogOut"
-        android:layout_width="wrap_content"
+        android:id="@+id/buttonMoreLogout"
+        style="?attr/borderlessButtonStyle"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/button_logingreen"
-        android:fontFamily="@font/futurabook"
+        android:layout_marginTop="2dp"
         android:text="@string/employee_more_logout"
-        android:textAllCaps="false"
-        android:textColor="@color/colorPrimaryWhite"
-        android:textSize="28sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonMoreInfo" />
+
+
+    <ImageView
+        android:id="@+id/imageViewBottomBackground"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="2dp"
+        android:src="@color/textFieldBackground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.80" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonMoreLogout" />
 
-
-
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

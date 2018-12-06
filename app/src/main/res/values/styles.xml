@@ -1,11 +1,113 @@
 <resources>
 
     <!-- Base application theme. -->
+    <!--
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
+        <!-- -->
+        <item name="android:windowBackground">@color/colorBackground</item>
+        <item name="android:navigationBarColor">@color/colorPrimaryDark</item>
+        <item name="android:textColorPrimary">@color/colorWhite</item>
+
+        <!-- -->
+        <item name="android:colorControlHighlight">@color/darkRipple</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:fontFamily">@font/robotoregular</item>
+        <item name="android:textSize">16sp</item>
+
+        <!-- Button styling -->
+        <item name="materialButtonStyle">@style/AppTheme.Button</item>
+        <item name="borderlessButtonStyle">@style/AppTheme.BorderlessButton</item>
+        <item name="checkboxStyle">@style/AppTheme.CheckBox</item>
+        
+        <item name="android:preferenceStyle">@style/PreferenceThemeOverlay</item>
+
+        <item name="snackbarStyle">@style/AppTheme.Snackbar</item>
+    </style>
+
+    <style name="ToolbarTheme">
+        <item name="android:height">30dp</item>
+        <item name="android:background">@color/colorPrimaryDark</item>
+        <item name="android:homeAsUpIndicator">@drawable/ic_arrow_back</item>
+    </style>
+
+    <style name="materialDarkButtonStyle" parent="AppTheme.Button">
+        <item name="backgroundTint">@color/colorPrimaryDark</item>
+        <item name="rippleColor">@color/darkRipple</item>
+    </style>
+
+    <style name="AppTheme.Button" parent="Widget.MaterialComponents.Button">
+        <item name="android:fontFamily">@font/robotoregular</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:height">70dp</item>
+    </style>
+
+    <style name="materialSmallDarkButtonStyle" parent="materialDarkButtonStyle">
+        <item name="android:textSize">16sp</item>
+        <item name="android:height">50dp</item>
+    </style>
+    <style name="materialSmallButtonStyle" parent="AppTheme.Button">
+        <item name="android:textSize">16sp</item>
+        <item name="android:height">50dp</item>
+    </style>
+
+    <style name="AppTheme.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.FilledBox.Dense">
+        <item name="boxBackgroundColor">@color/textFieldBackground</item>
+        <item name="android:textColorHint">@color/colorInactive</item>
+    </style>
+    <style name="AppTheme.TextInputEditText" parent="Widget.MaterialComponents.TextInputEditText.FilledBox">
+        <item name="android:background">@color/textFieldBackground</item>
+        <item name="android:textColor">@color/colorWhite</item>
+    </style>
+    <style name="AppTheme.BorderlessButton" parent="Base.Widget.AppCompat.Button.Borderless">
+        <item name="backgroundTint">@color/textFieldBackground</item>
+        <item name="android:height">60dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="cornerRadius">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="rippleColor">@color/darkRipple</item>
+    </style>
+
+    <style name="AppTheme.Headline">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="AppTheme.SubHeadline">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="AppTheme.CircularProgressButton" parent="AppTheme.Button">
+        <item name="android:height">60dp</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:background">@drawable/button_logingreen</item>
+    </style>
+
+    <style name="AppTheme.CheckBox" parent="Widget.MaterialComponents.CompoundButton.CheckBox">
+        <item name="android:buttonTint">@color/colorPrimary</item>
+        <item name="android:textColor">@color/colorWhite</item>
+    </style>
+
+    <style name="AppTheme.Snackbar" parent="Widget.MaterialComponents.Snackbar">
+        <item name="android:background">@color/colorPrimaryDark</item>
     </style>
 
 </resources>

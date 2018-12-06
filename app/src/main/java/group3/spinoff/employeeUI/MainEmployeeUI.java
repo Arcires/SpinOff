@@ -2,21 +2,22 @@ package group3.spinoff.employeeUI;
 
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 import group3.spinoff.R;
 import group3.spinoff.employeeUI.views.FeedbackViewFragment;
 
-public class MainEmployeeUI extends AppCompatActivity implements View.OnClickListener, FeedbackViewFragment.OnFragmentInteractionListener {
+public class MainEmployeeUI extends AppCompatActivity implements View.OnClickListener, FeedbackViewFragment.OnFragmentInteractionListener, FragmentManager.OnBackStackChangedListener {
 
     FrameLayout frameLayoutEmployee;
 
@@ -31,9 +32,11 @@ public class MainEmployeeUI extends AppCompatActivity implements View.OnClickLis
             switch (item.getItemId()) {
                 case R.id.navigation_more:
                     getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutEmployee, new MoreFragment()).commit();
+                    overridePendingTransition(R.anim.slideinleft_anim, R.anim.slideoutright_anim);
                     return true;
                 case R.id.navigation_feedback:
                     getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutEmployee, new FeedbackHomeFragment()).commit();
+                    overridePendingTransition(R.anim.slideinleft_anim, R.anim.slideoutright_anim);
                     return true;
                 case R.id.navigation_meeting:
                     getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutEmployee, new MeetingFragment()).commit();
@@ -56,10 +59,9 @@ public class MainEmployeeUI extends AppCompatActivity implements View.OnClickLis
         checkIfCompany(navigation);
 
         frameLayoutEmployee = findViewById(R.id.frameLayoutEmployee);
-
+        getSupportFragmentManager().addOnBackStackChangedListener(this);
         getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutEmployee, new FeedbackHomeFragment()).commit();
         getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutEmployee, new MeetingFragment()).commit();
-
 
     }
 
@@ -81,4 +83,20 @@ public class MainEmployeeUI extends AppCompatActivity implements View.OnClickLis
     public void onFragmentInteraction(Uri uri) {
 
     }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        getSupportFragmentManager().popBackStack();
+
+        //getSupportFragmentManager().getBackStackEntryAt(0).getName();
+        //Toast.makeText(getApplicationContext(),"Backtack name: " + getSupportFragmentManager().getBackStackEntryAt(0).getName(), Toast.LENGTH_LONG).show();
+        //onBackPressed();
+        return true;
+    }
+
+    @Override
+    public void onBackStackChanged() {
+        //Toast.makeText(getApplicationContext(),getSupportFragmentManager().getBackStackEntryCount(),Toast.LENGTH_LONG);
+    }
+
 }

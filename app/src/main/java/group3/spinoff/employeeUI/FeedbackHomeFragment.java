@@ -1,10 +1,10 @@
 package group3.spinoff.employeeUI;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,7 +21,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import group3.spinoff.R;
 import group3.spinoff.employeeUI.data.DummyUser;
 import group3.spinoff.employeeUI.data.MeetingListElement;
@@ -30,7 +33,7 @@ import group3.spinoff.employeeUI.views.meetinggraphview.MeetingGraphViewFragment
 import group3.spinoff.firebase.FeedbackValueListener;
 import group3.spinoff.firebase.MeetingValueListener;
 
-import static android.support.constraint.Constraints.TAG;
+import static androidx.constraintlayout.motion.widget.MotionScene.TAG;
 
 class FeedbackData {
     List<MeetingListElement> meetings;
@@ -42,21 +45,21 @@ class FeedbackData {
 
         meetings = new ArrayList<>();
 
-        if(feedbacks!=null) {
+        if (feedbacks != null) {
             for (HashMap<String, Object> feed : feedbacks.values()) {
 
                 meetings.add(new MeetingListElement()
-                        .setTitle(feed.get("Title").toString())
-                        .setDescription(feed.get("Desc").toString())
-                        .setComments(feed.get("Comment").toString())
+                        .setTitle(Objects.requireNonNull(feed.get("Title")).toString())
+                        .setDescription(Objects.requireNonNull(feed.get("Desc")).toString())
+                        .setComments(Objects.requireNonNull(feed.get("Comment")).toString())
 
-                        .setQ1(Float.parseFloat(feed.get("Q1").toString()))
-                        .setQ2(Float.parseFloat(feed.get("Q2").toString()))
-                        .setQ3(Float.parseFloat(feed.get("Q3").toString())));
+                        .setQ1(Float.parseFloat(Objects.requireNonNull(feed.get("Q1")).toString()))
+                        .setQ2(Float.parseFloat(Objects.requireNonNull(feed.get("Q2")).toString()))
+                        .setQ3(Float.parseFloat(Objects.requireNonNull(feed.get("Q3")).toString())));
             }
         }
 
-        if(companymeetings!=null) {
+        if (companymeetings != null) {
             for (HashMap<String, Object> meet : companymeetings.values()) {
                 float q1_average = 0;
                 float q2_average = 0;
@@ -72,14 +75,14 @@ class FeedbackData {
 
                     HashMap<String, HashMap<String, Object>> answers = list.get("Answers");
 
-                    if(list != null){
+                    if (list != null) {
 
-                        for(HashMap<String, Object> answer:answers.values()){
+                        for (HashMap<String, Object> answer : answers.values()) {
                             ++actualpeople;
 
-                            q1_average = q1_average  + Float.parseFloat(answer.get("Q1").toString());
-                            q2_average = q2_average  + Float.parseFloat(answer.get("Q2").toString());
-                            q3_average = q3_average  + Float.parseFloat(answer.get("Q3").toString());
+                            q1_average = q1_average + Float.parseFloat(answer.get("Q1").toString());
+                            q2_average = q2_average + Float.parseFloat(answer.get("Q2").toString());
+                            q3_average = q3_average + Float.parseFloat(answer.get("Q3").toString());
 
                             commentsList.add((String) answer.get("Comment"));
                         }
@@ -88,7 +91,7 @@ class FeedbackData {
                         q2_average = q2_average / actualpeople;
                         q3_average = q3_average / actualpeople;
                     }
-                }catch(Exception e){
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
 
@@ -153,8 +156,8 @@ public class FeedbackHomeFragment extends Fragment implements IDataObserver {
 
         String email = user.getEmail();
 
-        if (email != null){
-            if(!email.isEmpty()){
+        if (email != null) {
+            if (!email.isEmpty()) {
                 isCompany = true;
                 companyID = email.split("\\.")[1];
             }
@@ -189,7 +192,6 @@ public class FeedbackHomeFragment extends Fragment implements IDataObserver {
         }
 
 
-
         return recyclerView;
     }
 
@@ -215,10 +217,10 @@ public class FeedbackHomeFragment extends Fragment implements IDataObserver {
             vh.feedbackView = getLayoutInflater().inflate(R.layout.feedback_list_elements, parent, false);
             vh.titleTextView = vh.feedbackView.findViewById(R.id.feedback_list_elements_title);
             vh.descriptionTextView = vh.feedbackView.findViewById(R.id.feedback_list_elements_description);
-            vh.logoImageView = vh.feedbackView.findViewById(R.id.feedback_list_elements_image);
+            //vh.logoImageView = vh.feedbackView.findViewById(R.id.feedback_list_elements_image);
             vh.feedbackView.setOnClickListener(vh);
-            vh.feedbackView.setBackgroundResource(android.R.drawable.list_selector_background);
-            vh.logoImageView.setOnClickListener(vh);
+            vh.feedbackView.setBackgroundResource(R.drawable.ripple_effect);
+            //vh.logoImageView.setOnClickListener(vh);
 //      vh.logoImageView.setBackgroundResource(android.R.drawable.btn_default);
             vh.linearLayout.addView(vh.feedbackView);
             return vh;
@@ -252,19 +254,19 @@ public class FeedbackHomeFragment extends Fragment implements IDataObserver {
         public void onClick(View v) {
             final int position = getAdapterPosition();
 
-            if(!isCompany) {
+            if (!isCompany) {
                 FeedbackViewFragment feedbackViewFragment = new FeedbackViewFragment();
                 feedbackViewFragment.setValues(data.meetings.get(position));
 
-                getActivity().getSupportFragmentManager().beginTransaction().replace(
-                        R.id.frameLayoutEmployee, feedbackViewFragment).commit();
+                getActivity().getSupportFragmentManager().beginTransaction().add(
+                        R.id.frameLayoutEmployee, feedbackViewFragment).addToBackStack(null).commit();
 
-            } else{
+            } else {
                 MeetingGraphViewFragment meetingGraphViewFragment = new MeetingGraphViewFragment();
                 meetingGraphViewFragment.setValues(data.meetings.get(position));
 
-                getActivity().getSupportFragmentManager().beginTransaction().replace(
-                        R.id.frameLayoutEmployee, meetingGraphViewFragment).commit();
+                getActivity().getSupportFragmentManager().beginTransaction().add(
+                        R.id.frameLayoutEmployee, meetingGraphViewFragment).addToBackStack(null).commit();
             }
 
         }
