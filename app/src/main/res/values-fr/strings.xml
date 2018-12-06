@@ -2,11 +2,11 @@
     <string name="app_name">SpinOff</string>
 
     //Login screen//
-    <string name="login_employee">Je suis un Employé</string>
+    <string name="login_employee">Je suis un employé</string>
     <string name="login_company">S\'identifier comme entreprise</string>
     <string name="login_logodesc">Logo for login screen</string>
-    <string name="login_textview">&#169; 2018 SpinOff &amp; DTU Compute. All rights reserved.</string>
-    <string name="login_appinfodtudesc">Logo for DTU</string>
+    <string name="login_textview">"&#169; 2018 SpinOff &amp; DTU Compute. Tous droits réservés. "</string>
+    <string name="login_appinfodtudesc">Logo de DTU</string>
 
     //Company login screen//
     <string name="company_login_intro">Compagny login</string>
@@ -14,7 +14,6 @@
     <string name="company_login_help">Mot de passe oublié ?</string>
     <string name="company_loginCVRText">Email</string>
     <string name="company_loginPassText">Mot de passe</string>
-    <string name="title_activity_main_employee_ui">MainEmployeeUI</string>
     <string name="company_login_login_failed">Identification impossible. Veuillez réessayer.</string>
 
     //Employee main UI screen//
@@ -36,10 +35,10 @@
 
     //Welcome Pager Activity//
     <string name="welcomepager_welcome_title">Bienvenue.</string>
-    <string name="welcomepager_welcome_intro">We here at SpinOff wants to make a difference, both for you as an employee, and for you as a speaker. Feedback and open critique of meeting structure and content is important in order to optimise meetings. We offer an easy and simple platform for companies and their employess to accomplish this.</string>
-    <string name="welcomepager_meeting_title">Meeting response.</string>
-    <string name="welcomepager_meeting_intro">Response and feedback on meeting and events are often long, tedious and awkward. We want to shift away from this method, with an app for your smartphone. The feedback process should be quick, easy and efficient.</string>
-    <string name="welcomepager_anonymous_title">Anonymity and security.</string>
+    <string name="welcomepager_welcome_intro">Nous, ici chez SpinOff, souhaitons faire la différence pour vous employé, mais également pour vous présentateur. Les avis et critiques ouvertes sur le contenu des réunions sont des choses essentielles pour optimiser leur efficacité. Nous offrons un moyen simple pour les compagnies et leurs employés d’accomplir ceci.</string>
+    <string name="welcomepager_meeting_title">Réponse de réunion.</string>
+    <string name="welcomepager_meeting_intro">Les avis et autres feedbacks concernant une réunion ou un évènement sont parfois long et fastidieux à mettre en place. Nous voulons rendre cela plus simple grâce à une application mobile. Le système doit donc être rapide, simple et efficace.</string>
+    <string name="welcomepager_anonymous_title">Anonymat et sécurité.</string>
     <string name="welcomepager_anonymous_intro">All answers are registered anonymously, and can not be tracked back to you. Anonymous feedback is often more honest, than a signed response scheme. Neither the company nor the speaker can see who answered what.</string>
     <string name="welcomepager_feedback_title">Results and purpose.</string>
     <string name="welcomepager_feedback_intro">"Our platform visualises attendants impressions of the meeting to the company and speaker. "</string>
@@ -55,6 +54,37 @@
     <string name="createMeetingCountHint">Nombre de participants</string>
     <string name="createMeetingButtonText">Créer une nouvelle réunion</string>
     <string name="login_appinfotext">Cette application a été développée en collaboration avec le Groupe 23 de chez DTU Compute et SpinOff Aps.</string>
+    <string name="login_employee_noinput">Veuillez insérer votre email et mot de passe</string>
+    <string name="login_employee_failed">La connexion anonyme a échoué. Veuillez vérifier l’état de votre connexion internet.</string>
+    <string name="login_employee_success">"Enregistré comme employé anonyme. "</string>
+    <string name="company_login_forgot_password">\"Mot de passe oublié\" pressé.</string>
+    <string name="company_login_login_success">Enregistré comme utilisateur</string>
+    <string name="company_login_test_companytext">Test compagny</string>
+    <string name="general_no_internet">Accès au serveur impossible. Veuillez vérifier votre connexion internet.</string>
+    <string name="general_employee">Utilisateur anonyme</string>
+    <string name="general_error_reading">Erreur de données</string>
+    <string name="employee_ui_statistics">Statistiques</string>
+    <string name="employee_ui_testmeetingtext">Test réunion</string>
+    <string name="graphview_title_average">Moyenne des questions</string>
+    <string name="graphview_title_q1">Réponses de la 1ère question</string>
+    <string name="graphview_title_q2">Réponses de la 2nd question</string>
+    <string name="graphview_title_q3">Réponses de la 3ième question</string>
+    <string name="grapview_graphxlabel">Numéro de question</string>
+    <string name="grapview_graphylabel">Nombre de points</string>
+    <string name="createMeetingButtonTextNewText">Appuyez sur le bouton pour copier le lien vers la réunion</string>
+    <string name="createMeetingCreationConfirmation">Réunion créée. Le code PIN est :</string>
+    <string name="createMeetingCreationToast">Le code PIN est : \\u0020</string>
+    <string name="createMeetingLinkCopy">Lien copié</string>
+    <string name="createfeedback_submit_button_text">+ Ajouter feedback</string>
+    <string name="createfeedback_toast">Feedback ajouté à la réunion : \\u0020</string>
+    <string name="feedbackgraphs_maintitle">Titre réunion</string>
+    <string name="feedbackgraphs_meetingtitle">Titre réunion</string>
+    <string name="feedbackgraphs_meetingdescription">Description réunion</string>
+    <string name="feedbackgraphs_meetingpeoplecount">Nombre de participants</string>
+    <string name="feedbackgraphs_meetinganswercount">Nombre de réponses</string>
+    <string name="feedbackgraphs_comments">Commentaires</string>
+    <string name="employee_more_toptitletext">Vous êtes enregistré(e) comme</string>
+    <string name="employee_meeting_fragmentmeetingerror">Erreur. Réunion inexistante</string>
 
 
 </resources>

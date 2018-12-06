@@ -138,7 +138,7 @@ public class MeetingFragment extends Fragment implements IDataObserver {
         String meetingDesc = (String) meetingValueListener.getMeets().get("Desc");
 
         if (meetingTitle != null) {
-            Snackbar.make(getActivity().findViewById(R.id.snackbar_placement), "Meeting found", Snackbar.LENGTH_SHORT).show();
+            Snackbar.make(getActivity().findViewById(R.id.snackbar_placement), getResources().getString(R.string.employee_meeting_fragmentmeetingsuccess), Snackbar.LENGTH_SHORT).show();
 
             CreateFeedbackViewFragment createFeedbackViewFragment = new CreateFeedbackViewFragment();
             createFeedbackViewFragment.setValues(
@@ -152,7 +152,7 @@ public class MeetingFragment extends Fragment implements IDataObserver {
                     R.id.frameLayoutEmployee, createFeedbackViewFragment).addToBackStack(null).commit();
 
         } else {
-            Snackbar sb = Snackbar.make(getActivity().findViewById(R.id.snackbar_placement), "This Meeting does not exist.", Snackbar.LENGTH_SHORT);
+            Snackbar sb = Snackbar.make(getActivity().findViewById(R.id.snackbar_placement), getResources().getString(R.string.employee_meeting_fragmentmeetingerror), Snackbar.LENGTH_SHORT);
             View snackbarView = sb.getView();
             snackbarView.setBackgroundColor(getResources().getColor(R.color.design_default_color_error));
             sb.show();
