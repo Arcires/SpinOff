@@ -8,8 +8,8 @@ android {
         applicationId "group3.spinoff"
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 4
-        versionName "1.1b"
+        versionCode 5
+        versionName "1.1c"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

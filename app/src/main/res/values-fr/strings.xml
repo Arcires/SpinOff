@@ -54,7 +54,7 @@
     <string name="createMeetingDescHint">Description de la réunion</string>
     <string name="createMeetingCountHint">Nombre de participants</string>
     <string name="createMeetingButtonText">Créer une nouvelle réunion</string>
-    <string name="login_appinfotext">Cette application a été développée en collaboration avec le Groupe 3 de chez DTU Compute et SpinOff Aps.</string>
+    <string name="login_appinfotext">Cette application a été développée en collaboration avec le Groupe 23 de chez DTU Compute et SpinOff Aps.</string>
 
 
 </resources>

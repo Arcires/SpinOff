@@ -11,7 +11,7 @@
     <string name="login_employee_failed">Anonymt login mislykkedes.\nTjek din internetforbindelse.</string>
     <string name="login_employee_success">Loggede ind som anonym medarbejder</string>
     <string name="login_textview">&#169; 2018 SpinOff &amp; DTU Compute. Alle rettigheder forbeholdes.</string>
-    <string name="login_appinfotext">Denne applikation er udviklet i samarbejde mellem Gruppe 3 fra DTU Compute og SpinOff Aps.\n\nEfterår 2018.\n\nAppversion: 0.1.0 &#169; 2018 Alle rettigheder forbeholdes.</string>
+    <string name="login_appinfotext">Denne applikation er udviklet i samarbejde mellem Gruppe 23 fra DTU Compute og SpinOff Aps.\n\nEfterår 2018.\n\nAppversion: 1.1c &#169; 2018 Alle rettigheder forbeholdes.</string>
     <string name="login_appinfodtudesc">Logo til DTU</string>
 
     //Company login screen//

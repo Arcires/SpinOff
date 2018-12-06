@@ -6,7 +6,7 @@
     <string name="login_company">Log in as company</string>
     <string name="login_logodesc">Logo for login screen</string>
     <string name="login_textview">&#169; 2018 SpinOff &amp; DTU Compute. All rights reserved.</string>
-    <string name="login_appinfotext">This application was developed in cooperation between Group 3 from DTU Compute and SpinOff Aps.\n\nFall 2018.\n\nAppversion: 0.1.0 &#169; 2018 All rights reserved.</string>
+    <string name="login_appinfotext">This application was developed in cooperation between Group 23 from DTU Compute and SpinOff Aps.  Fall 2018.  Appversion: 1.1c © 2018 All rights reserved.</string>
     <string name="login_appinfodtudesc">Logo for DTU</string>
 
     //Company login screen//
