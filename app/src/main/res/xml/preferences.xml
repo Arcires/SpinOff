@@ -9,6 +9,12 @@
             android:title="Tillad notifikationer"
             android:buttonTint="@color/colorPrimary"/>
     </PreferenceCategory>
+    <PreferenceCategory android:title="Juridisk tekst">
+        <Preference android:title="@string/employee_more_termsofservicebuttontext" >
+            <intent android:targetPackage="group3.spinoff"
+                android:targetClass="group3.spinoff.employeeUI.RulesPage" />
+        </Preference>
+    </PreferenceCategory>
 
 
 </androidx.preference.PreferenceScreen>
