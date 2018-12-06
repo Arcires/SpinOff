@@ -103,6 +103,7 @@
     <string name="feedbackgraphs_meetingdescription">Mødebeskrivelse</string>
     <string name="feedbackgraphs_meetingpeoplecount">Antal tilmeldte</string>
     <string name="feedbackgraphs_meetinganswercount">Antal svar</string>
+    <string name="feedbackgraphs_comments">Kommentarer</string>
 
     <string name="snackbar_email_pass_empty">Indtast venligst både mail og password</string>
     <string name="snackbar_forgot_pass">Trykkede på Glemt kodeord</string>

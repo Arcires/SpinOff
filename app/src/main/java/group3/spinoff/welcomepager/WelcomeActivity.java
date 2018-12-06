@@ -53,7 +53,7 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
         buttonFinish.setOnClickListener(this);
         buttonSkip.setOnClickListener(this);
 
-        layoutDots = findViewById(R.id.dotsLayout);
+        layoutDots = findViewById(R.id.graphDotsLayout);
         createDots(0);
 
         editor = sharedPrefs.edit();

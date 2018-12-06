@@ -97,7 +97,8 @@ public class CompanyLoginActivity extends AppCompatActivity implements View.OnCl
                     FirebaseUser user = mAuth.getCurrentUser();
                     Toast.makeText(getApplicationContext(), R.string.company_login_login_success, Toast.LENGTH_SHORT).show();
                     Intent i = new Intent(getApplicationContext(), MainEmployeeUI.class);
-                    finish();
+                    i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    finishAffinity();
                     startActivity(i);
                 } else {
                     System.out.println("Userlogin failed: " + mail + ", " + pass + "\n" + task.getException());

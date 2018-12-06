@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -146,16 +147,23 @@ public class MoreFragment extends Fragment implements View.OnClickListener {
             case R.id.buttonMoreLogout:
                 try {
                     if (user != null) {
+                        //Snackbar sb = Snackbar.make(getActivity().findViewById(R.id.snackbar_placement), "", Snackbar.LENGTH_SHORT);
                         if (user.getEmail() != null) {
-                            System.out.println(getResources().getString(R.string.employee_more_loggedoutcompanytext) + user.getEmail());
+                            //Snackbar.make(getActivity().findViewById(R.id.buttonEmployeeLogIn), "Helloe", Snackbar.LENGTH_SHORT).show();
+                            //String text = getResources().getString(R.string.employee_more_loggedoutcompanytext) + user.getEmail();
+                            //sb.setText(text).show();
                             Toast.makeText(getActivity(), getResources().getString(R.string.employee_more_loggedoutcompanytext) + user.getEmail(), Toast.LENGTH_SHORT).show();
                         } else {
+                            //String text = getResources().getString(R.string.employee_more_loggedoutemployeetext);
+                            //sb.setText(text).show();
                             Toast.makeText(getActivity(), getResources().getString(R.string.employee_more_loggedoutemployeetext), Toast.LENGTH_SHORT).show();
                         }
+                        
                         mAuth.signOut();
                         Intent k = new Intent(view.getContext(), RoleSelectionActivity.class);
                         getActivity().finish();
                         startActivity(k);
+
                     }
                 } catch (Exception e) {
                     e.getMessage();

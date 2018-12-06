@@ -66,15 +66,7 @@ public class CreateMeetingViewFragment extends Fragment {
         ab.setDisplayHomeAsUpEnabled(true);
         ab.setDisplayShowTitleEnabled(false);
 
-
-        /*
-        buttonCreateMeetingExit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(view.getContext(), "Exited meeting creation.", Toast.LENGTH_SHORT).show();
-            }
-        });
-        */
+        //buttonCreateMeeting.setVisibility(View.VISIBLE);
 
         buttonCreateMeeting.setOnClickListener(new View.OnClickListener() {
             @Override

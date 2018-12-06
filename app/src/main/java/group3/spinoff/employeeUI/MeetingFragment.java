@@ -1,16 +1,21 @@
 package group3.spinoff.employeeUI;
 
+import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
+import android.hardware.input.InputManager;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethod;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -20,6 +25,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.Objects;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import br.com.simplepass.loading_button_lib.customViews.CircularProgressButton;
 import group3.spinoff.R;
@@ -71,18 +77,33 @@ public class MeetingFragment extends Fragment implements IDataObserver {
             @Override
             public void onClick(View view) {
 
+                InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Activity.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(view.getWindowToken(),0);
+
                 String pin = textInputEditTextPin.getText().toString();
 
-                if (pin.length() > 5 && isConnected()) {
+                if (isConnected()) {
+                    if (pin.length() > 5) {
 
-                    companyID = pin.substring(0, 3);
-                    pinCode = pin.substring(3);
+                        companyID = pin.substring(0, 3);
+                        pinCode = pin.substring(3);
 
-                    meetingRef = database.getReference("Meeting/" + companyID + "/" + pinCode);
-                    meetingRef.addValueEventListener(meetingValueListener);
-                    buttonSearchMeeting.startAnimation();
-                } else {
-                    Toast.makeText(getContext(), "Intet internet detekteret.\nTjek din netforbindelse", Toast.LENGTH_SHORT).show();
+                        meetingRef = database.getReference("Meeting/" + companyID + "/" + pinCode);
+                        meetingRef.addValueEventListener(meetingValueListener);
+                        buttonSearchMeeting.startAnimation();
+                    }
+                    else {
+                        Snackbar sb = Snackbar.make(getActivity().findViewById(R.id.snackbar_placement), "Ugyldig PIN", Snackbar.LENGTH_SHORT);
+                        View snackbarView = sb.getView();
+                        snackbarView.setBackgroundColor(getResources().getColor(R.color.design_default_color_error));
+                        sb.show();
+                    }
+                }
+                else {
+                    Snackbar sb = Snackbar.make(view, "Intet internet detekteret.\nTjek din netforbindelse", Snackbar.LENGTH_SHORT);
+                    View snackbarView = sb.getView();
+                    snackbarView.setBackgroundColor(getResources().getColor(R.color.design_default_color_error));
+                    sb.show();
                 }
             }
 
@@ -97,14 +118,14 @@ public class MeetingFragment extends Fragment implements IDataObserver {
         //Check if the current user is an employee or a company.
         // If they have a user mail, they are registered company.
 
-        if (user.isAnonymous()) {
-            buttonCreateMeeting.setVisibility(View.INVISIBLE);
+        if (!user.isAnonymous()) {
+            buttonCreateMeeting.setVisibility(View.VISIBLE);
         }
         buttonCreateMeeting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction().replace(
-                        R.id.frameLayoutEmployee, new CreateMeetingViewFragment()).commit();
+                        R.id.frameLayoutEmployee, new CreateMeetingViewFragment()).addToBackStack(null).commit();
             }
         });
 
@@ -117,7 +138,7 @@ public class MeetingFragment extends Fragment implements IDataObserver {
         String meetingDesc = (String) meetingValueListener.getMeets().get("Desc");
 
         if (meetingTitle != null) {
-            Toast.makeText(view.getContext(), "Meeting found!", Toast.LENGTH_SHORT).show();
+            Snackbar.make(getActivity().findViewById(R.id.snackbar_placement), "Meeting found", Snackbar.LENGTH_SHORT).show();
 
             CreateFeedbackViewFragment createFeedbackViewFragment = new CreateFeedbackViewFragment();
             createFeedbackViewFragment.setValues(
@@ -131,7 +152,10 @@ public class MeetingFragment extends Fragment implements IDataObserver {
                     R.id.frameLayoutEmployee, createFeedbackViewFragment).addToBackStack(null).commit();
 
         } else {
-            Toast.makeText(view.getContext(), "This Meeting does not exist.", Toast.LENGTH_SHORT).show();
+            Snackbar sb = Snackbar.make(getActivity().findViewById(R.id.snackbar_placement), "This Meeting does not exist.", Snackbar.LENGTH_SHORT);
+            View snackbarView = sb.getView();
+            snackbarView.setBackgroundColor(getResources().getColor(R.color.design_default_color_error));
+            sb.show();
             buttonSearchMeeting.revertAnimation();
         }
 

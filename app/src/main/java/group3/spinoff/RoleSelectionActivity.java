@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -51,7 +52,6 @@ public class RoleSelectionActivity extends AppCompatActivity implements View.OnC
     public void onClick(View view) {
         if (view == buttonCompanyLogin) {
             Intent i = new Intent(this, CompanyLoginActivity.class);
-            finish();
             startActivity(i);
         } else if (view == buttonEmployeeLogin) {
             buttonEmployeeLogin.startAnimation();

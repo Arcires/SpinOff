@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
-        android:id="@+id/dotsLayout"
+        android:id="@+id/graphDotsLayout"
         android:layout_width="match_parent"
         android:layout_height="20dp"
         android:layout_marginBottom="16dp"

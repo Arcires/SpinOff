@@ -219,7 +219,7 @@ public class FeedbackHomeFragment extends Fragment implements IDataObserver {
             vh.descriptionTextView = vh.feedbackView.findViewById(R.id.feedback_list_elements_description);
             //vh.logoImageView = vh.feedbackView.findViewById(R.id.feedback_list_elements_image);
             vh.feedbackView.setOnClickListener(vh);
-            vh.feedbackView.setBackgroundResource(android.R.drawable.list_selector_background);
+            vh.feedbackView.setBackgroundResource(R.drawable.ripple_effect);
             //vh.logoImageView.setOnClickListener(vh);
 //      vh.logoImageView.setBackgroundResource(android.R.drawable.btn_default);
             vh.linearLayout.addView(vh.feedbackView);

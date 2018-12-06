@@ -28,8 +28,11 @@
         <!-- Button styling -->
         <item name="materialButtonStyle">@style/AppTheme.Button</item>
         <item name="borderlessButtonStyle">@style/AppTheme.BorderlessButton</item>
+        <item name="checkboxStyle">@style/AppTheme.CheckBox</item>
         
         <item name="android:preferenceStyle">@style/PreferenceThemeOverlay</item>
+
+        <item name="snackbarStyle">@style/AppTheme.Snackbar</item>
     </style>
 
     <style name="ToolbarTheme">
@@ -85,6 +88,26 @@
     <style name="AppTheme.Headline">
         <item name="android:textSize">22sp</item>
         <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="AppTheme.SubHeadline">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="AppTheme.CircularProgressButton" parent="AppTheme.Button">
+        <item name="android:height">60dp</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:background">@drawable/button_logingreen</item>
+    </style>
+
+    <style name="AppTheme.CheckBox" parent="Widget.MaterialComponents.CompoundButton.CheckBox">
+        <item name="android:buttonTint">@color/colorPrimary</item>
+        <item name="android:textColor">@color/colorWhite</item>
+    </style>
+
+    <style name="AppTheme.Snackbar" parent="Widget.MaterialComponents.Snackbar">
+        <item name="android:background">@color/colorPrimaryDark</item>
     </style>
 
 </resources>

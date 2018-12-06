@@ -7,8 +7,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.mikhaellopez.circularprogressbar.CircularProgressBar;
 
@@ -17,6 +20,11 @@ import java.util.List;
 import java.util.Objects;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 import group3.spinoff.R;
@@ -47,6 +55,10 @@ class StableArrayAdapter extends ArrayAdapter<String> {
         return true;
     }
 
+    @Override
+    public int getCount() {
+        return super.getCount();
+    }
 }
 
 //Graph documentation: http://www.android-graphview.org/
@@ -60,13 +72,14 @@ public class MeetingGraphViewFragment extends Fragment {
 
     private CircularProgressBar circularProgressBar;
 
-    private Button buttonGraphsBack;
-
     private ViewPager viewPager;
 
     private ListView listView;
 
     MeetingListElement informations;
+
+    private LinearLayout layoutDots;
+    private ImageView[] imageViewdots;
 
     public void setValues(MeetingListElement meetingListElement) {
         this.informations = meetingListElement;
@@ -77,6 +90,13 @@ public class MeetingGraphViewFragment extends Fragment {
                              final Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_meetinggraph, container, false);
+
+        Toolbar toolbar = view.findViewById(R.id.toolbarGraphs);
+        ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
+
+        ActionBar ab = ((AppCompatActivity) getActivity()).getSupportActionBar();
+        ab.setDisplayHomeAsUpEnabled(true);
+        ab.setDisplayShowTitleEnabled(false);
 
         textViewFeedbackGraphsMainTitle = view.findViewById(R.id.textViewGraphsMainTitle);
         textViewGraphsMeetingTitle = view.findViewById(R.id.textViewGraphsMeetingTitle);
@@ -91,17 +111,11 @@ public class MeetingGraphViewFragment extends Fragment {
         setCircularProgress(informations.getActualPeople(), informations.getExpectedPeople());
 
         textViewGraphsMeetingTitleContent.setText(informations.getTitle());
+        textViewFeedbackGraphsMainTitle.setText(informations.getTitle());
         textViewGraphsMeetingDescContent.setText(informations.getDescription());
         textViewGraphsCircleProgressCount.setText(informations.getActualPeople()
                 + "/" + informations.getExpectedPeople());
 
-        buttonGraphsBack = view.findViewById(R.id.buttonGraphsBack);
-        buttonGraphsBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutEmployee, new FeedbackHomeFragment()).commit();
-            }
-        });
 
         GraphViewPager graphViewPager = new GraphViewPager(getActivity().getSupportFragmentManager());
         graphViewPager.setValues(informations);
@@ -109,13 +123,35 @@ public class MeetingGraphViewFragment extends Fragment {
         viewPager = view.findViewById(R.id.viewPagerGraphs);
         viewPager.setAdapter(graphViewPager);
 
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                createDots(position);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+
         listView = view.findViewById(R.id.listViewComments);
+
+        layoutDots = view.findViewById(R.id.graphDotsLayout);
 
 
         final StableArrayAdapter adapter = new StableArrayAdapter(this.getContext(),
                 android.R.layout.simple_list_item_1, informations.getCommentsList());
 
         listView.setAdapter(adapter);
+
+        createDots(0);
 
         return view;
     }
@@ -125,5 +161,32 @@ public class MeetingGraphViewFragment extends Fragment {
         circularProgressBar.setProgressMax(max);
     }
 
+    private void createDots(int currentPosition) {
+        if (layoutDots != null) {
+            layoutDots.removeAllViews();
+            int viewPagerItemsCount = viewPager.getAdapter().getCount();
+            imageViewdots = new ImageView[viewPagerItemsCount];
 
+            for (int i = 0; i < viewPagerItemsCount; i++) {
+                imageViewdots[i] = new ImageView(getContext());
+                if (i == currentPosition) {
+                    imageViewdots[i].setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.active_dots));
+                } else {
+                    imageViewdots[i].setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.inactive_dots));
+                }
+
+                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                params.setMargins(4, 0, 4, 0);
+
+                layoutDots.addView(imageViewdots[i], params);
+            }
+
+        }
+    }
+
+    @Nullable
+    @Override
+    public View getView() {
+        return super.getView();
+    }
 }
