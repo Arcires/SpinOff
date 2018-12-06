@@ -1,43 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackground">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbarSet"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarRules"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:background="@color/colorPrimary">
-
-        <Button
-            android:id="@+id/termsAndRulesBack"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:background="@drawable/ic_arrow_back" />
+        android:layout_height="wrap_content"
+        android:theme="@style/ToolbarTheme">
 
         <TextView
-            android:id="@+id/textViewTermsAndRulesTitle"
+            android:id="@+id/appRulesTerms"
+            style="@android:style/TextAppearance.Material.Widget.ActionBar.Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            android:fontFamily="@font/futurabook"
-            android:foregroundGravity="center"
-            android:text="Regler og Vilkår"
-            android:textColor="@color/colorPrimaryWhite"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/toolbarSet" />
-
-
-    </android.support.v7.widget.Toolbar>
+            android:text="@string/employee_more_aboutus" />
+    </androidx.appcompat.widget.Toolbar>
 
 
     <TextView
@@ -51,7 +32,7 @@
         android:textAllCaps="true"
         android:textColor="@color/colorPrimaryWhite"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbarSet" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbarRules" />
 
     <TextView
         android:id="@+id/textViewDataText"
@@ -130,4 +111,4 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewStatusTitle" />
 
 
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

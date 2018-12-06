@@ -5,29 +5,28 @@ import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import group3.spinoff.R;
 
-public class RulesPage extends AppCompatActivity implements View.OnClickListener {
-
-    Button buttonRulesBack;
+public class RulesPage extends AppCompatActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_termsandrules_layout);
 
-        buttonRulesBack = findViewById(R.id.termsAndRulesBack);
-        buttonRulesBack.setOnClickListener(this);
+        Toolbar toolbar = findViewById(R.id.toolbarRules);
+        setSupportActionBar(toolbar);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
     }
 
 
     @Override
-    public void onClick(View view) {
-        if (view == buttonRulesBack) {
-            finish();
-            overridePendingTransition(R.anim.slideinleft_anim, R.anim.slideoutright_anim);
-        }
-
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }
