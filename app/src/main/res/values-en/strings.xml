@@ -69,7 +69,7 @@
     <string name="graphview_title_q3">Answers from 3rd question</string>
     <string name="grapview_graphxlabel">Question number</string>
     <string name="grapview_graphylabel">Point amount</string>
-    <string name="createMeetingLinkText">Hey everyone. I have made a meeting using SpinOff. Its PIN is:\\u0020</string>
+    <string name="createMeetingLinkText">Hey everyone. I have made a meeting using SpinOff. Its PIN is:</string>
     <string name="createMeetingButtonTextNewText">Push the button to copy a link to the meeting</string>
     <string name="createMeetingCreationConfirmation">Meeting created. PIN to the meeting is:</string>
     <string name="createMeetingCreationToast">PIN is: \\u0020</string>
