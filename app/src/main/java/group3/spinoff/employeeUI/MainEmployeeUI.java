@@ -88,15 +88,11 @@ public class MainEmployeeUI extends AppCompatActivity implements View.OnClickLis
     public boolean onSupportNavigateUp() {
         getSupportFragmentManager().popBackStack();
 
-        //getSupportFragmentManager().getBackStackEntryAt(0).getName();
-        //Toast.makeText(getApplicationContext(),"Backtack name: " + getSupportFragmentManager().getBackStackEntryAt(0).getName(), Toast.LENGTH_LONG).show();
-        //onBackPressed();
         return true;
     }
 
     @Override
     public void onBackStackChanged() {
-        //Toast.makeText(getApplicationContext(),getSupportFragmentManager().getBackStackEntryCount(),Toast.LENGTH_LONG);
     }
 
 }

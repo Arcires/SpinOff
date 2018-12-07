@@ -109,14 +109,6 @@ public class FeedbackViewFragment extends Fragment {
         ab.setDisplayHomeAsUpEnabled(true);
         ab.setDisplayShowTitleEnabled(false);
 
-        //backArrow = view.findViewById(R.id.fragmentFeedbackBackButton);
-        /*backArrow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutEmployee, new FeedbackHomeFragment()).commit();
-            }
-        });*/
-
         return view;
     }
 

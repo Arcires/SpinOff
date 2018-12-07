@@ -106,13 +106,9 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View view) {
         if (view == buttonSkip || view == buttonFinish) {
-            //loadNextSlide();
             loadHome();
             editor.putBoolean("skipWelcomePager", true).apply();
-        } /*else if (view == buttonSkip) {
-            loadHome();
-            editor.putBoolean("skipWelcomePager", true).apply();
-        }*/
+        }
     }
 
     private void loadNextSlide() {

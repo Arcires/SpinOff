@@ -55,58 +55,6 @@ public class MoreFragment extends Fragment implements View.OnClickListener {
 
         mAuth = FirebaseAuth.getInstance();
 
-        /*
-        buttonSettings.setOnClickListener(new View.OnClickListener() {
-                                              @Override
-                                              public void onClick(View v) {
-                                                  Intent i = new Intent(getContext(), SettingsActivity.class);
-                                                  startActivity(i);
-                                                  ((Activity) getContext()).overridePendingTransition(R.anim.slideinright_anim, R.anim.slideoutleft_anim);
-                                              }
-                                          }
-        );
-        buttonRulesAndTerms.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(getContext(), RulesPage.class);
-                startActivity(i);
-                ((Activity) getContext()).overridePendingTransition(R.anim.slideinright_anim, R.anim.slideoutleft_anim);
-            }
-        });
-        buttonAboutUs.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(getContext(), AppInfoActivity.class);
-                startActivity(i);
-                ((Activity) getContext()).overridePendingTransition(R.anim.slideinright_anim, R.anim.slideoutleft_anim);
-
-            }
-        });
-        buttonLogOut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                try {
-                    if (user != null) {
-                        if (user.getEmail() != null) {
-                            System.out.println("Loggede ud fra bruger: " + user.getEmail());
-                            Toast.makeText(getActivity(), "Loggede ud fra bruger: " + user.getEmail(), Toast.LENGTH_SHORT).show();
-                        } else {
-                            Toast.makeText(getActivity(), "Loggede ud som anonym medarbejder", Toast.LENGTH_SHORT).show();
-                        }
-                        mAuth.signOut();
-                        Intent i = new Intent(view.getContext(), RoleSelectionActivity.class);
-                        getActivity().finish();
-                        startActivity(i);
-                    }
-                } catch (Exception e) {
-                    e.getMessage();
-                    Toast.makeText(getActivity(), "Log ud mislykkedes. Ingen bruger registreret.", Toast.LENGTH_SHORT).show();
-                }
-
-            }
-        });
-        */
-
         return view;
     }
 
