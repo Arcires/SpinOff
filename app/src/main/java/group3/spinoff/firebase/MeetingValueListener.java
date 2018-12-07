@@ -34,8 +34,6 @@ public class MeetingValueListener implements ValueEventListener {
 
     @Override
     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-        //Log.d(TAG, "[FIREBASE CONNECTION WORKS]");
-
         try {
             GenericTypeIndicator<HashMap<String, HashMap<String, Object>>> genericTypeIndicator =
                     new GenericTypeIndicator<HashMap<String, HashMap<String, Object>>>() {
@@ -50,14 +48,10 @@ public class MeetingValueListener implements ValueEventListener {
 
             meets = dataSnapshot.getValue(genericTypeIndicator);
         }
-
-        //Log.d(TAG, "Value is: " + meetings);
-
         observer.refresh();
     }
 
     @Override
     public void onCancelled(@NonNull DatabaseError databaseError) {
-        //Log.d(TAG, "YAMERO ERROR");
     }
 }
