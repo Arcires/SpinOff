@@ -217,11 +217,8 @@ public class FeedbackHomeFragment extends Fragment implements IDataObserver {
             vh.feedbackView = getLayoutInflater().inflate(R.layout.feedback_list_elements, parent, false);
             vh.titleTextView = vh.feedbackView.findViewById(R.id.feedback_list_elements_title);
             vh.descriptionTextView = vh.feedbackView.findViewById(R.id.feedback_list_elements_description);
-            //vh.logoImageView = vh.feedbackView.findViewById(R.id.feedback_list_elements_image);
             vh.feedbackView.setOnClickListener(vh);
             vh.feedbackView.setBackgroundResource(R.drawable.ripple_effect);
-            //vh.logoImageView.setOnClickListener(vh);
-//      vh.logoImageView.setBackgroundResource(android.R.drawable.btn_default);
             vh.linearLayout.addView(vh.feedbackView);
             return vh;
         }
@@ -234,11 +231,6 @@ public class FeedbackHomeFragment extends Fragment implements IDataObserver {
     };
 
 
-    /**
-     * En Viewholder husker forskellige views i et listeelement, sådan at søgninger i viewhierakiet
-     * med findViewById() kun behøver at ske EN gang.
-     * Se https://developer.android.com/training/material/lists-cards.html
-     */
     class ListViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         LinearLayout linearLayout;
         TextView titleTextView;

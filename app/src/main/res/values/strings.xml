@@ -4,14 +4,14 @@
     <string name="placeholder_text" translatable="false">Placeholder</string>
 
     //Login screen//
-    <string name="login_employee">Medarbejder</string>
+    <string name="login_employee">Jeg er en medarbejder</string>
     <string name="login_company">Log ind som firma</string>
     <string name="login_logodesc">Logo til login screen</string>
     <string name="login_employee_noinput">Indtast venligst både mail og password.</string>
     <string name="login_employee_failed">Anonymt login mislykkedes.\nTjek din internetforbindelse.</string>
     <string name="login_employee_success">Loggede ind som anonym medarbejder</string>
     <string name="login_textview">&#169; 2018 SpinOff &amp; DTU Compute. Alle rettigheder forbeholdes.</string>
-    <string name="login_appinfotext">Denne applikation er udviklet i samarbejde mellem Gruppe 3 fra DTU Compute og SpinOff Aps.\n\nEfterår 2018.\n\nAppversion: 0.1.0 &#169; 2018 Alle rettigheder forbeholdes.</string>
+    <string name="login_appinfotext">Denne applikation er udviklet i samarbejde mellem Gruppe 23 fra DTU Compute og SpinOff Aps.\n\nEfterår 2018.\n\nAppversion: 1.1c &#169; 2018 Alle rettigheder forbeholdes.</string>
     <string name="login_appinfodtudesc">Logo til DTU</string>
 
     //Company login screen//
@@ -23,7 +23,7 @@
     <string name="company_login_forgot_password">Trykkede på \'Glemt kodeord\'</string>
     <string name="company_login_login_failed">Login mislykkedes. Prøv igen.</string>
     <string name="company_login_login_success">Loggede ind på bruger</string>
-    <string name="title_activity_main_employee_ui">MainEmployeeUI</string>
+    <string name="title_activity_main_employee_ui" translatable="false">MainEmployeeUI</string>
     <string name="company_login_test_companytext">Test firma</string>
 
     //General//
@@ -60,6 +60,7 @@
     <string name="employee_more_termsofservicebuttontext">Regler og vilkår</string>
     <string name="employee_more_aboutus">Om os</string>
     <string name="employee_more_logout">Log ud</string>
+    <string name="employee_more_toptitletext">Du er logget ind som</string>
     <string name="employee_more_loggedoutcompanytext">Loggede ud fra bruger:\\u0020</string>
     <string name="employee_more_loggedoutemployeetext">Loggede ud fra anonym medarbejder</string>
     <string name="employee_more_loggedouterror">Log ud mislykkedes. Ingen bruger registreret</string>
@@ -85,16 +86,16 @@
     <string name="createMeetingDescHint">Mødebeskrivelse</string>
     <string name="createMeetingCountHint">Antal deltagere</string>
     <string name="createMeetingButtonText">Opret nyt møde</string>
-    <string name="createMeetingLinkText">Hej alle. Jeg har lavet et møde via SpinOff, med PIN-koden:\\u0020</string>
+    <string name="createMeetingLinkText">Hej alle. Jeg har lavet et møde via SpinOff, med PIN-koden:</string>
     <string name="createMeetingButtonTextNewText">Tryk på knappen for at kopiere et link til mødet</string>
     <string name="createMeetingCreationConfirmation">Møde oprettet. Pinkoden til mødet er: </string>
-    <string name="createMeetingCreationToast">Pinkoden er:\\u0020</string>
+    <string name="createMeetingCreationToast">Pinkoden er: \\u0020</string>
     <string name="createMeetingLinkCopy">Link kopieret</string>
 
 
     //CreateFeedback fragment//
     <string name="createfeedback_submit_button_text">+ Tilføj feedback</string>
-    <string name="createfeedback_toast">Feedback tilføjet til møde:\u0020</string>
+    <string name="createfeedback_toast">Feedback tilføjet til møde: \\u0020</string>
 
 
     //FeedbackGraphs fragment//
@@ -109,7 +110,9 @@
     <string name="snackbar_forgot_pass">Trykkede på Glemt kodeord</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="employee_meeting_fragmentmeetingerror">Fejl. Møde ikke fundet</string>
+    <string name="employee_meeting_fragmentmeetingsuccess">Møde fundet</string>
 
 
 </resources>

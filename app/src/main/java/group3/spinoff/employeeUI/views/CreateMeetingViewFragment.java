@@ -66,8 +66,6 @@ public class CreateMeetingViewFragment extends Fragment {
         ab.setDisplayHomeAsUpEnabled(true);
         ab.setDisplayShowTitleEnabled(false);
 
-        //buttonCreateMeeting.setVisibility(View.VISIBLE);
-
         buttonCreateMeeting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -92,12 +90,11 @@ public class CreateMeetingViewFragment extends Fragment {
 
                     changeButton(random);
                 }
-//              Snackbar.make(view, "trykkede på nyt møde", Snackbar.LENGTH_LONG).show();
             }
 
             private void changeButton(final String random) {
                 buttonCreateMeeting.setBackgroundResource(R.drawable.button_loginblue);
-                buttonCreateMeeting.setText(R.string.createMeetingLinkText);
+                buttonCreateMeeting.setText(getResources().getString(R.string.createMeetingButtonTextNewText) + " " +company + String.valueOf(random));
                 buttonCreateMeeting.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {

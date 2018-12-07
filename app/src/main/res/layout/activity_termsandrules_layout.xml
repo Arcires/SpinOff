@@ -108,7 +108,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:background="@color/colorBackground"
-        android:text="Denne app er stadig i tidlig alfa version, og af denne grund kan der opstå problemer og mangler. Yderligere rapporteringer om problemer kan indsendes til s154424@student.dtu.dk"
+        android:text="Denne app er stadig i tidlig alpha version, og af denne grund kan der opstå problemer og mangler. Yderligere rapporteringer om problemer kan indsendes til s154424@student.dtu.dk"
         android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

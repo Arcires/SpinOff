@@ -78,7 +78,6 @@ public class CompanyLoginActivity extends AppCompatActivity implements View.OnCl
             }
         } else if (view == textViewLoginHelp) {
             Snackbar.make(view, R.string.snackbar_forgot_pass, Snackbar.LENGTH_SHORT).show();
-            //Toast.makeText(this, "Trykkede på Glemt kodeord", Toast.LENGTH_SHORT).show();
         }
         if (checkBox.isChecked()) {
             editTextCompanyMail.setText("dtu@spinoff.476");

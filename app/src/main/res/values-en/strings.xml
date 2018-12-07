@@ -2,11 +2,11 @@
     <string name="app_name">SpinOff</string>
 
     //Login screen//
-    <string name="login_employee">I am an Employee</string>
+    <string name="login_employee">I am an employee</string>
     <string name="login_company">Log in as company</string>
     <string name="login_logodesc">Logo for login screen</string>
     <string name="login_textview">&#169; 2018 SpinOff &amp; DTU Compute. All rights reserved.</string>
-    <string name="login_appinfotext">This application was developed in cooperation between Group 3 from DTU Compute and SpinOff Aps.\n\nFall 2018.\n\nAppversion: 0.1.0 &#169; 2018 All rights reserved.</string>
+    <string name="login_appinfotext">This application was developed in cooperation between Group 23 from DTU Compute and SpinOff Aps.  Fall 2018.  Appversion: 1.1c © 2018 All rights reserved.</string>
     <string name="login_appinfodtudesc">Logo for DTU</string>
 
     //Company login screen//
@@ -15,7 +15,6 @@
     <string name="company_login_help">Forgot password?</string>
     <string name="company_loginCVRText">Company mail</string>
     <string name="company_loginPassText">Company pass</string>
-    <string name="title_activity_main_employee_ui">MainEmployeeUI</string>
     <string name="company_login_login_failed">Login failed. Try again.</string>
 
     //Employee main UI screen//
@@ -70,18 +69,23 @@
     <string name="graphview_title_q3">Answers from 3rd question</string>
     <string name="grapview_graphxlabel">Question number</string>
     <string name="grapview_graphylabel">Point amount</string>
-    <string name="createMeetingLinkText">Hey everyone. I have made a meeting using SpinOff. Its PIN is:\\u0020</string>
+    <string name="createMeetingLinkText">Hey everyone. I have made a meeting using SpinOff. Its PIN is:</string>
     <string name="createMeetingButtonTextNewText">Push the button to copy a link to the meeting</string>
     <string name="createMeetingCreationConfirmation">Meeting created. PIN to the meeting is:</string>
-    <string name="createMeetingCreationToast">PIN is:\\u0020</string>
+    <string name="createMeetingCreationToast">PIN is: \\u0020</string>
     <string name="createMeetingLinkCopy">Link copied</string>
     <string name="createfeedback_submit_button_text">+ Add feedback</string>
-    <string name="createfeedback_toast">Feedback added to meeting:\\u0020</string>
+    <string name="createfeedback_toast">Feedback added to meeting: \\u0020</string>
     <string name="feedbackgraphs_maintitle">Meeting title</string>
     <string name="feedbackgraphs_meetingtitle">Meeting title</string>
     <string name="feedbackgraphs_meetingdescription">Meeting description</string>
     <string name="feedbackgraphs_meetingpeoplecount">People count</string>
     <string name="feedbackgraphs_meetinganswercount">Answer count</string>
+    <string name="general_employee">Anonymous user</string>
+    <string name="general_error_reading">Data error</string>
+    <string name="feedbackgraphs_comments">Comments</string>
+    <string name="employee_more_toptitletext">You are logged in as</string>
+    <string name="employee_meeting_fragmentmeetingerror">Error. Meeting not found</string>
 
 
 </resources>

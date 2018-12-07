@@ -31,23 +31,16 @@ public class FeedbackValueListener implements ValueEventListener {
 
     @Override
     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-        //Log.d(TAG, "[FIREBASE CONNECTION WORKS]");
 
         GenericTypeIndicator<HashMap<String, HashMap<String, Object>>> genericTypeIndicator =
                 new GenericTypeIndicator<HashMap<String, HashMap<String, Object>>>() {};
 
         feedbacks = dataSnapshot.getValue(genericTypeIndicator);
 
-        //Log.d(TAG, "Value is: " + feedbacks);
-
         observer.refresh();
-
-        //String value = dataSnapshot.getValue(String.class);
-        //Log.d(TAG, "YAMERO Value is: " + value);
     }
 
     @Override
     public void onCancelled(@NonNull DatabaseError databaseError) {
-        //Log.d(TAG, "YAMERO ERROR");
     }
 }

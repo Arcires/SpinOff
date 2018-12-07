@@ -46,8 +46,7 @@ public class CreateFeedbackViewFragment extends Fragment {
         this.pinCode = pinCode;
     }
 
-    //fragmentCreateFeedbackTitle
-    //fragmentCreateFeedbackDescription
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
