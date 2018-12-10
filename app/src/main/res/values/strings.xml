@@ -91,6 +91,7 @@
     <string name="createMeetingCreationConfirmation">Møde oprettet. Pinkoden til mødet er:</string>
     <string name="createMeetingCreationToast">Pinkoden er:</string>
     <string name="createMeetingLinkCopy">Link kopieret</string>
+    <string name="createMeetingCreated">Mødet er oprettet. </string>
 
 
     //CreateFeedback fragment//

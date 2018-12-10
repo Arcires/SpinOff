@@ -89,6 +89,6 @@
     <string name="snackbar_email_pass_empty">Please enter both mail and password</string>
     <string name="snackbar_forgot_pass">Pushed Forgot password</string>
     <string name="employee_meeting_fragmentmeetingsuccess">Meeting found</string>
-
+    <string name="createMeetingCreated">Meeting is created. </string>
 
 </resources>

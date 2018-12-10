@@ -10,6 +10,7 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -96,7 +97,9 @@ public class CreateFeedbackViewFragment extends Fragment {
                 newFeedback.put("Title", informations.getTitle());
                 reference.updateChildren(newFeedback);
 
-                Toast.makeText(view.getContext(), getResources().getString(R.string.createfeedback_toast) + companyID + pinCode, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(view.getContext(), getResources().getString(R.string.createfeedback_toast) + companyID + pinCode, Toast.LENGTH_SHORT).show();
+                Snackbar.make(getActivity().findViewById(R.id.snackbar_placement), getResources().getString(R.string.createfeedback_toast) + companyID + pinCode, Snackbar.LENGTH_SHORT).show();
+
 
                 disableUI();
 

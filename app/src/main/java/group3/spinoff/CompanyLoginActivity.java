@@ -69,12 +69,20 @@ public class CompanyLoginActivity extends AppCompatActivity implements View.OnCl
             String pass = editTextCompanyPass.getText().toString();
 
             if (mail.equals("") || pass.equals("") || mail.isEmpty() || pass.isEmpty()) {
-                Toast.makeText(this, R.string.login_employee_noinput, Toast.LENGTH_SHORT).show();
+                Snackbar sb = Snackbar.make(view, getResources().getString(R.string.login_employee_noinput), Snackbar.LENGTH_SHORT);
+                View snackbarView = sb.getView();
+                snackbarView.setBackgroundColor(getResources().getColor(R.color.design_default_color_error));
+                sb.show();
+                //Toast.makeText(this, R.string.login_employee_noinput, Toast.LENGTH_SHORT).show();
             } else if (isNetworkConnected()) {
                 buttonCompanyLogIn.startAnimation();
                 firebaseSignIn(mail, pass);
             } else {
-                Toast.makeText(this, R.string.general_no_internet, Toast.LENGTH_SHORT).show();
+                Snackbar sb = Snackbar.make(view, getResources().getString(R.string.general_no_internet), Snackbar.LENGTH_SHORT);
+                View snackbarView = sb.getView();
+                snackbarView.setBackgroundColor(getResources().getColor(R.color.design_default_color_error));
+                sb.show();
+                //Toast.makeText(this, R.string.general_no_internet, Toast.LENGTH_SHORT).show();
             }
         } else if (view == textViewLoginHelp) {
             Snackbar.make(view, R.string.snackbar_forgot_pass, Snackbar.LENGTH_SHORT).show();
@@ -103,7 +111,10 @@ public class CompanyLoginActivity extends AppCompatActivity implements View.OnCl
                     startActivity(i);
                 } else {
                     System.out.println("Userlogin failed: " + mail + ", " + pass + "\n" + task.getException());
-                    Snackbar.make(findViewById(R.id.snackbar_placement), R.string.company_login_login_failed, Snackbar.LENGTH_SHORT).show();
+                    Snackbar sb = Snackbar.make(findViewById(R.id.snackbar_placement), R.string.company_login_login_failed, Snackbar.LENGTH_SHORT);
+                    View snackbarView = sb.getView();
+                    snackbarView.setBackgroundColor(getResources().getColor(R.color.design_default_color_error));
+                    sb.show();
                     //Toast.makeText(getApplicationContext(), R.string.company_login_login_failed, Toast.LENGTH_SHORT).show();
                     editTextCompanyPass.setText("");
                     buttonCompanyLogIn.revertAnimation();

@@ -86,8 +86,8 @@ public class CreateMeetingViewFragment extends Fragment {
 
                     reference.updateChildren(newMeeting);
 
-                    Toast.makeText(view.getContext(), getResources().getString(R.string.createMeetingCreationToast) + " " + company + random, Toast.LENGTH_LONG).show();
-
+                    //Toast.makeText(view.getContext(), getResources().getString(R.string.createMeetingCreationToast) + " " + company + random, Toast.LENGTH_LONG).show();
+                    Snackbar.make(getActivity().findViewById(R.id.snackbar_placement), getResources().getString(R.string.createMeetingCreated) + getResources().getString(R.string.createMeetingCreationToast) + " " + company + random, Snackbar.LENGTH_LONG).show();
                     changeButton(random);
                 }
             }
