@@ -76,7 +76,7 @@ public class CompanyLoginActivity extends AppCompatActivity implements View.OnCl
                 //Toast.makeText(this, R.string.login_employee_noinput, Toast.LENGTH_SHORT).show();
             } else if (isNetworkConnected()) {
                 buttonCompanyLogIn.startAnimation();
-                firebaseSignIn(mail, pass);
+                firebaseSignIn(mail, pass, view);
             } else {
                 Snackbar sb = Snackbar.make(view, getResources().getString(R.string.general_no_internet), Snackbar.LENGTH_SHORT);
                 View snackbarView = sb.getView();
@@ -96,7 +96,7 @@ public class CompanyLoginActivity extends AppCompatActivity implements View.OnCl
         }
     }
 
-    private void firebaseSignIn(final String mail, final String pass) {
+    private void firebaseSignIn(final String mail, final String pass, final View view) {
         mAuth.signInWithEmailAndPassword(mail, pass).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -111,7 +111,7 @@ public class CompanyLoginActivity extends AppCompatActivity implements View.OnCl
                     startActivity(i);
                 } else {
                     System.out.println("Userlogin failed: " + mail + ", " + pass + "\n" + task.getException());
-                    Snackbar sb = Snackbar.make(findViewById(R.id.snackbar_placement), R.string.company_login_login_failed, Snackbar.LENGTH_SHORT);
+                    Snackbar sb = Snackbar.make(view, R.string.company_login_login_failed, Snackbar.LENGTH_SHORT);
                     View snackbarView = sb.getView();
                     snackbarView.setBackgroundColor(getResources().getColor(R.color.design_default_color_error));
                     sb.show();
