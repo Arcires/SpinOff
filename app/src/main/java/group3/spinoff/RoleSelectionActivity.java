@@ -46,6 +46,13 @@ public class RoleSelectionActivity extends AppCompatActivity implements View.OnC
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser user;
 
+        Bundle extras = getIntent().getExtras();
+
+        if (extras != null) {
+            if (extras.getBoolean("logout")) {
+                Snackbar.make(findViewById(R.id.snackbar_placement), extras.getString("snackbarMessage"), Snackbar.LENGTH_SHORT).show();
+            }
+        }
     }
 
     @Override
@@ -53,18 +60,22 @@ public class RoleSelectionActivity extends AppCompatActivity implements View.OnC
         if (view == buttonCompanyLogin) {
             Intent i = new Intent(this, CompanyLoginActivity.class);
             startActivity(i);
+            overridePendingTransition(R.anim.slideinright_anim, R.anim.slideoutleft_anim);
         } else if (view == buttonEmployeeLogin) {
             buttonEmployeeLogin.startAnimation();
             mAuth.signInAnonymously().addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
-                        Toast.makeText(getApplication().getApplicationContext(), R.string.login_employee_success, Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getApplication().getApplicationContext(), R.string.login_employee_success, Toast.LENGTH_SHORT).show();
                         Intent i = new Intent(getApplication(), MainEmployeeUI.class);
+                        i.putExtra("anonymous", true);
+                        overridePendingTransition(R.anim.slideinright_anim, R.anim.slideoutleft_anim);
                         finish();
                         startActivity(i);
                     } else {
-                        Toast.makeText(getApplicationContext(), R.string.login_employee_failed, Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getApplicationContext(), R.string.login_employee_failed, Toast.LENGTH_SHORT).show();
+                        Snackbar.make(findViewById(R.id.snackbar_placement), R.string.login_employee_failed, Snackbar.LENGTH_SHORT).show();
                         buttonEmployeeLogin.revertAnimation();
                     }
                 }

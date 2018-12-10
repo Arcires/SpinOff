@@ -73,10 +73,10 @@
     <string name="grapview_graphylabel">Nombre de points</string>
     <string name="createMeetingButtonTextNewText">Appuyez sur le bouton pour copier le lien vers la réunion</string>
     <string name="createMeetingCreationConfirmation">Réunion créée. Le code PIN est :</string>
-    <string name="createMeetingCreationToast">Le code PIN est : \\u0020</string>
+    <string name="createMeetingCreationToast">Le code PIN est :</string>
     <string name="createMeetingLinkCopy">Lien copié</string>
     <string name="createfeedback_submit_button_text">+ Ajouter feedback</string>
-    <string name="createfeedback_toast">Feedback ajouté à la réunion : \\u0020</string>
+    <string name="createfeedback_toast">Feedback ajouté à la réunion :</string>
     <string name="feedbackgraphs_maintitle">Titre réunion</string>
     <string name="feedbackgraphs_meetingtitle">Titre réunion</string>
     <string name="feedbackgraphs_meetingdescription">Description réunion</string>
@@ -85,6 +85,5 @@
     <string name="feedbackgraphs_comments">Commentaires</string>
     <string name="employee_more_toptitletext">Vous êtes enregistré(e) comme</string>
     <string name="employee_meeting_fragmentmeetingerror">Erreur. Réunion inexistante</string>
-
 
 </resources>

@@ -72,10 +72,10 @@
     <string name="createMeetingLinkText">Hey everyone. I have made a meeting using SpinOff. Its PIN is:</string>
     <string name="createMeetingButtonTextNewText">Push the button to copy a link to the meeting</string>
     <string name="createMeetingCreationConfirmation">Meeting created. PIN to the meeting is:</string>
-    <string name="createMeetingCreationToast">PIN is: \\u0020</string>
+    <string name="createMeetingCreationToast">PIN is:</string>
     <string name="createMeetingLinkCopy">Link copied</string>
     <string name="createfeedback_submit_button_text">+ Add feedback</string>
-    <string name="createfeedback_toast">Feedback added to meeting: \\u0020</string>
+    <string name="createfeedback_toast">Feedback added to meeting:</string>
     <string name="feedbackgraphs_maintitle">Meeting title</string>
     <string name="feedbackgraphs_meetingtitle">Meeting title</string>
     <string name="feedbackgraphs_meetingdescription">Meeting description</string>
@@ -86,6 +86,9 @@
     <string name="feedbackgraphs_comments">Comments</string>
     <string name="employee_more_toptitletext">You are logged in as</string>
     <string name="employee_meeting_fragmentmeetingerror">Error. Meeting not found</string>
-
+    <string name="snackbar_email_pass_empty">Please enter both mail and password</string>
+    <string name="snackbar_forgot_pass">Pushed Forgot password</string>
+    <string name="employee_meeting_fragmentmeetingsuccess">Meeting found</string>
+    <string name="createMeetingCreated">Meeting is created. </string>
 
 </resources>

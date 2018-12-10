@@ -69,12 +69,20 @@ public class CompanyLoginActivity extends AppCompatActivity implements View.OnCl
             String pass = editTextCompanyPass.getText().toString();
 
             if (mail.equals("") || pass.equals("") || mail.isEmpty() || pass.isEmpty()) {
-                Toast.makeText(this, R.string.login_employee_noinput, Toast.LENGTH_SHORT).show();
+                Snackbar sb = Snackbar.make(view, getResources().getString(R.string.login_employee_noinput), Snackbar.LENGTH_SHORT);
+                View snackbarView = sb.getView();
+                snackbarView.setBackgroundColor(getResources().getColor(R.color.design_default_color_error));
+                sb.show();
+                //Toast.makeText(this, R.string.login_employee_noinput, Toast.LENGTH_SHORT).show();
             } else if (isNetworkConnected()) {
                 buttonCompanyLogIn.startAnimation();
-                firebaseSignIn(mail, pass);
+                firebaseSignIn(mail, pass, view);
             } else {
-                Toast.makeText(this, R.string.general_no_internet, Toast.LENGTH_SHORT).show();
+                Snackbar sb = Snackbar.make(view, getResources().getString(R.string.general_no_internet), Snackbar.LENGTH_SHORT);
+                View snackbarView = sb.getView();
+                snackbarView.setBackgroundColor(getResources().getColor(R.color.design_default_color_error));
+                sb.show();
+                //Toast.makeText(this, R.string.general_no_internet, Toast.LENGTH_SHORT).show();
             }
         } else if (view == textViewLoginHelp) {
             Snackbar.make(view, R.string.snackbar_forgot_pass, Snackbar.LENGTH_SHORT).show();
@@ -88,20 +96,26 @@ public class CompanyLoginActivity extends AppCompatActivity implements View.OnCl
         }
     }
 
-    private void firebaseSignIn(final String mail, final String pass) {
+    private void firebaseSignIn(final String mail, final String pass, final View view) {
         mAuth.signInWithEmailAndPassword(mail, pass).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     FirebaseUser user = mAuth.getCurrentUser();
-                    Toast.makeText(getApplicationContext(), R.string.company_login_login_success, Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getApplicationContext(), R.string.company_login_login_success, Toast.LENGTH_SHORT).show();
                     Intent i = new Intent(getApplicationContext(), MainEmployeeUI.class);
+                    i.putExtra("anonymous", false);
                     i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     finishAffinity();
+                    overridePendingTransition(R.anim.slideinright_anim, R.anim.slideoutleft_anim);
                     startActivity(i);
                 } else {
                     System.out.println("Userlogin failed: " + mail + ", " + pass + "\n" + task.getException());
-                    Toast.makeText(getApplicationContext(), R.string.company_login_login_failed, Toast.LENGTH_SHORT).show();
+                    Snackbar sb = Snackbar.make(view, R.string.company_login_login_failed, Snackbar.LENGTH_SHORT);
+                    View snackbarView = sb.getView();
+                    snackbarView.setBackgroundColor(getResources().getColor(R.color.design_default_color_error));
+                    sb.show();
+                    //Toast.makeText(getApplicationContext(), R.string.company_login_login_failed, Toast.LENGTH_SHORT).show();
                     editTextCompanyPass.setText("");
                     buttonCompanyLogIn.revertAnimation();
                 }
@@ -118,6 +132,7 @@ public class CompanyLoginActivity extends AppCompatActivity implements View.OnCl
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
+        overridePendingTransition(R.anim.slideinleft_anim, R.anim.slideoutright_anim);
         return true;
     }
 }

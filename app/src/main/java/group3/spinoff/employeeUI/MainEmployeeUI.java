@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -63,6 +64,15 @@ public class MainEmployeeUI extends AppCompatActivity implements View.OnClickLis
         getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutEmployee, new FeedbackHomeFragment()).commit();
         getSupportFragmentManager().beginTransaction().replace(R.id.frameLayoutEmployee, new MeetingFragment()).commit();
 
+        Bundle extras = getIntent().getExtras();
+
+        if (extras != null) {
+            if (extras.getBoolean("anonymous")) {
+                Snackbar.make(findViewById(R.id.snackbar_placement), R.string.login_employee_success, Snackbar.LENGTH_SHORT).show();
+            } else {
+                Snackbar.make(findViewById(R.id.snackbar_placement), R.string.company_login_login_success, Snackbar.LENGTH_SHORT).show();
+            }
+        }
     }
 
     private void checkIfCompany(BottomNavigationView navigation) {
