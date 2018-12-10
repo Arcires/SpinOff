@@ -53,6 +53,7 @@ public class RoleSelectionActivity extends AppCompatActivity implements View.OnC
         if (view == buttonCompanyLogin) {
             Intent i = new Intent(this, CompanyLoginActivity.class);
             startActivity(i);
+            overridePendingTransition(R.anim.slideinright_anim, R.anim.slideoutleft_anim);
         } else if (view == buttonEmployeeLogin) {
             buttonEmployeeLogin.startAnimation();
             mAuth.signInAnonymously().addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -61,6 +62,7 @@ public class RoleSelectionActivity extends AppCompatActivity implements View.OnC
                     if (task.isSuccessful()) {
                         Toast.makeText(getApplication().getApplicationContext(), R.string.login_employee_success, Toast.LENGTH_SHORT).show();
                         Intent i = new Intent(getApplication(), MainEmployeeUI.class);
+                        overridePendingTransition(R.anim.slideinright_anim, R.anim.slideoutleft_anim);
                         finish();
                         startActivity(i);
                     } else {

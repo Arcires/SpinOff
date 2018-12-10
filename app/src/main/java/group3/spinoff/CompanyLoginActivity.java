@@ -98,6 +98,7 @@ public class CompanyLoginActivity extends AppCompatActivity implements View.OnCl
                     Intent i = new Intent(getApplicationContext(), MainEmployeeUI.class);
                     i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     finishAffinity();
+                    overridePendingTransition(R.anim.slideinright_anim, R.anim.slideoutleft_anim);
                     startActivity(i);
                 } else {
                     System.out.println("Userlogin failed: " + mail + ", " + pass + "\n" + task.getException());
@@ -118,6 +119,7 @@ public class CompanyLoginActivity extends AppCompatActivity implements View.OnCl
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
+        overridePendingTransition(R.anim.slideinleft_anim, R.anim.slideoutright_anim);
         return true;
     }
 }
