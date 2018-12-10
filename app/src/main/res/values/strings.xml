@@ -61,7 +61,7 @@
     <string name="employee_more_aboutus">Om os</string>
     <string name="employee_more_logout">Log ud</string>
     <string name="employee_more_toptitletext">Du er logget ind som</string>
-    <string name="employee_more_loggedoutcompanytext">Loggede ud fra bruger:\\u0020</string>
+    <string name="employee_more_loggedoutcompanytext">Loggede ud fra bruger:</string>
     <string name="employee_more_loggedoutemployeetext">Loggede ud fra anonym medarbejder</string>
     <string name="employee_more_loggedouterror">Log ud mislykkedes. Ingen bruger registreret</string>
 
@@ -88,14 +88,14 @@
     <string name="createMeetingButtonText">Opret nyt møde</string>
     <string name="createMeetingLinkText">Hej alle. Jeg har lavet et møde via SpinOff, med PIN-koden:</string>
     <string name="createMeetingButtonTextNewText">Tryk på knappen for at kopiere et link til mødet</string>
-    <string name="createMeetingCreationConfirmation">Møde oprettet. Pinkoden til mødet er: </string>
-    <string name="createMeetingCreationToast">Pinkoden er: \\u0020</string>
+    <string name="createMeetingCreationConfirmation">Møde oprettet. Pinkoden til mødet er:</string>
+    <string name="createMeetingCreationToast">Pinkoden er:</string>
     <string name="createMeetingLinkCopy">Link kopieret</string>
 
 
     //CreateFeedback fragment//
     <string name="createfeedback_submit_button_text">+ Tilføj feedback</string>
-    <string name="createfeedback_toast">Feedback tilføjet til møde: \\u0020</string>
+    <string name="createfeedback_toast">Feedback tilføjet til møde:</string>
 
 
     //FeedbackGraphs fragment//

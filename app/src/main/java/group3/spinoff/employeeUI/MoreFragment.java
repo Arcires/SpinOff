@@ -100,13 +100,13 @@ public class MoreFragment extends Fragment implements View.OnClickListener {
                             //Snackbar.make(getActivity().findViewById(R.id.buttonEmployeeLogIn), "Helloe", Snackbar.LENGTH_SHORT).show();
                             //String text = getResources().getString(R.string.employee_more_loggedoutcompanytext) + user.getEmail();
                             //sb.setText(text).show();
-                            Toast.makeText(getActivity(), getResources().getString(R.string.employee_more_loggedoutcompanytext) + user.getEmail(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), getResources().getString(R.string.employee_more_loggedoutcompanytext) + " " + user.getEmail(), Toast.LENGTH_SHORT).show();
                         } else {
                             //String text = getResources().getString(R.string.employee_more_loggedoutemployeetext);
                             //sb.setText(text).show();
                             Toast.makeText(getActivity(), getResources().getString(R.string.employee_more_loggedoutemployeetext), Toast.LENGTH_SHORT).show();
                         }
-                        
+
                         mAuth.signOut();
                         Intent k = new Intent(view.getContext(), RoleSelectionActivity.class);
                         getActivity().finish();
