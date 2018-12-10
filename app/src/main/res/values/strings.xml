@@ -61,7 +61,7 @@
     <string name="employee_more_aboutus">Om os</string>
     <string name="employee_more_logout">Log ud</string>
     <string name="employee_more_toptitletext">Du er logget ind som</string>
-    <string name="employee_more_loggedoutcompanytext">Loggede ud fra bruger:</string>
+    <string name="employee_more_loggedoutcompanytext">Loggede ud fra bruger</string>
     <string name="employee_more_loggedoutemployeetext">Loggede ud fra anonym medarbejder</string>
     <string name="employee_more_loggedouterror">Log ud mislykkedes. Ingen bruger registreret</string>
 

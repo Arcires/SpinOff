@@ -94,15 +94,17 @@ public class CompanyLoginActivity extends AppCompatActivity implements View.OnCl
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     FirebaseUser user = mAuth.getCurrentUser();
-                    Toast.makeText(getApplicationContext(), R.string.company_login_login_success, Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getApplicationContext(), R.string.company_login_login_success, Toast.LENGTH_SHORT).show();
                     Intent i = new Intent(getApplicationContext(), MainEmployeeUI.class);
+                    i.putExtra("anonymous", false);
                     i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     finishAffinity();
                     overridePendingTransition(R.anim.slideinright_anim, R.anim.slideoutleft_anim);
                     startActivity(i);
                 } else {
                     System.out.println("Userlogin failed: " + mail + ", " + pass + "\n" + task.getException());
-                    Toast.makeText(getApplicationContext(), R.string.company_login_login_failed, Toast.LENGTH_SHORT).show();
+                    Snackbar.make(findViewById(R.id.snackbar_placement), R.string.company_login_login_failed, Snackbar.LENGTH_SHORT).show();
+                    //Toast.makeText(getApplicationContext(), R.string.company_login_login_failed, Toast.LENGTH_SHORT).show();
                     editTextCompanyPass.setText("");
                     buttonCompanyLogIn.revertAnimation();
                 }

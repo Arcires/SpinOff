@@ -95,27 +95,28 @@ public class MoreFragment extends Fragment implements View.OnClickListener {
             case R.id.buttonMoreLogout:
                 try {
                     if (user != null) {
-                        //Snackbar sb = Snackbar.make(getActivity().findViewById(R.id.snackbar_placement), "", Snackbar.LENGTH_SHORT);
+                        String message = "";
                         if (user.getEmail() != null) {
-                            //Snackbar.make(getActivity().findViewById(R.id.buttonEmployeeLogIn), "Helloe", Snackbar.LENGTH_SHORT).show();
-                            //String text = getResources().getString(R.string.employee_more_loggedoutcompanytext) + user.getEmail();
-                            //sb.setText(text).show();
-                            Toast.makeText(getActivity(), getResources().getString(R.string.employee_more_loggedoutcompanytext) + " " + user.getEmail(), Toast.LENGTH_SHORT).show();
+                            message = getResources().getString(R.string.employee_more_loggedoutcompanytext);
+                            //Toast.makeText(getActivity(), getResources().getString(R.string.employee_more_loggedoutcompanytext) + " " + user.getEmail(), Toast.LENGTH_SHORT).show();
                         } else {
-                            //String text = getResources().getString(R.string.employee_more_loggedoutemployeetext);
+                            message = getResources().getString(R.string.employee_more_loggedoutemployeetext);
                             //sb.setText(text).show();
-                            Toast.makeText(getActivity(), getResources().getString(R.string.employee_more_loggedoutemployeetext), Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(getActivity(), getResources().getString(R.string.employee_more_loggedoutemployeetext), Toast.LENGTH_SHORT).show();
                         }
 
                         mAuth.signOut();
                         Intent k = new Intent(view.getContext(), RoleSelectionActivity.class);
+                        k.putExtra("logout", true);
+                        k.putExtra("snackbarMessage", message);
                         getActivity().finish();
                         startActivity(k);
 
                     }
                 } catch (Exception e) {
                     e.getMessage();
-                    Toast.makeText(getActivity(), "Log ud mislykkedes. Ingen bruger registreret.", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getActivity(), "Log ud mislykkedes. Ingen bruger registreret.", Toast.LENGTH_SHORT).show();
+                    Snackbar.make(getActivity().findViewById(R.id.snackbar_placement), "Log ud mislykkedes. Ingen bruger registreret.", Snackbar.LENGTH_SHORT).show();
                 }
 
         }
